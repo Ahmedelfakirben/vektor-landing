@@ -124,11 +124,6 @@
     <div class="hero-bg-glow"></div>
 
     <div class="container hero-content">
-      <div class="badge-new">
-        <span class="badge-dot"></span>
-        <span data-i18n="hero.badge">Software Cloud & Offline de Alta Disponibilidad</span>
-      </div>
-
       <h1 class="hero-title">
         <span data-i18n="hero.title_p1">El Ecosistema Operativo</span><br>
         <span class="text-gradient" data-i18n="hero.title_highlight">que Multiplica la Rentabilidad</span> <span data-i18n="hero.title_p2">de tu Negocio</span>
@@ -208,16 +203,14 @@
           </button>
         </div>
 
-        <!-- Carousel Viewport -->
-        <div class="catalog-carousel-container">
+        <!-- Carousel Outer Wrapper with Outside Navigation -->
+        <div class="catalog-carousel-wrapper">
           <button class="catalog-nav-btn catalog-prev" aria-label="Producto anterior" type="button">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
-          <button class="catalog-nav-btn catalog-next" aria-label="Producto siguiente" type="button">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
-          </button>
 
-          <div class="catalog-track" id="catalogTrack">
+          <div class="catalog-carousel-container">
+            <div class="catalog-track" id="catalogTrack">
             <!-- 01 GASTRO -->
             <div class="catalog-slide">
         <article class="project-showcase-card" style="--accent-brand: #F59E0B; --accent-glow: rgba(245, 158, 11, 0.35);">
@@ -490,6 +483,11 @@
           </div>
         </div>
 
+        <button class="catalog-nav-btn catalog-next" aria-label="Producto siguiente" type="button">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+
         <!-- Indicator Dots -->
         <div class="catalog-dots" id="catalogDots">
           <span class="catalog-dot active" data-index="0"></span>
@@ -701,73 +699,122 @@
        ======================================================================== -->
   <section class="pricing-section" id="precios">
     <div class="container">
-      <span class="section-tag" data-i18n="pricing.tag">PRECIOS CLAROS Y TRANSPARENTES</span>
-      <h2 class="section-title" data-i18n="pricing.title">Elige el plan adaptado al tamaño de tu negocio</h2>
-      <p class="section-desc" style="margin: 0 auto 30px;" data-i18n="pricing.desc">Sin contratos forzosos. Sin permanencia. Cancela cuando quieras.</p>
+      <div class="section-header-centered" style="text-align: center; max-width: 860px; margin: 0 auto 32px; display: flex; flex-direction: column; align-items: center;">
+        <span class="section-tag" style="margin: 0 auto 10px;" data-i18n="pricing.tag">PRECIOS CLAROS Y TRANSPARENTES</span>
+        <h2 class="section-title" style="text-align: center; margin: 0 auto;" data-i18n="pricing.title">Elige el plan adaptado al tamaño de tu negocio</h2>
+        <p class="section-desc" style="margin: 14px auto 0; text-align: center;" data-i18n="pricing.desc">Sin contratos forzosos. Sin permanencia. Cancela cuando quieras.</p>
+      </div>
 
-      <div style="display: inline-flex; align-items: center; gap: 12px; background: rgba(14, 19, 31, 0.8); border: 1px solid var(--border-light); border-radius: 99px; padding: 6px 16px; margin-bottom: 50px;">
-        <span style="font-size: 0.9rem; font-weight: 600;" data-i18n="pricing.monthly">Pago Mensual</span>
-        <label style="position: relative; display: inline-block; width: 44px; height: 24px;">
-          <input type="checkbox" id="pricingToggle" style="opacity: 0; width: 0; height: 0;">
-          <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: #7BE099; border-radius: 34px; transition: 0.3s;"></span>
-        </label>
-        <span style="font-size: 0.9rem; font-weight: 600; color: #7BE099;"><span data-i18n="pricing.annual">Pago Anual</span> <span style="background: rgba(123,224,153,0.2); padding: 2px 8px; border-radius: 99px; font-size: 0.75rem;" data-i18n="pricing.save20">Ahorra 20%</span></span>
+      <!-- Filtro por Producto -->
+      <div class="pricing-filter-wrapper">
+        <div class="pricing-filter-bar" id="pricingFilterBar" role="tablist">
+          <button class="pricing-filter-btn active" data-pricing-product="gastro" style="--pf-color: #F59E0B;" type="button">
+            <img src="/logos/vektor-gastro-logo.jpg" alt="Vektor Gastro">
+            <span>Vektor Gastro</span>
+          </button>
+          <button class="pricing-filter-btn" data-pricing-product="fashion" style="--pf-color: #A855F7;" type="button">
+            <img src="/logos/vektor-fashion-logo.jpg" alt="Vektor Fashion">
+            <span>Vektor Fashion</span>
+          </button>
+          <button class="pricing-filter-btn" data-pricing-product="pos" style="--pf-color: #06B6D4;" type="button">
+            <img src="/logos/vektor-pos-logo.jpg" alt="Vektor POS">
+            <span>Vektor POS</span>
+          </button>
+          <button class="pricing-filter-btn" data-pricing-product="drive" style="--pf-color: #10B981;" type="button">
+            <img src="/logos/vektor-drive-logo.jpg" alt="Vektor Drive">
+            <span>Vektor Drive</span>
+          </button>
+          <button class="pricing-filter-btn" data-pricing-product="business" style="--pf-color: #3B82F6;" type="button">
+            <img src="/logos/vektor-business-logo.jpg" alt="Vektor Business">
+            <span>Vektor Business</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Toggle Mensual / Anual (Centrado y Funcional) -->
+      <div class="pricing-toggle-wrapper">
+        <div class="pricing-toggle-container">
+          <span class="pricing-toggle-label active" id="pricingLabelMonthly" data-i18n="pricing.monthly">Pago Mensual</span>
+          <label class="pricing-switch" for="pricingToggle" title="Cambiar a facturación anual">
+            <input type="checkbox" id="pricingToggle" aria-label="Cambiar a facturación anual">
+            <span class="pricing-slider"></span>
+          </label>
+          <span class="pricing-toggle-label" id="pricingLabelAnnual">
+            <span data-i18n="pricing.annual">Pago Anual</span>
+            <span class="pricing-discount-badge" data-i18n="pricing.save20">Ahorra 20%</span>
+          </span>
+        </div>
       </div>
 
       <div class="pricing-grid">
-        <!-- Plan Starter -->
-        <div class="pricing-card">
-          <h3 data-i18n="pricing.starter_name">Starter</h3>
-          <p style="font-size: 0.85rem; color: #94A3B8;" data-i18n="pricing.starter_desc">Para pequeños comercios y profesionales independientes.</p>
+        <!-- Plan Starter: 180 DH -->
+        <div class="pricing-card" id="pricingCardStarter">
+          <div class="pricing-card-header">
+            <h3 data-i18n="pricing.starter_name">Starter</h3>
+            <span class="pricing-plan-badge" id="starterProductBadge" style="display: none;"></span>
+          </div>
+          <p style="font-size: 0.85rem; color: #94A3B8; min-height: 38px;" id="starterDesc" data-i18n="pricing.starter_desc">Para pequeños comercios, autónomos y negocios que arrancan.</p>
           <div class="pricing-price">
-            <span class="pricing-val" data-monthly="29€" data-annual="24€">29€</span>
+            <span class="pricing-val" data-monthly="180 DH" data-annual="144 DH">180 DH</span>
             <span class="pricing-period">/ mes</span>
           </div>
-          <ul class="pricing-features">
-            <li class="pricing-feature-item" data-i18n="pricing.starter_f1">✓ 1 Terminal TPV activo</li>
-            <li class="pricing-feature-item" data-i18n="pricing.starter_f2">✓ Hasta 500 productos en catálogo</li>
-            <li class="pricing-feature-item" data-i18n="pricing.starter_f3">✓ Arqueo de caja básico</li>
-            <li class="pricing-feature-item" data-i18n="pricing.starter_f4">✓ Modo Offline incluido</li>
-            <li class="pricing-feature-item" data-i18n="pricing.starter_f5">✓ Soporte estándar por email</li>
+          <div class="pricing-annual-saving" id="starterAnnualSaving" style="display: none;">
+            <span class="annual-saving-text">Facturado anualmente (1.728 DH/año) · Ahorras 20%</span>
+          </div>
+          <ul class="pricing-features" id="pricingFeaturesStarter">
+            <li class="pricing-feature-item">✓ <span data-i18n="pricing.starter_f1">1 Terminal TPV activo</span></li>
+            <li class="pricing-feature-item">✓ <span data-i18n="pricing.starter_f2">Hasta 500 productos en catálogo</span></li>
+            <li class="pricing-feature-item">✓ <span data-i18n="pricing.starter_f3">Arqueo de caja básico</span></li>
+            <li class="pricing-feature-item">✓ <span data-i18n="pricing.starter_f4">Modo Offline incluido</span></li>
+            <li class="pricing-feature-item">✓ <span data-i18n="pricing.starter_f5">Soporte estándar por email</span></li>
           </ul>
           <button class="btn-secondary-glass" style="width: 100%;" data-open-demo data-i18n="pricing.starter_btn">Elegir Starter</button>
         </div>
 
-        <!-- Plan Pro (Destacado) -->
-        <div class="pricing-card popular">
+        <!-- Plan Pro: 240 DH (Destacado) -->
+        <div class="pricing-card popular" id="pricingCardPro">
           <span class="popular-badge" data-i18n="pricing.pro_badge">MÁS POPULAR</span>
-          <h3 data-i18n="pricing.pro_name">Negocio Pro</h3>
-          <p style="font-size: 0.85rem; color: #94A3B8;" data-i18n="pricing.pro_desc">Para negocios en crecimiento, restaurantes y boutiques.</p>
+          <div class="pricing-card-header">
+            <h3 data-i18n="pricing.pro_name">Negocio Pro</h3>
+            <span class="pricing-plan-badge" id="proProductBadge" style="display: none;"></span>
+          </div>
+          <p style="font-size: 0.85rem; color: #94A3B8; min-height: 38px;" id="proDesc" data-i18n="pricing.pro_desc">Para negocios en crecimiento, restaurantes y boutiques con alto volumen.</p>
           <div class="pricing-price">
-            <span class="pricing-val" data-monthly="59€" data-annual="49€" style="color: #7BE099;">59€</span>
+            <span class="pricing-val" data-monthly="240 DH" data-annual="192 DH" style="color: #7BE099;">240 DH</span>
             <span class="pricing-period">/ mes</span>
           </div>
-          <ul class="pricing-features">
-            <li class="pricing-feature-item" data-i18n-html="pricing.pro_f1">✓ <strong>Terminales y camareros ilimitados</strong></li>
-            <li class="pricing-feature-item" data-i18n="pricing.pro_f2">✓ Productos y variantes ilimitadas</li>
-            <li class="pricing-feature-item" data-i18n="pricing.pro_f3">✓ Control de permisos por PIN de empleado</li>
-            <li class="pricing-feature-item" data-i18n="pricing.pro_f4">✓ Analytics en vivo desde el móvil</li>
-            <li class="pricing-feature-item" data-i18n="pricing.pro_f5">✓ Soporte prioritario por WhatsApp directo</li>
+          <div class="pricing-annual-saving" id="proAnnualSaving" style="display: none;">
+            <span class="annual-saving-text">Facturado anualmente (2.304 DH/año) · Ahorras 20%</span>
+          </div>
+          <ul class="pricing-features" id="pricingFeaturesPro">
+            <li class="pricing-feature-item">✓ <strong data-i18n-html="pricing.pro_f1">Terminales y camareros ilimitados</strong></li>
+            <li class="pricing-feature-item">✓ <span data-i18n="pricing.pro_f2">Productos y variantes ilimitadas</span></li>
+            <li class="pricing-feature-item">✓ <span data-i18n="pricing.pro_f3">Control de permisos por PIN de empleado</span></li>
+            <li class="pricing-feature-item">✓ <span data-i18n="pricing.pro_f4">Analytics en vivo desde el móvil</span></li>
+            <li class="pricing-feature-item">✓ <span data-i18n="pricing.pro_f5">Soporte prioritario por WhatsApp directo</span></li>
           </ul>
           <button class="btn-primary-glow" style="width: 100%;" data-open-demo data-i18n="pricing.pro_btn">Probar 14 Días Gratis</button>
         </div>
 
-        <!-- Plan Enterprise -->
-        <div class="pricing-card">
-          <h3 data-i18n="pricing.enterprise_name">Cadena / Multi-local</h3>
-          <p style="font-size: 0.85rem; color: #94A3B8;" data-i18n="pricing.enterprise_desc">Para marcas con varias sucursales o franquicias.</p>
-          <div class="pricing-price">
-            <span class="pricing-val" data-monthly="129€" data-annual="99€">129€</span>
-            <span class="pricing-period">/ mes</span>
+        <!-- Plan Enterprise: Contactar para más detalle -->
+        <div class="pricing-card" id="pricingCardEnterprise">
+          <div class="pricing-card-header">
+            <h3 data-i18n="pricing.enterprise_name">Cadena / Multi-local</h3>
+            <span class="pricing-plan-badge" id="enterpriseProductBadge" style="display: none;"></span>
           </div>
-          <ul class="pricing-features">
-            <li class="pricing-feature-item" data-i18n="pricing.enterprise_f1">✓ Multi-sucursal con stock centralizado</li>
-            <li class="pricing-feature-item" data-i18n="pricing.enterprise_f2">✓ Traspasos de almacén entre locales</li>
-            <li class="pricing-feature-item" data-i18n="pricing.enterprise_f3">✓ Informes contables consolidados</li>
-            <li class="pricing-feature-item" data-i18n="pricing.enterprise_f4">✓ Migración de datos asistida</li>
-            <li class="pricing-feature-item" data-i18n="pricing.enterprise_f5">✓ Gestor de cuenta dedicado</li>
+          <p style="font-size: 0.85rem; color: #94A3B8; min-height: 38px;" id="enterpriseDesc" data-i18n="pricing.enterprise_desc">Para marcas con varias sucursales, franquicias o redes comerciales.</p>
+          <div class="pricing-price" style="flex-direction: column; align-items: flex-start; gap: 6px; min-height: 86px; justify-content: center;">
+            <span style="font-size: 2.1rem; line-height: 1.1; font-weight: 800; color: #FFFFFF;" data-i18n="pricing.custom_rate">A Medida</span>
+            <span style="font-size: 0.9rem; color: #7BE099; font-weight: 600; line-height: 1.4;" data-i18n="pricing.enterprise_sub">Presupuesto sin letra pequeña</span>
+          </div>
+          <ul class="pricing-features" id="pricingFeaturesEnterprise">
+            <li class="pricing-feature-item">✓ <span data-i18n="pricing.enterprise_f1">Multi-sucursal con stock centralizado</span></li>
+            <li class="pricing-feature-item">✓ <span data-i18n="pricing.enterprise_f2">Traspasos de almacén entre locales</span></li>
+            <li class="pricing-feature-item">✓ <span data-i18n="pricing.enterprise_f3">Informes contables consolidados</span></li>
+            <li class="pricing-feature-item">✓ <span data-i18n="pricing.enterprise_f4">Migración de datos asistida</span></li>
+            <li class="pricing-feature-item">✓ <span data-i18n="pricing.enterprise_f5">Gestor de cuenta dedicado</span></li>
           </ul>
-          <button class="btn-secondary-glass" style="width: 100%;" data-open-demo data-i18n="pricing.enterprise_btn">Contactar Comercial</button>
+          <a href="#contacto" class="btn-secondary-glass" style="width: 100%; text-align: center; justify-content: center;" data-i18n="pricing.enterprise_btn">Contactar para más detalle</a>
         </div>
       </div>
     </div>

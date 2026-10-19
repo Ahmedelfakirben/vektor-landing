@@ -359,16 +359,689 @@ function initRoiCalculator() {
 function initPricingToggle() {
   const toggle = document.getElementById('pricingToggle');
   const prices = document.querySelectorAll('.pricing-val');
-  if (!toggle || !prices.length) return;
+  const labelMonthly = document.getElementById('pricingLabelMonthly');
+  const labelAnnual = document.getElementById('pricingLabelAnnual');
+  const starterSaving = document.getElementById('starterAnnualSaving');
+  const proSaving = document.getElementById('proAnnualSaving');
+  const periods = document.querySelectorAll('.pricing-period');
 
-  toggle.addEventListener('change', () => {
+  if (!toggle) return;
+
+  const SAVING_TEXTS = {
+    es: {
+      periodMonthly: '/ mes',
+      periodAnnual: '/ mes',
+      starter: 'Facturado anualmente (1.728 DH/año) · Ahorras 432 DH (20%)',
+      pro: 'Facturado anualmente (2.304 DH/año) · Ahorras 576 DH (20%)'
+    },
+    fr: {
+      periodMonthly: '/ mois',
+      periodAnnual: '/ mois',
+      starter: 'Facturé annuellement (1 728 DH/an) · Économisez 432 DH (20%)',
+      pro: 'Facturé annuellement (2 304 DH/an) · Économisez 576 DH (20%)'
+    },
+    en: {
+      periodMonthly: '/ month',
+      periodAnnual: '/ month',
+      starter: 'Billed annually (1,728 DH/yr) · Save 432 DH (20%)',
+      pro: 'Billed annually (2,304 DH/yr) · Save 576 DH (20%)'
+    }
+  };
+
+  function updatePricingUI() {
     const isAnnual = toggle.checked;
+    const lang = (localStorage.getItem('vektor_lang') || 'es').toLowerCase();
+    const texts = SAVING_TEXTS[lang] || SAVING_TEXTS.es;
+
+    // Toggle active classes on labels
+    if (labelMonthly) labelMonthly.classList.toggle('active', !isAnnual);
+    if (labelAnnual) labelAnnual.classList.toggle('active', isAnnual);
+
+    // Update prices
     prices.forEach(el => {
+      if (el.closest('#pricingCardEnterprise')) return;
       const monthly = el.dataset.monthly;
       const annual = el.dataset.annual;
-      el.textContent = isAnnual ? annual : monthly;
+      if (monthly && annual) {
+        el.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(4px)';
+        setTimeout(() => {
+          el.textContent = isAnnual ? annual : monthly;
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, 150);
+      }
+    });
+
+    // Update periods
+    periods.forEach(p => {
+      if (p.closest('#pricingCardEnterprise')) return;
+      p.textContent = isAnnual ? texts.periodAnnual : texts.periodMonthly;
+    });
+
+    // Update annual saving badges
+    if (starterSaving) {
+      if (isAnnual) {
+        const textSpan = starterSaving.querySelector('.annual-saving-text') || starterSaving;
+        textSpan.textContent = texts.starter;
+        starterSaving.style.display = 'inline-block';
+      } else {
+        starterSaving.style.display = 'none';
+      }
+    }
+
+    if (proSaving) {
+      if (isAnnual) {
+        const textSpan = proSaving.querySelector('.annual-saving-text') || proSaving;
+        textSpan.textContent = texts.pro;
+        proSaving.style.display = 'inline-block';
+      } else {
+        proSaving.style.display = 'none';
+      }
+    }
+  }
+
+  toggle.addEventListener('change', updatePricingUI);
+
+  if (labelMonthly) {
+    labelMonthly.addEventListener('click', () => {
+      if (toggle.checked) {
+        toggle.checked = false;
+        updatePricingUI();
+      }
+    });
+  }
+
+  if (labelAnnual) {
+    labelAnnual.addEventListener('click', () => {
+      if (!toggle.checked) {
+        toggle.checked = true;
+        updatePricingUI();
+      }
+    });
+  }
+
+  window.addEventListener('vektor_language_changed', () => {
+    updatePricingUI();
+  });
+
+  // Initial render
+  updatePricingUI();
+}
+
+// 4b. PRICING PRODUCT FILTER
+const PRICING_PRODUCT_DATA = {
+  all: {
+    badge: null,
+    color: '#7BE099',
+    es: {
+      starterDesc: 'Para pequeños comercios, autónomos y negocios que arrancan.',
+      starterFeatures: [
+        '1 Terminal TPV activo',
+        'Hasta 500 productos en catálogo',
+        'Arqueo de caja básico',
+        'Modo Offline incluido',
+        'Soporte estándar por email'
+      ],
+      proDesc: 'Para negocios en crecimiento que necesitan velocidad, control y productividad.',
+      proFeatures: [
+        '<strong>Terminales y empleados ilimitados</strong>',
+        'Productos y variantes ilimitadas',
+        'Control de permisos por PIN de empleado',
+        'Analytics en vivo desde el móvil',
+        'Soporte prioritario por WhatsApp directo'
+      ],
+      enterpriseDesc: 'Para marcas con varias sucursales, franquicias o redes comerciales.',
+      enterpriseFeatures: [
+        'Multi-sucursal con stock centralizado',
+        'Traspasos de almacén entre locales',
+        'Informes contables consolidados',
+        'Migración de datos asistida',
+        'Gestor de cuenta dedicado'
+      ]
+    },
+    fr: {
+      starterDesc: 'Pour commerces indépendants et activités débutantes avec 1 poste.',
+      starterFeatures: [
+        '1 Terminal de caisse actif',
+        'Jusqu\'à 500 articles au catalogue',
+        'Clôture de caisse standard',
+        'Mode Hors-Ligne inclus',
+        'Support standard par email'
+      ],
+      proDesc: 'Pour commerces établis, restaurants et boutiques exigeant rapidité et contrôle.',
+      proFeatures: [
+        '<strong>Terminaux et serveurs illimités</strong>',
+        'Produits et variantes illimités',
+        'Contrôle des accès par code PIN employé',
+        'Indicateurs financiers en direct sur smartphone',
+        'Support prioritaire direct sur WhatsApp'
+      ],
+      enterpriseDesc: 'Pour réseaux multi-boutiques, franchises et chaînes régionales.',
+      enterpriseFeatures: [
+        'Multi-boutiques avec stock centralisé',
+        'Transferts d\'articles entre points de vente',
+        'Exports comptables consolidés',
+        'Migration assistée de vos anciennes données',
+        'Responsable de compte dédié'
+      ]
+    },
+    en: {
+      starterDesc: 'For small shops and solo business operators with 1 active terminal.',
+      starterFeatures: [
+        '1 Active POS terminal',
+        'Up to 500 catalog items',
+        'Standard cash drawer count',
+        'Offline Mode included',
+        'Standard email support'
+      ],
+      proDesc: 'For established stores, restaurants, and busy boutiques requiring speed and control.',
+      proFeatures: [
+        '<strong>Unlimited terminals and staff logins</strong>',
+        'Unlimited products and variants',
+        'Strict staff PIN permission control',
+        'Real-time mobile business analytics',
+        'Priority direct WhatsApp hotline'
+      ],
+      enterpriseDesc: 'For multi-store chains, franchises, and wholesale distribution networks.',
+      enterpriseFeatures: [
+        'Multi-location with centralized inventory',
+        'Inter-store transfer orders',
+        'Consolidated financial & tax exports',
+        'Assisted historical data migration',
+        'Dedicated account manager'
+      ]
+    }
+  },
+  gastro: {
+    badge: 'Vektor Gastro',
+    color: '#F59E0B',
+    es: {
+      starterDesc: 'Para cafeterías, food trucks o pequeños bares con 1 punto de cobro.',
+      starterFeatures: [
+        '1 TPV táctil para barra o caja',
+        'Carta digital y hasta 500 platos/bebidas',
+        'Arqueo ciego de caja al cierre',
+        'Modo Offline para no perder cobros',
+        'Soporte técnico por email'
+      ],
+      proDesc: 'Para restaurantes y cafeterías con servicio en sala y cocina dinámica.',
+      proFeatures: [
+        '<strong>Comanderos móviles y tablets ilimitados</strong>',
+        'Pantalla de cocina interactiva (KDS)',
+        'Plano de mesas táctil y división de cuentas',
+        'Gestión de suplementos, puntos de carne y notas',
+        'Soporte prioritario 7/7 por WhatsApp'
+      ],
+      enterpriseDesc: 'Para cadenas de restaurantes, franquicias y grupos gastronómicos.',
+      enterpriseFeatures: [
+        'Gestión centralizada de cartas y precios',
+        'Economato y compras a proveedores centralizadas',
+        'Traspasos de ingredientes entre restaurantes',
+        'Integración con plataformas de delivery',
+        'Asesor de implantación y soporte 24/7'
+      ]
+    },
+    fr: {
+      starterDesc: 'Pour cafés, food-trucks et petits snacks avec 1 point d\'encaissement.',
+      starterFeatures: [
+        '1 Caisse tactile pour comptoir ou bar',
+        'Carte digitale et jusqu\'à 500 plats/boissons',
+        'Clôture de caisse à l\'aveugle',
+        'Mode Hors-Ligne permanent',
+        'Support standard par email'
+      ],
+      proDesc: 'Pour restaurants et brasseries avec service en salle et cuisine active.',
+      proFeatures: [
+        '<strong>Pads serveurs et tablettes illimités</strong>',
+        'Écran cuisine interactif (KDS)',
+        'Plan de salle interactif et partage d\'addition',
+        'Cuissons, garnitures et commentaires cuisine',
+        'Support prioritaire 7j/7 sur WhatsApp'
+      ],
+      enterpriseDesc: 'Pour chaînes de restauration, franchises et groupes hôteliers.',
+      enterpriseFeatures: [
+        'Gestion centralisée des menus et tarifs',
+        'Centrale d\'achats et stocks matières premières',
+        'Transferts de stocks entre restaurants',
+        'Intégration agrégateurs de livraison',
+        'Gestionnaire de compte dédié et astreinte'
+      ]
+    },
+    en: {
+      starterDesc: 'For coffee shops, food trucks, and small bars with 1 checkout station.',
+      starterFeatures: [
+        '1 Touchscreen POS terminal for bar or counter',
+        'Digital menu up to 500 food & drink items',
+        'Blind shift cash drawer reconciliation',
+        'Offline Mode so service never stops',
+        'Standard email support'
+      ],
+      proDesc: 'For restaurants, bistros, and high-volume dining rooms.',
+      proFeatures: [
+        '<strong>Unlimited server mobile handhelds & tablets</strong>',
+        'Kitchen Display System (KDS)',
+        'Visual floor plan & quick split checks',
+        'Modifiers, meat doneness & cooking notes',
+        'Priority 7/7 direct WhatsApp hotline'
+      ],
+      enterpriseDesc: 'For restaurant groups, multi-unit franchises, and hospitality chains.',
+      enterpriseFeatures: [
+        'Centralized menu engineering & pricing sync',
+        'Central kitchen commissary & supplier POs',
+        'Inter-unit raw ingredient transfers',
+        'Online ordering & delivery aggregator hooks',
+        'Dedicated onboarding engineer & 24/7 hotline'
+      ]
+    }
+  },
+  fashion: {
+    badge: 'Vektor Fashion',
+    color: '#A855F7',
+    es: {
+      starterDesc: 'Para boutiques independientes y zapaterías con 1 mostrador de venta.',
+      starterFeatures: [
+        '1 Puesto TPV con lector de código de barras',
+        'Matriz básica de tallas y colores',
+        'Tickets de venta y tickets regalo',
+        'Modo Offline para seguir vendiendo',
+        'Soporte técnico estándar'
+      ],
+      proDesc: 'Para tiendas de moda y calzado con catálogo amplio y varias dependientas.',
+      proFeatures: [
+        '<strong>Matriz avanzada Talla / Color / Temporada</strong>',
+        'Impresión de etiquetas con código de barras',
+        'Cambios, devoluciones y vales de compra',
+        'Comisiones y ventas por dependiente',
+        'Soporte prioritario directo por WhatsApp'
+      ],
+      enterpriseDesc: 'Para cadenas de tiendas de ropa, franquicias y marcas de moda.',
+      enterpriseFeatures: [
+        'Red multi-tienda con stock unificado en vivo',
+        'Traspasos de prendas entre tiendas en 1 clic',
+        'Consulta de tallas en otras tiendas del grupo',
+        'Programas VIP y fidelización omnicanal',
+        'Gestor de cuenta y migraciones masivas'
+      ]
+    },
+    fr: {
+      starterDesc: 'Pour boutiques de prêt-à-porter et chaussures avec 1 poste de caisse.',
+      starterFeatures: [
+        '1 Poste caisse avec douchette code-barres',
+        'Grille simple de tailles et coloris',
+        'Tickets de caisse et tickets sans prix (cadeau)',
+        'Mode Hors-Ligne sécurisé',
+        'Support technique par email'
+      ],
+      proDesc: 'Pour boutiques de mode actives avec rotation saisonnière et vendeurs.',
+      proFeatures: [
+        '<strong>Matrice experte Taille / Couleur / Saison</strong>',
+        'Édition et impression d\'étiquettes code-barres',
+        'Retours, échanges et génération d\'avoirs',
+        'Suivi du chiffre par vendeur et commissions',
+        'Support prioritaire direct sur WhatsApp'
+      ],
+      enterpriseDesc: 'Pour enseignes de mode, réseaux de boutiques et franchises.',
+      enterpriseFeatures: [
+        'Multi-boutiques avec stock réseau unifié',
+        'Transferts de pièces inter-magasins en 1 clic',
+        'Consultation de disponibilité globale par taille',
+        'Programme fidélité et clients VIP omnicanal',
+        'Chargé de compte dédié et imports assistés'
+      ]
+    },
+    en: {
+      starterDesc: 'For independent apparel boutiques and shoe shops with 1 counter.',
+      starterFeatures: [
+        '1 POS terminal with barcode scanner support',
+        'Core size and color variant matrix',
+        'Receipt printing and gift receipts',
+        'Offline Mode for zero downtime',
+        'Standard tech support'
+      ],
+      proDesc: 'For fashion retailers with seasonal collections and multi-clerk teams.',
+      proFeatures: [
+        '<strong>Advanced Size / Color / Season matrix</strong>',
+        'Barcode barcode label generation & printing',
+        'Instant returns, exchanges & store credits',
+        'Sales rep tracking & commission reporting',
+        'Direct priority WhatsApp support'
+      ],
+      enterpriseDesc: 'For multi-store apparel chains, franchises, and fashion brands.',
+      enterpriseFeatures: [
+        'Centralized multi-store live stock visibility',
+        '1-click garment transfers between stores',
+        'Cross-store inventory lookup during fitting',
+        'Omnichannel VIP client loyalty programs',
+        'Dedicated account manager & bulk migration'
+      ]
+    }
+  },
+  pos: {
+    badge: 'Vektor POS',
+    color: '#06B6D4',
+    es: {
+      starterDesc: 'Para ultramarinos, ferreterías o comercios con 1 caja registradora.',
+      starterFeatures: [
+        '1 Terminal de caja táctil ultrarrápido',
+        'Hasta 500 artículos y escaneo de códigos',
+        'Arqueo de caja básico al final de jornada',
+        'Modo Offline para cobros ininterrumpidos',
+        'Soporte estándar por email'
+      ],
+      proDesc: 'Para supermercados, tiendas con alto flujo y múltiples puestos de cobro.',
+      proFeatures: [
+        '<strong>Puestos de caja ilimitados y simultáneos</strong>',
+        'Arqueo ciego anti-descuadre en 60 segundos',
+        'Conexión directa con balanzas y básculas',
+        'Promociones 2x1, descuentos y fidelización',
+        'Soporte prioritario por WhatsApp'
+      ],
+      enterpriseDesc: 'Para cadenas de supermercados, mayoristas y grandes superficies.',
+      enterpriseFeatures: [
+        'Gestión centralizada de precios y márgenes',
+        'Gestión de almacén central y reaprovisionamiento',
+        'Auditoría estricta de movimientos de caja',
+        'Informes de rentabilidad y rotación por categoría',
+        'Soporte 24/7 y despliegue llave en mano'
+      ]
+    },
+    fr: {
+      starterDesc: 'Pour épiceries, drogueries et commerces de quartier avec 1 caisse.',
+      starterFeatures: [
+        '1 Caisse tactile ultra-rapide',
+        'Jusqu\'à 500 articles et lecteur code-barres',
+        'Clôture de caisse simple en fin de journée',
+        'Mode Hors-Ligne ininterrompu',
+        'Support standard par email'
+      ],
+      proDesc: 'Pour supermarchés, supérettes et commerces à fort passage.',
+      proFeatures: [
+        '<strong>Postes de caisse illimités et synchronisés</strong>',
+        'Clôture à l\'aveugle anti-fraude en 60 secondes',
+        'Connexion directe balances et pesage',
+        'Remises, promotions et fidélité client',
+        'Support prioritaire direct sur WhatsApp'
+      ],
+      enterpriseDesc: 'Pour chaînes de supermarchés, négoce et moyennes surfaces.',
+      enterpriseFeatures: [
+        'Gestion centralisée des catalogues et prix',
+        'Entrepôt central et réassort automatique',
+        'Audit complet et traçabilité des caissiers',
+        'Rapports de marge par rayon et catégorie',
+        'Astreinte technique 24/7 et déploiement pro'
+      ]
+    },
+    en: {
+      starterDesc: 'For grocery stores, hardware shops, and retail counters with 1 station.',
+      starterFeatures: [
+        '1 High-speed touchscreen checkout terminal',
+        'Up to 500 items and barcode scanner support',
+        'Standard end-of-day drawer reconciliation',
+        'Offline Mode for nonstop checkout',
+        'Standard email support'
+      ],
+      proDesc: 'For supermarkets, high-traffic retailers, and busy multi-lane stores.',
+      proFeatures: [
+        '<strong>Unlimited simultaneous cashier lanes</strong>',
+        '60-second blind cash count anti-theft',
+        'Certified weighing scale integration',
+        'Promotions, buy-one-get-one & loyalty points',
+        'Priority direct WhatsApp support'
+      ],
+      enterpriseDesc: 'For supermarket chains, wholesale retail, and department stores.',
+      enterpriseFeatures: [
+        'Centralized multi-store price & margin control',
+        'Central warehouse & auto-replenishment',
+        'Forensic cashier audit trail & drawer alerts',
+        'Departmental profitability & turnover reports',
+        '24/7 dedicated support & turnkey rollout'
+      ]
+    }
+  },
+  drive: {
+    badge: 'Vektor Drive',
+    color: '#10B981',
+    es: {
+      starterDesc: 'Para pequeñas agencias de rent-a-car con flota de hasta 10 vehículos.',
+      starterFeatures: [
+        'Gestión de flota hasta 10 coches',
+        'Generación de contrato PDF al momento',
+        'Registro de salidas y entradas de vehículos',
+        'Modo Offline para operar en parkings',
+        'Soporte técnico por email'
+      ],
+      proDesc: 'Para rent-a-car en crecimiento con volumen continuo de alquileres.',
+      proFeatures: [
+        '<strong>Flota y alquileres ilimitados</strong>',
+        'Inspección móvil con 4 fotos de carrocería',
+        'Firma táctil digital del cliente en pantalla',
+        'Control de fianza y nivel de combustible',
+        'Soporte prioritario por WhatsApp'
+      ],
+      enterpriseDesc: 'Para redes de rent-a-car, aeropuertos y franquicias de alquiler.',
+      enterpriseFeatures: [
+        'Gestión multi-oficina y multi-aeropuerto',
+        'Traspasos de flota y logística entre ciudades',
+        'Conexión API con brokers y motores de reserva',
+        'Informes de rentabilidad y ocupación por coche',
+        'Gestor de cuenta y puesta en marcha express'
+      ]
+    },
+    fr: {
+      starterDesc: 'Pour agences de location indépendantes avec une flotte jusqu\'à 10 véhicules.',
+      starterFeatures: [
+        'Gestion de flotte jusqu\'à 10 véhicules',
+        'Contrat officiel généré en PDF instantané',
+        'Enregistrement départs et retours clés',
+        'Mode Hors-Ligne pour parkings sans réseau',
+        'Support technique par email'
+      ],
+      proDesc: 'Pour agences de location actives et loueurs professionnels.',
+      proFeatures: [
+        '<strong>Flotte et contrats de location illimités</strong>',
+        'État des lieux photos sur smartphone (4 angles)',
+        'Signature tactile numérique du locataire',
+        'Contrôle carburant et blocage de caution',
+        'Support prioritaire direct sur WhatsApp'
+      ],
+      enterpriseDesc: 'Pour réseaux de location, agences aéroports et flottes importantes.',
+      enterpriseFeatures: [
+        'Gestion multi-agences et gares/aéroports',
+        'Transferts de véhicules et logistique inter-villes',
+        'Connexion API plateformes et courtiers de résa',
+        'Rentabilité unitaire et amortissement par véhicule',
+        'Responsable de compte dédié et déploiement'
+      ]
+    },
+    en: {
+      starterDesc: 'For boutique car rental operators managing up to 10 fleet vehicles.',
+      starterFeatures: [
+        'Fleet management for up to 10 vehicles',
+        'Instant digital PDF rental agreement generator',
+        'Basic check-in and check-out logs',
+        'Offline Mode for underground parking garages',
+        'Standard email support'
+      ],
+      proDesc: 'For busy car rental businesses requiring speed and zero vehicle damage disputes.',
+      proFeatures: [
+        '<strong>Unlimited fleet size and rental contracts</strong>',
+        'Mobile 4-photo exterior vehicle damage inspection',
+        'On-screen touchscreen digital customer signature',
+        'Fuel level & security deposit hold tracking',
+        'Priority direct WhatsApp support'
+      ],
+      enterpriseDesc: 'For car rental franchise networks, airport hubs, and fleet operators.',
+      enterpriseFeatures: [
+        'Multi-branch and airport desk fleet operations',
+        'Inter-city vehicle transit & logistics scheduling',
+        'API booking engine & aggregator integrations',
+        'Vehicle ROI, utilization & maintenance forecasting',
+        'Dedicated account manager & turnkey training'
+      ]
+    }
+  },
+  business: {
+    badge: 'Vektor Business',
+    color: '#3B82F6',
+    es: {
+      starterDesc: 'Para profesionales y pymes comerciales con ciclo de facturación simple.',
+      starterFeatures: [
+        'Presupuestos y facturación comercial',
+        '1 Almacén o depósito de mercancía',
+        'Fichas de clientes y proveedores',
+        'Modo Offline para facturar sin internet',
+        'Soporte estándar por email'
+      ],
+      proDesc: 'Para mayoristas, distribuidoras y empresas con ciclo comercial completo.',
+      proFeatures: [
+        '<strong>Flujo completo Devis / BC / BL / Facture</strong>',
+        'Multi-depósito con inventario valorado en tiempo real',
+        'Tesorería avanzada: cheques, pagarés y cobros',
+        'Facturación conforme a normativa fiscal',
+        'Soporte prioritario por WhatsApp'
+      ],
+      enterpriseDesc: 'Para grandes distribuidoras, importadoras y empresas multisede.',
+      enterpriseFeatures: [
+        'Multi-empresa y consolidación contable',
+        'Gestión de flotas de reparto y conductores',
+        'Tarifas por cliente, rappels y condiciones especiales',
+        'Exportación automática al software contable',
+        'Consultoría de procesos y soporte dedicado'
+      ]
+    },
+    fr: {
+      starterDesc: 'Pour professionnels et PME avec facturation commerciale simple.',
+      starterFeatures: [
+        'Devis et facturation commerciale',
+        '1 Dépôt ou entrepôt de marchandises',
+        'Fichier clients et fournisseurs',
+        'Mode Hors-Ligne pour facturer sans réseau',
+        'Support standard par email'
+      ],
+      proDesc: 'Pour grossistes, distributeurs et entreprises de négoce complètes.',
+      proFeatures: [
+        '<strong>Chaîne commerciale intégrale Devis / BC / BL / Facture</strong>',
+        'Multi-dépôts avec valorisation des stocks en direct',
+        'Trésorerie complète : gestion des chèques et effets',
+        'Facturation conforme aux normes légales',
+        'Support prioritaire direct sur WhatsApp'
+      ],
+      enterpriseDesc: 'Pour grands distributeurs, importateurs et groupes multi-sociétés.',
+      enterpriseFeatures: [
+        'Multi-sociétés et consolidation financière',
+        'Gestion des tournées de livraison et chauffeurs',
+        'Grilles tarifaires personnalisées et remises volumes',
+        'Exports comptables automatiques tous formats',
+        'Consultant dédié et paramétrage sur mesure'
+      ]
+    },
+    en: {
+      starterDesc: 'For independent wholesalers and SMBs with simple invoicing needs.',
+      starterFeatures: [
+        'Quotes, estimates, and sales invoices',
+        '1 Central storage warehouse',
+        'Customer and vendor master profiles',
+        'Offline Mode for continuous operation',
+        'Standard email support'
+      ],
+      proDesc: 'For distributors, wholesale traders, and commercial supply companies.',
+      proFeatures: [
+        '<strong>Full trade cycle: Quote / Order / Delivery Note / Invoice</strong>',
+        'Multi-warehouse with live valued stock levels',
+        'Advanced treasury: checks, promissory notes & banking',
+        'Compliant tax invoicing & receivables tracking',
+        'Priority direct WhatsApp support'
+      ],
+      enterpriseDesc: 'For large distribution groups, import/export houses, and enterprises.',
+      enterpriseFeatures: [
+        'Multi-company consolidated financials',
+        'Delivery dispatch & driver delivery routes',
+        'Tiered client price lists, rebates & volume terms',
+        'Automated accounting ERP exports',
+        'Dedicated enterprise consultant & SLAs'
+      ]
+    }
+  }
+};
+
+function initPricingFilter() {
+  const filterBtns = document.querySelectorAll('[data-pricing-product]');
+  if (!filterBtns.length) return;
+
+  let currentProduct = 'gastro';
+
+  function renderPricing(product) {
+    currentProduct = product;
+    const data = PRICING_PRODUCT_DATA[product] || PRICING_PRODUCT_DATA.gastro || PRICING_PRODUCT_DATA.all;
+    const lang = (localStorage.getItem('vektor_lang') || 'es').toLowerCase();
+    const localized = data[lang] || data.es || data.en;
+
+    // Badges
+    const starterBadge = document.getElementById('starterProductBadge');
+    const proBadge = document.getElementById('proProductBadge');
+    const enterpriseBadge = document.getElementById('enterpriseProductBadge');
+
+    [starterBadge, proBadge, enterpriseBadge].forEach(badge => {
+      if (!badge) return;
+      if (data.badge) {
+        badge.textContent = data.badge;
+        badge.style.display = 'inline-block';
+        badge.style.color = data.color;
+        badge.style.borderColor = `${data.color}40`;
+        badge.style.background = `${data.color}15`;
+      } else {
+        badge.style.display = 'none';
+      }
+    });
+
+    // Descriptions
+    const starterDesc = document.getElementById('starterDesc');
+    const proDesc = document.getElementById('proDesc');
+    const enterpriseDesc = document.getElementById('enterpriseDesc');
+
+    if (starterDesc) starterDesc.textContent = localized.starterDesc;
+    if (proDesc) proDesc.textContent = localized.proDesc;
+    if (enterpriseDesc) enterpriseDesc.textContent = localized.enterpriseDesc;
+
+    // Feature lists
+    const starterList = document.getElementById('pricingFeaturesStarter');
+    const proList = document.getElementById('pricingFeaturesPro');
+    const enterpriseList = document.getElementById('pricingFeaturesEnterprise');
+
+    if (starterList) {
+      starterList.innerHTML = localized.starterFeatures
+        .map(f => `<li class="pricing-feature-item">✓ <span>${f}</span></li>`)
+        .join('');
+    }
+    if (proList) {
+      proList.innerHTML = localized.proFeatures
+        .map(f => `<li class="pricing-feature-item">✓ <span>${f}</span></li>`)
+        .join('');
+    }
+    if (enterpriseList) {
+      enterpriseList.innerHTML = localized.enterpriseFeatures
+        .map(f => `<li class="pricing-feature-item">✓ <span>${f}</span></li>`)
+        .join('');
+    }
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const prod = btn.getAttribute('data-pricing-product');
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderPricing(prod);
     });
   });
+
+  window.addEventListener('vektor_language_changed', () => {
+    renderPricing(currentProduct);
+  });
+
+  // Render initial product (gastro)
+  renderPricing(currentProduct);
 }
 
 // 5. DEMO MODAL CONTROLLER
@@ -789,6 +1462,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCatalogCarousel();
   initContactForm();
   initPricingToggle();
+  initPricingFilter();
   initDemoModal();
   initCardSpotlight();
   initCookieConsent();

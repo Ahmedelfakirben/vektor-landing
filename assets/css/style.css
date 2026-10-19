@@ -817,11 +817,23 @@ img, svg {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0 12px var(--tab-brand, rgba(123, 224, 153, 0.3));
 }
 
-/* Carousel Container */
+/* Carousel Wrapper & Container */
+.catalog-carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
 .catalog-carousel-container {
   position: relative;
   overflow: hidden;
   border-radius: 28px;
+  flex: 1 1 0%;
+  min-width: 0;
   width: 100%;
 }
 
@@ -844,23 +856,24 @@ img, svg {
   min-height: 480px;
 }
 
-/* Navigation Buttons */
+/* Navigation Buttons (Outside the card container) */
 .catalog-nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
-  width: 48px;
-  height: 48px;
+  position: static;
+  transform: none;
+  flex-shrink: 0;
+  z-index: 5;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: rgba(10, 15, 28, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(14, 19, 31, 0.9);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
   color: #ffffff;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
   transition: all var(--transition-fast);
 }
@@ -869,16 +882,21 @@ img, svg {
   background: rgba(30, 41, 59, 0.95);
   border-color: #7BE099;
   color: #7BE099;
-  transform: translateY(-50%) scale(1.1);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(123, 224, 153, 0.3);
+  transform: scale(1.12);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 18px rgba(123, 224, 153, 0.35);
 }
 
-.catalog-prev {
-  left: 16px;
+.catalog-nav-btn:active {
+  transform: scale(0.96);
 }
 
-.catalog-next {
-  right: 16px;
+@media (max-width: 768px) {
+  .catalog-carousel-wrapper {
+    gap: 0;
+  }
+  .catalog-nav-btn {
+    display: none;
+  }
 }
 
 /* Dots */
@@ -1478,6 +1496,215 @@ img, svg {
   color: #7BE099;
   letter-spacing: -0.04em;
   margin: 10px 0;
+}
+
+/* Pricing Product Filter Bar */
+.pricing-filter-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 30px;
+  width: 100%;
+}
+
+.pricing-filter-bar {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 19, 31, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  padding: 6px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.pricing-filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.pricing-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 99px;
+  background: transparent;
+  border: 1px solid transparent;
+  color: #94A3B8;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.25s ease;
+}
+
+.pricing-filter-btn img {
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.pricing-filter-btn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.pricing-filter-btn.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  border-color: var(--pf-color, #7BE099);
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.4), 0 0 10px var(--pf-color, rgba(123, 224, 153, 0.25));
+}
+
+.pf-sparkle {
+  font-size: 0.95rem;
+}
+
+.pricing-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.pricing-plan-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 99px;
+  letter-spacing: 0.04em;
+  background: rgba(123, 224, 153, 0.12);
+  color: #7BE099;
+  border: 1px solid rgba(123, 224, 153, 0.25);
+}
+
+/* Pricing Toggle Switch (Centered & Luxury Interactive) */
+.pricing-toggle-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 50px;
+  width: 100%;
+}
+
+.pricing-toggle-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(14, 19, 31, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 99px;
+  padding: 8px 24px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  user-select: none;
+  transition: all 0.3s ease;
+}
+
+.pricing-toggle-container:hover {
+  border-color: rgba(123, 224, 153, 0.4);
+}
+
+.pricing-toggle-label {
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #94A3B8;
+}
+
+.pricing-toggle-label.active {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.25);
+}
+
+.pricing-discount-badge {
+  background: rgba(123, 224, 153, 0.2);
+  color: #7BE099;
+  border: 1px solid rgba(123, 224, 153, 0.35);
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-shadow: 0 0 10px rgba(123, 224, 153, 0.15);
+}
+
+/* Luxury Switch Toggle */
+.pricing-switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.pricing-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.pricing-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 34px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pricing-slider::before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.pricing-switch input:checked + .pricing-slider {
+  background-color: #7BE099;
+  border-color: #7BE099;
+  box-shadow: 0 0 14px rgba(123, 224, 153, 0.45);
+}
+
+.pricing-switch input:checked + .pricing-slider::before {
+  transform: translateX(24px);
+  background-color: #041c24;
+}
+
+.pricing-annual-saving {
+  font-size: 0.78rem;
+  color: #7BE099;
+  background: rgba(123, 224, 153, 0.1);
+  border: 1px solid rgba(123, 224, 153, 0.25);
+  border-radius: 8px;
+  padding: 4px 10px;
+  margin-top: -6px;
+  margin-bottom: 14px;
+  display: inline-block;
+  font-weight: 600;
+  animation: fadeIn 0.3s ease;
 }
 
 /* Pricing Grid */
