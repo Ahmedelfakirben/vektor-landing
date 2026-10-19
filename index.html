@@ -77,7 +77,7 @@
           </div>
         </li>
         <li class="nav-item"><a href="#caracteristicas" data-i18n="nav.why">Por qué Vektor</a></li>
-        <li class="nav-item"><a href="#calculadora" data-i18n="nav.calculator">Calculadora ROI</a></li>
+        <li class="nav-item"><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
         <li class="nav-item"><a href="#precios" data-i18n="nav.pricing">Precios</a></li>
         <li class="nav-item"><a href="#faq" data-i18n="nav.faq">Preguntas</a></li>
       </ul>
@@ -183,8 +183,43 @@
         </p>
       </div>
 
-      <div class="showcase-grid-stacked">
-        <!-- 01 GASTRO -->
+            <div class="catalog-wrapper">
+        <!-- Catalog Navigation Tabs -->
+        <div class="catalog-tabs" role="tablist">
+          <button class="catalog-tab active" data-index="0" style="--tab-brand: #F59E0B;" type="button">
+            <img src="/logos/vektor-gastro-logo.jpg" alt="Vektor Gastro">
+            <span>Vektor Gastro</span>
+          </button>
+          <button class="catalog-tab" data-index="1" style="--tab-brand: #A855F7;" type="button">
+            <img src="/logos/vektor-fashion-logo.jpg" alt="Vektor Fashion">
+            <span>Vektor Fashion</span>
+          </button>
+          <button class="catalog-tab" data-index="2" style="--tab-brand: #06B6D4;" type="button">
+            <img src="/logos/vektor-pos-logo.jpg" alt="Vektor POS">
+            <span>Vektor POS</span>
+          </button>
+          <button class="catalog-tab" data-index="3" style="--tab-brand: #10B981;" type="button">
+            <img src="/logos/vektor-drive-logo.jpg" alt="Vektor Drive">
+            <span>Vektor Drive</span>
+          </button>
+          <button class="catalog-tab" data-index="4" style="--tab-brand: #3B82F6;" type="button">
+            <img src="/logos/vektor-business-logo.jpg" alt="Vektor Business">
+            <span>Vektor Business</span>
+          </button>
+        </div>
+
+        <!-- Carousel Viewport -->
+        <div class="catalog-carousel-container">
+          <button class="catalog-nav-btn catalog-prev" aria-label="Producto anterior" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="catalog-nav-btn catalog-next" aria-label="Producto siguiente" type="button">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+
+          <div class="catalog-track" id="catalogTrack">
+            <!-- 01 GASTRO -->
+            <div class="catalog-slide">
         <article class="project-showcase-card" style="--accent-brand: #F59E0B; --accent-glow: rgba(245, 158, 11, 0.35);">
           <div>
             <div class="project-badge-tag" style="background: rgba(245, 158, 11, 0.12); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3);">
@@ -235,8 +270,10 @@
             </div>
           </div>
         </article>
+            </div>
 
-        <!-- 02 FASHION -->
+            <!-- 02 FASHION -->
+            <div class="catalog-slide">
         <article class="project-showcase-card" style="--accent-brand: #A855F7; --accent-glow: rgba(168, 85, 247, 0.35);">
           <div>
             <div class="project-badge-tag" style="background: rgba(168, 85, 247, 0.12); color: #A855F7; border: 1px solid rgba(168, 85, 247, 0.3);">
@@ -287,8 +324,10 @@
             </div>
           </div>
         </article>
+            </div>
 
-        <!-- 03 POS RETAIL -->
+            <!-- 03 POS RETAIL -->
+            <div class="catalog-slide">
         <article class="project-showcase-card" style="--accent-brand: #06B6D4; --accent-glow: rgba(6, 182, 212, 0.35);">
           <div>
             <div class="project-badge-tag" style="background: rgba(6, 182, 212, 0.12); color: #06B6D4; border: 1px solid rgba(6, 182, 212, 0.3);">
@@ -339,8 +378,10 @@
             </div>
           </div>
         </article>
+            </div>
 
-        <!-- 04 DRIVE -->
+            <!-- 04 DRIVE -->
+            <div class="catalog-slide">
         <article class="project-showcase-card" style="--accent-brand: #10B981; --accent-glow: rgba(16, 185, 129, 0.35);">
           <div>
             <div class="project-badge-tag" style="background: rgba(16, 185, 129, 0.12); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.3);">
@@ -391,8 +432,10 @@
             </div>
           </div>
         </article>
+            </div>
 
-        <!-- 05 BUSINESS -->
+            <!-- 05 BUSINESS -->
+            <div class="catalog-slide">
         <article class="project-showcase-card" style="--accent-brand: #3B82F6; --accent-glow: rgba(59, 130, 246, 0.35);">
           <div>
             <div class="project-badge-tag" style="background: rgba(59, 130, 246, 0.12); color: #3B82F6; border: 1px solid rgba(59, 130, 246, 0.3);">
@@ -443,6 +486,18 @@
             </div>
           </div>
         </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- Indicator Dots -->
+        <div class="catalog-dots" id="catalogDots">
+          <span class="catalog-dot active" data-index="0"></span>
+          <span class="catalog-dot" data-index="1"></span>
+          <span class="catalog-dot" data-index="2"></span>
+          <span class="catalog-dot" data-index="3"></span>
+          <span class="catalog-dot" data-index="4"></span>
+        </div>
       </div>
     </div>
   </section>
@@ -570,43 +625,69 @@
   </section>
 
   <!-- ========================================================================
-       CALCULADORA DE ROI
+       FORMULARIO DE CONTACTO & ASESORÍA DIRECTA
        ======================================================================== -->
-  <section class="bento-section" id="calculadora">
+  <section class="bento-section" id="contacto">
     <div class="container">
-      <div class="roi-card">
-        <div>
-          <span class="section-tag" data-i18n="calc.tag">CALCULADORA INTERACTIVA</span>
-          <h3 style="font-size: 2rem; margin-bottom: 14px;" data-i18n="calc.title">Calcula tu Ahorro con Vektor</h3>
-          <p style="margin-bottom: 30px;" data-i18n="calc.desc">Descubre cuánto tiempo y dinero ahorras cada mes al digitalizar tus ventas y automatizar tus cierres de caja.</p>
+      <div class="contact-card">
+        <div class="contact-info-col">
+          <span class="section-tag" data-i18n="contact.tag">CONTACTO DIRECTO</span>
+          <h3 data-i18n="contact.title">¿Hablamos de tu Proyecto?</h3>
+          <p data-i18n="contact.desc">
+            Cuéntanos qué necesitas y un especialista de Vektor te asesorará personalmente en menos de 2 horas sin compromiso.
+          </p>
 
-          <div class="slider-group">
-            <div class="slider-label">
-              <span data-i18n="calc.sales_label">Volumen estimado de ventas al día:</span>
-              <span id="salesSliderVal" class="slider-value">120 ventas / día</span>
-            </div>
-            <input type="range" min="20" max="800" value="120" step="10" class="range-slider" id="salesSlider">
-          </div>
-
-          <div class="slider-group">
-            <div class="slider-label">
-              <span data-i18n="calc.staff_label">Número de empleados / cajeros:</span>
-              <span id="staffSliderVal" class="slider-value">3 empleados</span>
-            </div>
-            <input type="range" min="1" max="25" value="3" step="1" class="range-slider" id="staffSlider">
-          </div>
+          <ul class="contact-perks-list">
+            <li class="contact-perk-item">
+              <div class="contact-perk-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              </div>
+              <span data-i18n="contact.perk_1">Demostración guiada adaptada a tu sector</span>
+            </li>
+            <li class="contact-perk-item">
+              <div class="contact-perk-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </div>
+              <span data-i18n="contact.perk_2">Migración de datos de tu antiguo software</span>
+            </li>
+            <li class="contact-perk-item">
+              <div class="contact-perk-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              </div>
+              <span data-i18n="contact.perk_3">Presupuesto a medida sin letra pequeña</span>
+            </li>
+          </ul>
         </div>
 
-        <div class="roi-result-box">
-          <span style="font-size: 0.85rem; font-weight: 700; color: #94A3B8; text-transform: uppercase;" data-i18n="calc.time_saved_title">Ahorro de Tiempo Estimado</span>
-          <div class="roi-stat-number" id="hoursSavedVal">54 horas</div>
-          <p style="font-size: 0.85rem; color: #94A3B8; margin-bottom: 20px;" data-i18n="calc.time_saved_sub">liberadas al mes para ti y tu equipo</p>
+        <div class="contact-form-col">
+          <form id="vektorContactForm">
+            <div class="contact-form-grid">
+              <div class="contact-form-group">
+                <label class="contact-label" data-i18n="contact.name">Nombre Completo *</label>
+                <input type="text" name="name" class="contact-input" required placeholder="Ej. Carlos Mendoza" data-i18n-placeholder="contact.name_placeholder">
+              </div>
+              <div class="contact-form-group">
+                <label class="contact-label" data-i18n="contact.phone">Teléfono / WhatsApp *</label>
+                <input type="tel" name="phone" class="contact-input" required placeholder="+34 600 000 000" data-i18n-placeholder="contact.phone_placeholder">
+              </div>
+              <div class="contact-form-group full-width">
+                <label class="contact-label" data-i18n="contact.email">Email Profesional *</label>
+                <input type="email" name="email" class="contact-input" required placeholder="carlos@empresa.com" data-i18n-placeholder="contact.email_placeholder">
+              </div>
+              <div class="contact-form-group full-width">
+                <label class="contact-label" data-i18n="contact.note">Nota o Detalles del Negocio</label>
+                <textarea name="note" class="contact-textarea" rows="3" placeholder="Cuéntanos qué solución buscas, cuántos locales o terminales tienes..." data-i18n-placeholder="contact.note_placeholder"></textarea>
+              </div>
+            </div>
 
-          <div style="border-top: 1px solid var(--border-subtle); padding-top: 20px;">
-            <span style="font-size: 0.85rem; font-weight: 700; color: #94A3B8; text-transform: uppercase;" data-i18n="calc.money_saved_title">Pérdidas y Errores Evitados</span>
-            <div style="font-size: 2.2rem; font-weight: 800; color: #7BE099; margin: 8px 0;" id="moneySavedVal">1,800 € / mes</div>
-            <button class="btn-primary-glow" style="width: 100%; margin-top: 10px;" data-open-demo data-i18n="calc.btn">Empezar a Ahorrar Hoy</button>
-          </div>
+            <button type="submit" class="btn-primary-glow" style="width: 100%; justify-content: center; padding: 14px 24px;">
+              <span data-i18n="contact.btn">Solicitar Asesoramiento Gratuito →</span>
+            </button>
+
+            <div id="contactSuccessMsg" class="contact-success-box">
+              <span data-i18n="contact.success">¡Gracias! Hemos recibido tu mensaje. Nos pondremos en contacto contigo en breve.</span>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -962,7 +1043,7 @@
             <li><a href="#caracteristicas" data-i18n="why.bento_1_title">Modo Offline</a></li>
             <li><a href="#caracteristicas">Arqueo Ciego</a></li>
             <li><a href="#caracteristicas" data-i18n="why.bento_2_title">Impresoras Térmicas</a></li>
-            <li><a href="#calculadora" data-i18n="nav.calculator">Calculadora de ROI</a></li>
+            <li><a href="#contacto" data-i18n="nav.contact">Contacto</a></li>
           </ul>
         </div>
 

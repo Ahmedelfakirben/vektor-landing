@@ -497,7 +497,8 @@ function initCookieConsent() {
     banner.innerHTML = `
       <div class="cookie-banner-content">
         <div class="cookie-banner-title">
-          <span>🍪 Preferencias de Cookies & Privacidad</span>
+          <img src="/vektorlaps-logo.jpeg" alt="Vektor Labs" class="cookie-banner-logo" style="width: 24px; height: 24px; border-radius: 6px; object-fit: cover; border: 1.5px solid rgba(123, 224, 153, 0.4); box-shadow: 0 0 10px rgba(123, 224, 153, 0.25); flex-shrink: 0;">
+          <span>Preferencias de Cookies & Privacidad</span>
           <span class="tag">RGPD / ePrivacy</span>
         </div>
         <p class="cookie-banner-text">
@@ -628,11 +629,165 @@ function initFaqAccordion() {
   }
 }
 
+// 10. PRODUCT CATALOG CAROUSEL (Rotating right to left + navigation)
+function initCatalogCarousel() {
+  const track = document.getElementById('catalogTrack');
+  if (!track) return;
+
+  const slides = track.querySelectorAll('.catalog-slide');
+  const tabs = document.querySelectorAll('.catalog-tab');
+  const dots = document.querySelectorAll('.catalog-dot');
+  const prevBtn = document.querySelector('.catalog-prev');
+  const nextBtn = document.querySelector('.catalog-next');
+  const container = document.querySelector('.catalog-carousel-container');
+
+  if (!slides.length) return;
+
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  let autoPlayTimer = null;
+  const AUTO_INTERVAL = 6000;
+
+  function goToSlide(index) {
+    if (index < 0) {
+      currentIndex = totalSlides - 1;
+    } else if (index >= totalSlides) {
+      currentIndex = 0;
+    } else {
+      currentIndex = index;
+    }
+
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    tabs.forEach((tab, i) => {
+      tab.classList.toggle('active', i === currentIndex);
+    });
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentIndex);
+    });
+  }
+
+  function startAutoPlay() {
+    stopAutoPlay();
+    autoPlayTimer = setInterval(() => {
+      goToSlide(currentIndex + 1);
+    }, AUTO_INTERVAL);
+  }
+
+  function stopAutoPlay() {
+    if (autoPlayTimer) {
+      clearInterval(autoPlayTimer);
+      autoPlayTimer = null;
+    }
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      goToSlide(currentIndex - 1);
+      startAutoPlay();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      goToSlide(currentIndex + 1);
+      startAutoPlay();
+    });
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const idx = parseInt(tab.dataset.index, 10);
+      if (!isNaN(idx)) {
+        goToSlide(idx);
+        startAutoPlay();
+      }
+    });
+  });
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.dataset.index, 10);
+      if (!isNaN(idx)) {
+        goToSlide(idx);
+        startAutoPlay();
+      }
+    });
+  });
+
+  if (container) {
+    container.addEventListener('mouseenter', stopAutoPlay);
+    container.addEventListener('mouseleave', startAutoPlay);
+
+    // Touch swipe support
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    container.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      stopAutoPlay();
+    }, { passive: true });
+
+    container.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          goToSlide(currentIndex + 1);
+        } else {
+          goToSlide(currentIndex - 1);
+        }
+      }
+      startAutoPlay();
+    }, { passive: true });
+  }
+
+  // Initial state & start autoplay
+  goToSlide(0);
+  startAutoPlay();
+}
+
+// 11. CONTACT FORM HANDLER
+function initContactForm() {
+  const form = document.getElementById('vektorContactForm');
+  if (!form) return;
+
+  const successBox = document.getElementById('contactSuccessMsg');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : '';
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Enviando mensaje...';
+    }
+
+    setTimeout(() => {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+      }
+      form.reset();
+      if (successBox) {
+        successBox.style.display = 'block';
+        setTimeout(() => {
+          successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 100);
+      }
+    }, 600);
+  });
+}
+
 // Initialization on DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
   initLanguageSwitcher();
   initProductSwitcher();
   initRoiCalculator();
+  initCatalogCarousel();
+  initContactForm();
   initPricingToggle();
   initDemoModal();
   initCardSpotlight();
@@ -640,4 +795,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initWhatsAppWidget();
   initFaqAccordion();
 });
+
 

@@ -762,6 +762,153 @@ img, svg {
    EXECUTIVE PRODUCT SHOWCASE (Project by Project)
    ========================================================================== */
 
+/* Catalog Carousel Wrapper */
+.catalog-wrapper {
+  margin-top: 24px;
+  position: relative;
+  width: 100%;
+}
+
+/* Category Tabs */
+.catalog-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.catalog-tab {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94A3B8;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  backdrop-filter: blur(16px);
+}
+
+.catalog-tab img {
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.catalog-tab:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.catalog-tab.active {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-color: var(--tab-brand, #7BE099);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), 0 0 12px var(--tab-brand, rgba(123, 224, 153, 0.3));
+}
+
+/* Carousel Container */
+.catalog-carousel-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  width: 100%;
+}
+
+.catalog-track {
+  display: flex;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 100%;
+  will-change: transform;
+}
+
+.catalog-slide {
+  flex: 0 0 100%;
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.catalog-slide .project-showcase-card {
+  margin: 0;
+  width: 100%;
+  min-height: 480px;
+}
+
+/* Navigation Buttons */
+.catalog-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(10, 15, 28, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: all var(--transition-fast);
+}
+
+.catalog-nav-btn:hover {
+  background: rgba(30, 41, 59, 0.95);
+  border-color: #7BE099;
+  color: #7BE099;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(123, 224, 153, 0.3);
+}
+
+.catalog-prev {
+  left: 16px;
+}
+
+.catalog-next {
+  right: 16px;
+}
+
+/* Dots */
+.catalog-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.catalog-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.catalog-dot:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.catalog-dot.active {
+  width: 32px;
+  background: #7BE099;
+  box-shadow: 0 0 10px rgba(123, 224, 153, 0.5);
+}
+
 .showcase-grid-stacked {
   display: flex;
   flex-direction: column;
@@ -1135,6 +1282,150 @@ img, svg {
   grid-template-columns: 1fr 1fr;
   gap: 48px;
   align-items: center;
+}
+
+/* Contact Form Section */
+.contact-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+  padding: 48px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .contact-card {
+    grid-template-columns: 1fr;
+    padding: 28px;
+    gap: 32px;
+  }
+}
+
+.contact-info-col h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 14px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.contact-info-col p {
+  color: #CBD5E1;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+
+.contact-perks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+}
+
+.contact-perk-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #E2E8F0;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.contact-perk-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(123, 224, 153, 0.12);
+  border: 1px solid rgba(123, 224, 153, 0.3);
+  color: #7BE099;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contact-form-col {
+  background: rgba(8, 12, 22, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 22px;
+  padding: 32px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.contact-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+@media (max-width: 600px) {
+  .contact-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.contact-form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.contact-label {
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #E2E8F0;
+}
+
+.contact-input,
+.contact-textarea {
+  width: 100%;
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.contact-input:focus,
+.contact-textarea:focus {
+  border-color: #7BE099;
+  box-shadow: 0 0 16px rgba(123, 224, 153, 0.25);
+  background: rgba(15, 23, 42, 0.98);
+}
+
+.contact-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.contact-success-box {
+  display: none;
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  color: #A7F3D0;
+  border-radius: 14px;
+  padding: 16px 20px;
+  margin-top: 18px;
+  font-size: 0.92rem;
+  text-align: center;
 }
 
 .slider-group {
