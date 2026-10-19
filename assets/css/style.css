@@ -324,6 +324,22 @@ img, svg {
   flex-shrink: 0;
 }
 
+.dropdown-item-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.dropdown-item:hover .dropdown-item-logo {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
 .dropdown-item-title {
   font-size: 0.92rem;
   font-weight: 700;
@@ -968,19 +984,35 @@ img, svg {
 }
 
 .bento-icon, .feature-icon {
-  width: 58px;
-  height: 58px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, rgba(123, 224, 153, 0.2) 0%, rgba(65, 120, 135, 0.2) 100%);
-  color: #7BE099;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--icon-bg, rgba(123, 224, 153, 0.12));
+  color: var(--icon-color, #7BE099);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: 1.75rem;
+  margin-bottom: 1.5rem;
   position: relative;
   z-index: 1;
-  border: 1px solid rgba(123, 224, 153, 0.25);
+  border: 1px solid var(--icon-border, rgba(123, 224, 153, 0.25));
+  box-shadow: 0 4px 20px var(--icon-shadow, rgba(0, 0, 0, 0.25));
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.bento-icon svg, .feature-icon svg {
+  width: 26px;
+  height: 26px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  display: block;
+}
+
+.bento-card:hover .bento-icon, .feature-card:hover .feature-icon {
+  transform: translateY(-2px) scale(1.05);
 }
 
 .bento-title, .feature-card h3 {
@@ -1757,5 +1789,139 @@ img, svg {
   background: rgba(123, 224, 153, 0.15);
   color: #7BE099;
   border: 1px solid rgba(123, 224, 153, 0.25);
+}
+
+/* ==========================================================================
+   PRODUCT VERTICAL AMBIENT BACKGROUNDS & DISTINCTIVE THEMES
+   ========================================================================== */
+
+/* VEKTOR GASTRO - Warm Culinary Amber & Flame */
+body.page-gastro {
+  background-color: #080502;
+  background-image:
+    radial-gradient(circle at 12% 15%, rgba(245, 158, 11, 0.16) 0%, transparent 45%),
+    radial-gradient(circle at 88% 55%, rgba(234, 88, 12, 0.13) 0%, transparent 50%),
+    radial-gradient(circle at 50% 95%, rgba(180, 83, 9, 0.12) 0%, transparent 45%),
+    linear-gradient(180deg, #090502 0%, #050301 100%);
+  background-attachment: fixed;
+}
+body.page-gastro .global-glow-1 {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.24) 0%, transparent 70%);
+}
+body.page-gastro .global-glow-2 {
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.18) 0%, transparent 70%);
+}
+body.page-gastro .bento-icon {
+  --icon-bg: rgba(245, 158, 11, 0.12);
+  --icon-color: #F59E0B;
+  --icon-border: rgba(245, 158, 11, 0.35);
+  --icon-shadow: rgba(245, 158, 11, 0.2);
+}
+body.page-gastro .bento-card:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+/* VEKTOR FASHION - Haute Couture Violet, Magenta & Amethyst */
+body.page-fashion {
+  background-color: #07030b;
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(168, 85, 247, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 85% 58%, rgba(236, 72, 153, 0.14) 0%, transparent 50%),
+    radial-gradient(circle at 45% 92%, rgba(192, 38, 211, 0.12) 0%, transparent 45%),
+    linear-gradient(180deg, #07030b 0%, #040207 100%);
+  background-attachment: fixed;
+}
+body.page-fashion .global-glow-1 {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.24) 0%, transparent 70%);
+}
+body.page-fashion .global-glow-2 {
+  background: radial-gradient(circle, rgba(236, 72, 153, 0.18) 0%, transparent 70%);
+}
+body.page-fashion .bento-icon {
+  --icon-bg: rgba(168, 85, 247, 0.12);
+  --icon-color: #C084FC;
+  --icon-border: rgba(168, 85, 247, 0.35);
+  --icon-shadow: rgba(168, 85, 247, 0.2);
+}
+body.page-fashion .bento-card:hover {
+  border-color: rgba(168, 85, 247, 0.4);
+}
+
+/* VEKTOR POS - High-Velocity Retail Electric Cyan & Teal */
+body.page-pos {
+  background-color: #02070a;
+  background-image:
+    radial-gradient(circle at 15% 18%, rgba(6, 182, 212, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 85% 62%, rgba(16, 185, 129, 0.14) 0%, transparent 50%),
+    radial-gradient(circle at 50% 90%, rgba(14, 165, 233, 0.11) 0%, transparent 45%),
+    linear-gradient(180deg, #02070a 0%, #010406 100%);
+  background-attachment: fixed;
+}
+body.page-pos .global-glow-1 {
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.24) 0%, transparent 70%);
+}
+body.page-pos .global-glow-2 {
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, transparent 70%);
+}
+body.page-pos .bento-icon {
+  --icon-bg: rgba(6, 182, 212, 0.12);
+  --icon-color: #22D3EE;
+  --icon-border: rgba(6, 182, 212, 0.35);
+  --icon-shadow: rgba(6, 182, 212, 0.2);
+}
+body.page-pos .bento-card:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+}
+
+/* VEKTOR DRIVE - Automotive Dynamic Emerald & Speed Cobalt */
+body.page-drive {
+  background-color: #020906;
+  background-image:
+    radial-gradient(circle at 18% 15%, rgba(16, 185, 129, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 82% 65%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 92%, rgba(5, 150, 105, 0.12) 0%, transparent 45%),
+    linear-gradient(180deg, #020906 0%, #010503 100%);
+  background-attachment: fixed;
+}
+body.page-drive .global-glow-1 {
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
+}
+body.page-drive .global-glow-2 {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.18) 0%, transparent 70%);
+}
+body.page-drive .bento-icon {
+  --icon-bg: rgba(16, 185, 129, 0.12);
+  --icon-color: #34D399;
+  --icon-border: rgba(16, 185, 129, 0.35);
+  --icon-shadow: rgba(16, 185, 129, 0.2);
+}
+body.page-drive .bento-card:hover {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+/* VEKTOR BUSINESS - Executive Corporate Sapphire & Indigo */
+body.page-business {
+  background-color: #03050c;
+  background-image:
+    radial-gradient(circle at 16% 16%, rgba(59, 130, 246, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 84% 60%, rgba(99, 102, 241, 0.14) 0%, transparent 50%),
+    radial-gradient(circle at 48% 95%, rgba(37, 99, 235, 0.12) 0%, transparent 45%),
+    linear-gradient(180deg, #03050c 0%, #020308 100%);
+  background-attachment: fixed;
+}
+body.page-business .global-glow-1 {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, transparent 70%);
+}
+body.page-business .global-glow-2 {
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, transparent 70%);
+}
+body.page-business .bento-icon {
+  --icon-bg: rgba(59, 130, 246, 0.12);
+  --icon-color: #60A5FA;
+  --icon-border: rgba(59, 130, 246, 0.35);
+  --icon-shadow: rgba(59, 130, 246, 0.2);
+}
+body.page-business .bento-card:hover {
+  border-color: rgba(59, 130, 246, 0.4);
 }
 

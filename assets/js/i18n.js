@@ -42,7 +42,7 @@ export const translations = {
     'showcase.desc': 'Cada sector tiene retos únicos. Diseñamos plataformas independientes optimizadas al 100% para la operativa real de tu negocio con catálogos y fotos reales listos para probar.',
 
     // Gastro Card
-    'gastro.tag': '🍽️ 01 | Hostelería, Restaurantes & Cafeterías',
+    'gastro.tag': '01 | Hostelería, Restaurantes & Cafeterías',
     'gastro.title': 'Vektor Gastro',
     'gastro.desc': 'El software TPV gastronómico que conecta sala, barra y cocina al segundo. Tus camareros toman nota y cobran en mesa desde cualquier móvil o tablet sin paseos innecesarios.',
     'gastro.feat_1': 'Comandero móvil / tablet',
@@ -61,7 +61,7 @@ export const translations = {
     'gastro.box_desc': 'Visualiza qué mesas están ocupadas, cuáles están pidiendo la cuenta y los tiempos de espera de cocina para maximizar la rotación de clientes.',
 
     // Fashion Card
-    'fashion.tag': '👗 02 | Tiendas de Ropa, Calzado & Boutiques',
+    'fashion.tag': '02 | Tiendas de Ropa, Calzado & Boutiques',
     'fashion.title': 'Vektor Fashion',
     'fashion.desc': 'Control absoluto de miles de variantes de tallas y colores. Impresión de etiquetas con código de barras, rebajas automáticas de temporada y traspasos entre tiendas.',
     'fashion.feat_1': 'Matriz Tallas XS-XXL y Colores',
@@ -80,7 +80,7 @@ export const translations = {
     'fashion.box_desc': 'Si un cliente solicita otra talla o color, el cajero consulta en 1 segundo si quedan existencias en almacén central o en otra tienda de la red.',
 
     // POS Card
-    'pos.tag': '🛒 03 | Comercio, Retail & Supermercados',
+    'pos.tag': '03 | Comercio, Retail & Supermercados',
     'pos.title': 'Vektor POS',
     'pos.desc': 'Punto de venta ultrarrápido con arqueo ciego para evitar fraudes, compatibilidad total con impresoras térmicas, balanzas de peso, pistolas de código y cajones automáticos.',
     'pos.feat_1': 'Arqueo ciego de caja en 60s',
@@ -99,7 +99,7 @@ export const translations = {
     'pos.box_desc': 'Cada cajero accede con su PIN o tarjeta. Descuentos, devoluciones y aperturas de cajón requieren autorización del encargado.',
 
     // Drive Card
-    'drive.tag': '🚗 04 | Rent-a-Car & Gestión de Flotas',
+    'drive.tag': '04 | Rent-a-Car & Gestión de Flotas',
     'drive.title': 'Vektor Drive',
     'drive.desc': 'Automatiza la entrega y recogida de vehículos en 3 minutos. Inspección con fotos desde el móvil para evitar disputas por daños, contratos PDF digitales y calendario visual de flota.',
     'drive.feat_1': 'Fotos Check-in / Check-out',
@@ -118,7 +118,7 @@ export const translations = {
     'drive.box_desc': 'Genera el contrato oficial en PDF al momento, captura las fotos del estado de carrocería y el cliente firma con el dedo en el móvil.',
 
     // Business Card
-    'business.tag': '📈 05 | Empresas, Mayoristas & Distribución',
+    'business.tag': '05 | Empresas, Mayoristas & Distribución',
     'business.title': 'Vektor Business',
     'business.desc': 'ERP integral para distribución y comercio mayorista: ciclo comercial completo (Devis, Bon de Commande, Bon de Livraison, Factura), multi-depósito y tesorería avanzada.',
     'business.feat_1': 'Ciclo comercial Devis / BL / Factura',
@@ -314,7 +314,7 @@ export const translations = {
     'showcase.desc': 'Chaque industrie a des exigences uniques. Nous concevons des plateformes autonomes optimisées à 100% pour la réalité opérationnelle avec catalogues et photos réels prêts à tester.',
 
     // Gastro Card
-    'gastro.tag': '🍽️ 01 | Restauration, Cafés & Brasseries',
+    'gastro.tag': '01 | Restauration, Cafés & Brasseries',
     'gastro.title': 'Vektor Gastro',
     'gastro.desc': 'Le logiciel de caisse gastronomique reliant salle, bar et cuisine en 1 seconde. Vos serveurs prennent commande et encaissent à table depuis leur smartphone sans allers-retours inutiles.',
     'gastro.feat_1': 'Pad de commande mobile / tablette',
@@ -333,7 +333,7 @@ export const translations = {
     'gastro.box_desc': 'Visualisez les tables occupées, les demandes d\'addition et les temps d\'attente en cuisine pour maximiser la rotation des couverts.',
 
     // Fashion Card
-    'fashion.tag': '👗 02 | Boutiques de Prêt-à-Porter & Chaussures',
+    'fashion.tag': '02 | Boutiques de Prêt-à-Porter & Chaussures',
     'fashion.title': 'Vektor Fashion',
     'fashion.desc': 'Gestion absolue de milliers de variantes tailles et coloris. Impression d\'étiquettes codes-barres, soldes saisonnières automatiques et transferts inter-boutiques fluides.',
     'fashion.feat_1': 'Grille Tailles XS-XXL et Coloris',
@@ -352,7 +352,7 @@ export const translations = {
     'fashion.box_desc': 'Lorsqu\'un client recherche une taille ou couleur, le vendeur vérifie en 1 seconde la disponibilité en réserve centrale ou dans un autre magasin du réseau.',
 
     // POS Card
-    'pos.tag': '🛒 03 | Commerce de Détail & Supermarchés',
+    'pos.tag': '03 | Commerce de Détail & Supermarchés',
     'pos.title': 'Vektor POS',
     'pos.desc': 'Caisse ultra-rapide avec comptage à l\'aveugle anti-fraude, compatibilité intégrale avec imprimantes thermiques, balances certifiées, douchettes et tiroirs-caisses.',
     'pos.feat_1': 'Clôture de caisse à l\'aveugle 60s',
@@ -371,7 +371,7 @@ export const translations = {
     'pos.box_desc': 'Chaque caissier accède par code PIN dédié. Les remises exceptionnelles, annulations et ouvertures de tiroir exigent le PIN responsable.',
 
     // Drive Card
-    'drive.tag': '🚗 04 | Location de Voitures & Flottes',
+    'drive.tag': '04 | Location de Voitures & Flottes',
     'drive.title': 'Vektor Drive',
     'drive.desc': 'Automatisez la remise et le retour des véhicules en 3 minutes. État des lieux photos sur mobile pour supprimer les litiges dommages, contrats PDF et planning visuel.',
     'drive.feat_1': 'Photos Check-in / Check-out',
@@ -390,7 +390,7 @@ export const translations = {
     'drive.box_desc': 'Éditez le contrat officiel instantanément en PDF, immortalisez l\'état du véhicule en photos et faites signer le locataire au doigt sur mobile.',
 
     // Business Card
-    'business.tag': '📈 05 | Entreprises, Grossistes & Négoce',
+    'business.tag': '05 | Entreprises, Grossistes & Négoce',
     'business.title': 'Vektor Business',
     'business.desc': 'ERP complet pour le négoce et la distribution : chaîne commerciale complète (Devis, Bon de Commande, Bon de Livraison, Facture), multi-dépôts et trésorerie avancée.',
     'business.feat_1': 'Chaîne commerciale Devis / BL / Facture',
@@ -586,7 +586,7 @@ export const translations = {
     'showcase.desc': 'Every industry has distinct operational challenges. We build specialized, standalone platforms pre-loaded with rich catalogs and HD product imagery ready to test.',
 
     // Gastro Card
-    'gastro.tag': '🍽️ 01 | Restaurants, Cafes & Hospitality',
+    'gastro.tag': '01 | Restaurants, Cafes & Hospitality',
     'gastro.title': 'Vektor Gastro',
     'gastro.desc': 'The hospitality POS that links dining room, bar, and kitchen in 1 second. Servers take table orders and process payments on any phone or tablet without extra walking.',
     'gastro.feat_1': 'Mobile / tablet table ordering',
@@ -605,7 +605,7 @@ export const translations = {
     'gastro.box_desc': 'Instantly spot occupied tables, bill requests, and kitchen prep times to maximize table turnover and revenue.',
 
     // Fashion Card
-    'fashion.tag': '👗 02 | Boutiques, Apparel & Footwear',
+    'fashion.tag': '02 | Boutiques, Apparel & Footwear',
     'fashion.title': 'Vektor Fashion',
     'fashion.desc': 'Absolute control over thousands of size and color variants. Barcode tag printing, automated seasonal sales, and seamless multi-store transfers.',
     'fashion.feat_1': 'Size Matrix (XS-XXL) & Colors',
@@ -624,7 +624,7 @@ export const translations = {
     'fashion.box_desc': 'When a shopper requests another size or color, staff can instantly check stock across warehouse or sister stores in 1 second.',
 
     // POS Card
-    'pos.tag': '🛒 03 | Supermarkets, Retail & Commerce',
+    'pos.tag': '03 | Supermarkets, Retail & Commerce',
     'pos.title': 'Vektor POS',
     'pos.desc': 'High-speed POS with blind drawer count to eliminate fraud, seamless integration with thermal receipt printers, weight scales, barcode scanners, and cash drawers.',
     'pos.feat_1': '60-second blind cash count',
@@ -643,7 +643,7 @@ export const translations = {
     'pos.box_desc': 'Each cashier logs in with individual PIN. Discounts, refunds, and manual cash drawer triggers require manager authorization.',
 
     // Drive Card
-    'drive.tag': '🚗 04 | Car Rental & Fleet Operations',
+    'drive.tag': '04 | Car Rental & Fleet Operations',
     'drive.title': 'Vektor Drive',
     'drive.desc': 'Streamline vehicle check-in and check-out in 3 minutes. High-resolution mobile damage photos to prevent disputes, digital PDF contracts, and fleet calendars.',
     'drive.feat_1': 'Check-in / Check-out damage photos',
@@ -662,7 +662,7 @@ export const translations = {
     'drive.box_desc': 'Generate official PDF rental agreements on the spot, log exterior damage photos, and collect customer signatures directly on mobile screens.',
 
     // Business Card
-    'business.tag': '📈 05 | Wholesale, Distribution & Enterprise',
+    'business.tag': '05 | Wholesale, Distribution & Enterprise',
     'business.title': 'Vektor Business',
     'business.desc': 'Full ERP for distribution and wholesale trade: complete sales cycle (Quotes, Purchase Orders, Delivery Notes, Invoices), multi-depot inventory, and treasury.',
     'business.feat_1': 'Complete Quote / Delivery / Invoice cycle',

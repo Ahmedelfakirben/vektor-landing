@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
 </head>
-<body style="--accent-brand: #F59E0B; --accent-glow: rgba(245, 158, 11, 0.35); --accent-brand-gradient: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
+<body class="page-gastro" style="--accent-brand: #F59E0B; --accent-glow: rgba(245, 158, 11, 0.35); --accent-brand-gradient: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
 
   <!-- Global animated background glows (from SAS RENT CAR) -->
   <div class="global-glow-1"></div>
@@ -101,7 +101,9 @@
 
       <div class="bento-grid">
         <div class="bento-card bento-col-2">
-          <div class="bento-icon" style="color: #F59E0B;">🪑</div>
+          <div class="bento-icon" style="--icon-color: #F59E0B; --icon-bg: rgba(245, 158, 11, 0.14); --icon-border: rgba(245, 158, 11, 0.4);">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 3v18"/><path d="M15 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>
+          </div>
           <h3 class="bento-title">Plano de Mesas y Salones con Estado en Tiempo Real</h3>
           <p class="bento-text">
             Diseña la distribución de tu restaurante (Salón interior, terraza, reservados, barra). Identifica de un solo vistazo mesas libres (verde), ocupadas (ámbar), pidiendo cuenta (azul) o reservadas. Junta mesas para grupos con 1 solo toque.
@@ -109,7 +111,9 @@
         </div>
 
         <div class="bento-card" id="cocina">
-          <div class="bento-icon" style="color: #EF4444;">🍳</div>
+          <div class="bento-icon" style="--icon-color: #EA580C; --icon-bg: rgba(234, 88, 12, 0.14); --icon-border: rgba(234, 88, 12, 0.4);">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><path d="M7 8h10M7 12h6"/></svg>
+          </div>
           <h3 class="bento-title">Impresión en Cocina & KDS</h3>
           <p class="bento-text">
             Al pulsar "Enviar comanda", los platos salen ordenados por tiempos (1º plato, 2º plato, postres) en la impresora térmica de cocina o pantalla digital KDS.
@@ -117,7 +121,9 @@
         </div>
 
         <div class="bento-card">
-          <div class="bento-icon" style="color: #3B82F6;">💳</div>
+          <div class="bento-icon" style="--icon-color: #FBBF24; --icon-bg: rgba(251, 191, 36, 0.14); --icon-border: rgba(251, 191, 36, 0.4);">
+            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><path d="M12 14v4M9 16h6"/></svg>
+          </div>
           <h3 class="bento-title">División de Cuentas Rápida</h3>
           <p class="bento-text">
             Divide la cuenta en partes iguales o cobra a cada comensal únicamente lo que ha consumido (efectivo, tarjeta o Bizum) en menos de 10 segundos.
@@ -125,7 +131,9 @@
         </div>
 
         <div class="bento-card bento-col-2" id="escandallo">
-          <div class="bento-icon" style="color: #10B981;">🥩</div>
+          <div class="bento-icon" style="--icon-color: #D97706; --icon-bg: rgba(217, 119, 6, 0.14); --icon-border: rgba(217, 119, 6, 0.4);">
+            <svg viewBox="0 0 24 24"><path d="M12 3v18M3 7l9-4 9 4M6 13l-3 6h6l-3-6zM18 13l-3 6h6l-3-6z"/></svg>
+          </div>
           <h3 class="bento-title">Escandallo Automático de Recetas y Control de Mermas</h3>
           <p class="bento-text">
             Vincula tus ingredientes a cada plato. Cuando se vende una hamburguesa o una ración, el sistema descuenta automáticamente los gramos de carne, pan y queso del almacén. Si un ingrediente está por agotarse, recibes una alerta antes del servicio.
