@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vektor | El Ecosistema de Gestión y Punto de Venta para tu Negocio</title>
+  <meta name="description" content="Software TPV, inventario, facturación y gestión inteligente para hostelería, moda, comercios, rent-a-car y empresas. 100% en la nube y listo para usar.">
+  <link rel="icon" type="image/jpeg" href="/vektorlaps-logo.jpeg">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body class="landing-page">
+
+  <!-- Global animated background glows (from SAS RENT CAR) -->
+  <div class="global-glow-1"></div>
+  <div class="global-glow-2"></div>
+  <div class="section-glow glow-features"></div>
+  <div class="section-glow glow-pricing"></div>
+
+  <!-- ========================================================================
+       NAVBAR (Glass Luxury)
+       ======================================================================== -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="/" class="brand-logo">
+        <img src="/vektorlaps-logo.jpeg" alt="Vektor Labs" class="brand-logo-img">
+        <span>VEKTOR <span style="color: #7BE099; font-weight: 500;">LABS</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li class="nav-item nav-dropdown">
+          <div class="dropdown-trigger">
+            <span>Productos</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="dropdown-menu">
+            <a href="/gastro.html" class="dropdown-item">
+              <div class="dropdown-item-icon" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B;">🍽️</div>
+              <div>
+                <div class="dropdown-item-title">Vektor Gastro</div>
+                <div class="dropdown-item-desc">Restaurantes, Cafeterías & Bares</div>
+              </div>
+            </a>
+            <a href="/fashion.html" class="dropdown-item">
+              <div class="dropdown-item-icon" style="background: rgba(168, 85, 247, 0.15); color: #A855F7;">👗</div>
+              <div>
+                <div class="dropdown-item-title">Vektor Fashion</div>
+                <div class="dropdown-item-desc">Tiendas de Ropa, Tallas & Calzado</div>
+              </div>
+            </a>
+            <a href="/pos.html" class="dropdown-item">
+              <div class="dropdown-item-icon" style="background: rgba(6, 182, 212, 0.15); color: #06B6D4;">🛒</div>
+              <div>
+                <div class="dropdown-item-title">Vektor POS</div>
+                <div class="dropdown-item-desc">Comercio, Retail & Supermercados</div>
+              </div>
+            </a>
+            <a href="/drive.html" class="dropdown-item">
+              <div class="dropdown-item-icon" style="background: rgba(16, 185, 129, 0.15); color: #10B981;">🚗</div>
+              <div>
+                <div class="dropdown-item-title">Vektor Drive</div>
+                <div class="dropdown-item-desc">Rent-a-car & Flotas con Fotos</div>
+              </div>
+            </a>
+            <a href="/business.html" class="dropdown-item">
+              <div class="dropdown-item-icon" style="background: rgba(59, 130, 246, 0.15); color: #3B82F6;">📈</div>
+              <div>
+                <div class="dropdown-item-title">Vektor Business</div>
+                <div class="dropdown-item-desc">ERP, Facturas & Contabilidad</div>
+              </div>
+            </a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="#caracteristicas" data-i18n="nav.why">Por qué Vektor</a></li>
+        <li class="nav-item"><a href="#calculadora" data-i18n="nav.calculator">Calculadora ROI</a></li>
+        <li class="nav-item"><a href="#precios" data-i18n="nav.pricing">Precios</a></li>
+        <li class="nav-item"><a href="#faq" data-i18n="nav.faq">Preguntas</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <div class="lang-switcher-wrapper">
+          <button id="langSwitcherBtn" class="lang-btn" aria-label="Cambiar idioma">
+            <span id="currentLangFlag">🇪🇸</span>
+            <span id="currentLangLabel">ES</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div id="langDropdown" class="lang-dropdown">
+            <button class="lang-dropdown-item active" data-lang="es">
+              <span>🇪🇸</span>
+              <span>Español</span>
+            </button>
+            <button class="lang-dropdown-item" data-lang="fr">
+              <span>🇫🇷</span>
+              <span>Français</span>
+            </button>
+            <button class="lang-dropdown-item" data-lang="en">
+              <span>🇬🇧</span>
+              <span>English</span>
+            </button>
+          </div>
+        </div>
+
+        <a href="https://pos.vektorlabs.ma" target="_blank" class="btn-secondary-glass btn-sm">Portal Clientes</a>
+        <button class="btn-primary-glow btn-sm" data-open-demo data-i18n="nav.demo_btn">Probar Gratis</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       HERO SECTION WITH VIDEO BACKGROUND (from SAS RENT CAR)
+       ======================================================================== -->
+  <header class="hero-section landing-hero">
+    <!-- Background Video & Luxury Glow Layers -->
+    <video class="hero-bg-video" autoplay loop muted playsinline>
+      <source src="/hero-bg.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-bg-glow"></div>
+
+    <div class="container hero-content">
+      <div class="badge-new">
+        <span class="badge-dot"></span>
+        <span data-i18n="hero.badge">Software Cloud & Offline de Alta Disponibilidad</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span data-i18n="hero.title_p1">El Ecosistema Operativo</span><br>
+        <span class="text-gradient" data-i18n="hero.title_highlight">que Multiplica la Rentabilidad</span> <span data-i18n="hero.title_p2">de tu Negocio</span>
+      </h1>
+
+      <p class="hero-subtitle" data-i18n="hero.subtitle">
+        Puntos de venta ultrarrápidos, facturación en tiempo real, gestión de inventario y reservas sincronizadas. Diseñado para no detenerse jamás, incluso sin conexión a internet.
+      </p>
+
+      <div class="hero-actions">
+        <button class="btn-primary-glow btn-lg" data-open-demo>
+          <span data-i18n="hero.cta_primary">Comenzar Prueba Gratuita 14 Días</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+        <a href="#demo-interactiva" class="btn-secondary-glass btn-lg">
+          <span data-i18n="hero.cta_secondary">Ver Demos por Sector</span>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </div>
+
+      <div class="hero-metrics">
+        <div class="metric">
+          <span class="metric-val" data-i18n="hero.metric_1_val">+250</span>
+          <span class="metric-label" data-i18n="hero.metric_1_lbl">Negocios Activos</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val" data-i18n="hero.metric_2_val">100%</span>
+          <span class="metric-label" data-i18n="hero.metric_2_lbl">Cloud & Seguro</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val" data-i18n="hero.metric_3_val">Offline</span>
+          <span class="metric-label" data-i18n="hero.metric_3_lbl">Ventas Sin Caídas</span>
+        </div>
+        <div class="metric">
+          <span class="metric-val" data-i18n="hero.metric_4_val">24/7</span>
+          <span class="metric-label" data-i18n="hero.metric_4_lbl">Soporte Técnico</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       EXECUTIVE PRODUCT SHOWCASE (Project by Project)
+       ======================================================================== -->
+  <section class="bento-section" id="demo-interactiva" style="padding-top: 3rem;">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 50px;">
+        <span class="section-tag" data-i18n="showcase.tag">ECOSISTEMA INTEGRAL DE SOFTWARE</span>
+        <h2 class="section-title" data-i18n="showcase.title">Especialización Máxima en Cada Sector</h2>
+        <p class="section-desc" style="margin: 0 auto; max-width: 680px;" data-i18n="showcase.desc">
+          Cada sector tiene retos únicos. Diseñamos plataformas independientes optimizadas al 100% para la operativa real de tu negocio.
+        </p>
+      </div>
+
+      <div class="showcase-grid-stacked">
+        <!-- 01 GASTRO -->
+        <article class="project-showcase-card" style="--accent-brand: #F59E0B; --accent-glow: rgba(245, 158, 11, 0.35);">
+          <div>
+            <div class="project-badge-tag" style="background: rgba(245, 158, 11, 0.12); color: #F59E0B; border: 1px solid rgba(245, 158, 11, 0.3);">
+              <span data-i18n="gastro.tag">🍽️ 01 | Hostelería, Restaurantes & Cafeterías</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+              <img src="/logos/vektor-gastro-logo.jpg" alt="Vektor Gastro Logo" style="width: 56px; height: 56px; border-radius: 14px; border: 1.5px solid rgba(245, 158, 11, 0.4); box-shadow: 0 4px 20px rgba(245, 158, 11, 0.25); flex-shrink: 0; object-fit: cover;">
+              <h3 class="project-title" style="margin: 0;" data-i18n="gastro.title">Vektor Gastro</h3>
+            </div>
+            <p class="project-desc" data-i18n="gastro.desc">
+              El software TPV gastronómico que conecta sala, barra y cocina al segundo. Tus camareros toman nota y cobran en mesa desde cualquier móvil o tablet sin paseos innecesarios.
+            </p>
+            <ul class="project-features-list">
+              <li class="project-feature-pill"><span class="check" style="color: #F59E0B;">✓</span> <span data-i18n="gastro.feat_1">Comandero móvil / tablet</span></li>
+              <li class="project-feature-pill"><span class="check" style="color: #F59E0B;">✓</span> <span data-i18n="gastro.feat_2">Pantalla de cocina (KDS)</span></li>
+              <li class="project-feature-pill"><span class="check" style="color: #F59E0B;">✓</span> <span data-i18n="gastro.feat_3">Plano de mesas interactivo</span></li>
+              <li class="project-feature-pill"><span class="check" style="color: #F59E0B;">✓</span> <span data-i18n="gastro.feat_4">División de cuentas ágil</span></li>
+            </ul>
+            <div class="project-actions">
+              <a href="https://gastro.vektorlabs.ma" target="_blank" class="btn btn-primary" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: #07090E !important;">
+                <span data-i18n="gastro.demo_btn">Probar Demo Gastro en Vivo ↗</span>
+              </a>
+              <a href="/gastro.html" class="btn btn-outline">
+                <span data-i18n="gastro.guide_btn">Ver Guía & Detalles →</span>
+              </a>
+            </div>
+          </div>
+          <div class="project-preview-panel">
+            <div class="preview-stat-row">
+              <div class="preview-stat-item">
+                <div class="preview-stat-val" style="color: #F59E0B;" data-i18n="gastro.stat_1_val">-40%</div>
+                <div class="preview-stat-lbl" data-i18n="gastro.stat_1_lbl">Tiempo servicio</div>
+              </div>
+              <div class="preview-stat-item">
+                <div class="preview-stat-val" style="color: #F59E0B;" data-i18n="gastro.stat_2_val">100%</div>
+                <div class="preview-stat-lbl" data-i18n="gastro.stat_2_lbl">Cuadre de caja</div>
+              </div>
+              <div class="preview-stat-item">
+                <div class="preview-stat-val" style="color: #10B981;" data-i18n="gastro.stat_3_val">Offline</div>
+                <div class="preview-stat-lbl" data-i18n="gastro.stat_3_lbl">Sin caídas</div>
+              </div>
+            </div>
+            <div class="preview-mockup-box">
+              <div style="font-weight: 700; color: #fff; margin-bottom: 6px;" data-i18n="gastro.box_title">Control de Salón en Tiempo Real</div>
+              <p style="margin: 0; font-size: 0.82rem; color: #94A3B8;" data-i18n="gastro.box_desc">
+                Visualiza qué mesas están ocupadas, cuáles están pidiendo la cuenta y los tiempos de espera de cocina para maximizar la rotación de clientes.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 FASHION -->
+        <article class="project-showcase-card" style="--accent-brand: #A855F7; --accent-glow: rgba(168, 85, 247, 0.35);">
+          <div>
+            <div class="project-badge-tag" style="background: rgba(168, 85, 247, 0.12); color: #A855F7; border: 1px solid rgba(168, 85, 247, 0.3);">
+              <span data-i18n="fashion.tag">👗 02 | Tiendas de Ropa, Calzado & Boutiques</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+              <img src="/logos/vektor-fashion-logo.jpg" alt="Vektor Fashion Logo" style="width: 56px; height: 56px; border-radius: 14px; border: 1.5px solid rgba(168, 85, 247, 0.4); box-shadow: 0 4px 20px rgba(168, 85, 247, 0.25); flex-shrink: 0; object-fit: cover;">
+              <h3 class="project-title" style="margin: 0;" data-i18n="fashion.title">Vektor Fashion</h3>
+            </div>
+            <p class="project-desc" data-i18n="fashion.desc">
+              Control absoluto de miles de variantes de tallas y colores. Impresión de etiquetas con código de barras, rebajas automáticas de temporada y traspasos entre tiendas.
+            </p>
+            <ul class="project-features-list">
+              <li class="project-feature-pill"><span class="check" style="color: #A855F7;">✓</span> <span data-i18n="fashion.feat_1">Matriz Tallas XS-XXL y Colores</span></li>
+              <li class="project-feature-pill"><span class="check" style="color: #A855F7;">✓</span> <span data-i18n="fashion.feat_2">Códigos de barras por variante</span></li>
+              <li class="project-feature-pill"><span class="check" style="color: #A855F7;">✓</span> <span data-i18n="fashion.feat_3">Traspasos entre sucursales</span></li>
+              <li class="project-feature-pill"><span class="check" style="color: #A855F7;">✓</span> <span data-i18n="fashion.feat_4">Campañas de Rebajas y 2x1</span></li>
+            </ul>
+            <div class="project-actions">
+              <a href="https://fashion.vektorlabs.ma" target="_blank" class="btn btn-primary" style="background: linear-gradient(135deg, #A855F7 0%, #EC4899 100%); color: #ffffff !important;">
+                <span data-i18n="fashion.demo_btn">Probar Demo Fashion en Vivo ↗</span>
+              </a>
+              <a href="/fashion.html" class="btn btn-outline">
+                <span data-i18n="fashion.guide_btn">Ver Guía & Detalles →</span>
+              </a>
+            </div>
+          </div>
+          <div class="project-preview-panel">
+            <div class="preview-stat-row">
+              <div class="preview-stat-item">
+                <div class="preview-stat-val" style="color: #A855F7;" data-i18n="fashion.stat_1_val">2 Seg</div>
+                <div class="preview-stat-lbl" data-i18n="fashion.stat_1_lbl">Cobro en caja</div>
+              </div>
+              <div class="preview-stat-item">
+                <div class="preview-stat-val" style="color: #A855F7;" data-i18n="fashion.stat_2_val">0%</div>
+                <div class="preview-stat-lbl" data-i18n="fashion.stat_2_lbl">Descuadres</div>
+              </div>
+              <div class="preview-stat-item">
+                <div class="preview-stat-val" style="color: #10B981;" data-i18n="fashion.stat_3_val">Multi</div>
+                <div class="preview-stat-lbl" data-i18n="fashion.stat_3_lbl">Tiendas</div>
+              </div>
+            </div>
+            <div class="preview-mockup-box">
+              <div style="font-weight: 700; color: #fff; margin-bottom: 6px;" data-i18n="fashion.box_title">Matriz Inteligente de Variantes</div>
+              <p style="margin: 0; font-size: 0.82rem; color: #94A3B8;" data-i18n="fashion.box_desc">
+                Si un cliente solicita otra talla o color, el cajero consulta en 1 segundo si quedan existencias en almacén central o en otra tienda de la red.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 POS RETAIL -->
+        <article class="project-showcase-card" style="--accent-brand: #06B6D4; --accent-glow: rgba(6, 182, 212, 0.35);">
+          <div>
+            <div class="project-badge-tag" style="background: rgba(6, 182, 212, 0.12); color: #06B6D4; border: 1px solid rgba(6, 182, 212, 0.3);">
+              <span data-i18n="pos.tag">🛒 03 | Comercio, Retail & Supermercados</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+              <img src="/logos/vektor-pos-logo.jpg" alt="Vektor POS Logo" style="width: 56px; height: 56px; border-radius: 14px; border: 1.5px solid rgba(6, 182, 212, 0.4); box-shadow: 0 4px 20px rgba(6, 182, 212, 0.25); flex-shrink: 0; object-fit: cover;">
+              <h3 class="project-title" style="margin: 0;" data-i18n="pos.title">Vektor POS</h3>
+            </div>
+            <p class="project-desc" data-i18n="pos.desc">
+              Punto de venta ultrarrápido con arqueo ciego para evitar fraudes, compatibilidad total con impresoras térmicas, balanzas de peso, pistolas de código y cajones automáticos.
+            </p>
+            <ul class="project-features-list">
+              <li class="project-feature-pill"><span class="check" style="color: #06B6D4;">✓</span> <span data-i18n="pos.feat_1">Arqueo ciego de caja en 60s</span></li>
+              <li class="project-feature-pill"><span class="check" style="color: #06B6D4;">✓</span> <span data-i18n="pos.feat_2">Conexión con balanzas de peso</span></li>
+              <li class="project-feature-pill"><span class="check" style="color: #06B6D4;">✓</span> <span data-i18n="pos.feat_3">Modo 100% Offline continuo</span></li>
+              <li class="project-feature-pill"><span class="check" style="color: #06B6D4;">✓</span> <span data-i18n="pos.feat_4">Fidelización y tickets regalo</span></li>
+            </ul>
+            <div class="project-actions">
+              <a href="https://pos.vektorlabs.ma" target="_blank" class="btn btn-primary" style="background: linear-gradient(135deg, #06B6D4 0%, #3B82F6 100%); color: #041c24 !important;">
+                <span data-i18n="pos.demo_btn">Probar Demo POS en Vivo ↗</span>
+              </a>
+              <a href="/pos.html" class="btn btn-outline">
+                <span data-i18n="pos.guide_btn">Ver Guía & Detalles →</span>
+              </a>
+            </div>
+          </div>
+          <div class="project-preview-panel">
+            <div class="preview-stat-row">
+              <div class="preview-stat-item">
+                <div class="preview-stat-val" style="color: #06B6D4;" data-i18n="pos.stat_1_val">60 Seg</div>
+                <div class="preview-stat-lbl" data-i18n="pos.stat_1_lbl">Cierre turno</div>
+              </div>
+              <div class="preview-stat-item">
+                <div class="preview-stat-val" style="color: #06B6D4;" data-i18n="pos.stat_2_val">100%</div>
+                <div class="preview-stat-lbl" data-i18n="pos.stat_2_lbl">Control cajeros</div>
+              </div>
+              <div class="preview-stat-item">
+                <div class="preview-stat-val" style="color: #10B981;" data-i18n="pos.stat_3_val">Universal</div>
+                <div class="preview-stat-lbl" data-i18n="pos.stat_3_lbl">Hardware</div>
+              </div>
+            </div>
+            <div class="preview-mockup-box">
+              <div style="font-weight: 700; color: #fff; margin-bottom: 6px;" data-i18n="pos.box_title">Seguridad Blindada en Caja</div>
+              <p style="margin: 0; font-size: 0.82rem; color: #94A3B8;" data-i18n="pos.box_desc">
+                Cada cajero accede con su PIN o tarjeta. Descuentos, devoluciones y aperturas de cajón requieren autorización del encargado.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 DRIVE -->
+        <article class="project-showcase-card" style="--accent-brand: #10B981; --accent-glow: rgba(16, 185, 129, 0.35);">
+          <div>
+            <div class="project-badge-tag" style="background: rgba(16, 185, 129, 0.12); color: #10B981; border: 1px solid rgba(16, 185, 129, 0.3);">
+              <span data-i18n="drive.tag">🚗 04 | Rent-a-Car & Gestión de Flotas</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+              <img src="/logos/vektor-drive-logo.jpg" alt="Vektor Drive Logo" style="width: 56px; height: 56px; border-radius: 14px; border: 1.5px solid rgba(16, 185, 129, 0.4); box-shadow: 0 4px 20px rgba(16, 185, 129, 0.25); flex-shrink: 0; object-fit: cover;">
+              <h3 class="project-title" style="margin: 0;" data-i18n="drive.title">Vektor Drive</h3>
+            </div>
+            <p class="project-desc" data-i18n="drive.desc">
+              Automatiza la entrega y recogida de vehículos en 3 minutos. Inspección con fotos desde el móvil para evitar disputas por daños, contratos PDF digitales y calendario visual de flota.
+            </p>
+            <ul class="project-features-list">
+              <li class="project-feature-pill"><span class="check" style="color: #10B981;">✓</span> <span data-i18n="drive.feat_1">Fotos Check-in / Check-out</span></li>
+              <li class="project-feature-pill"><span class="check" style="color: #10B981;">✓</span> <span data-i18n="drive.feat_2">Contratos PDF con firma en pantalla</span></li>
+              <li class="project-feature-pill"><span class="check" style="color: #10B981;">✓</span> <span data-i18n="drive.feat_3">Control de fianzas y combustible</span></li>
+              <li class="project-feature-pill"><span class="check" style="color: #10B981;">✓</span> <span data-i18n="drive.feat_4">Avisos de ITV, seguro y revisión</span></li>
+            </ul>
+            <div class="project-actions">
+              <a href="https://drive.vektorlabs.ma" target="_blank" class="btn btn-primary" style="background: linear-gradient(135deg, #10B981 0%, #059669 100%); color: #041c24 !important;">
+                <span data-i18n="drive.demo_btn">Probar Demo Drive en Vivo ↗</span>
+              </a>
+              <a href="/drive.html" class="btn btn-outline">
+                <span data-i18n="drive.guide_btn">Ver Guía & Detalles →</span>
+              </a>
+            </div>
+          </div>
+          <div class="project-preview-panel">
+            <div class="preview-stat-row">
+              <div class="preview-stat-item">
+                <div class="preview-stat-val" style="color: #10B981;" data-i18n="drive.stat_1_val">3 Min</div>
+                <div class="preview-stat-lbl" data-i18n="drive.stat_1_lbl">Check-in coche</div>
+              </div>
+              <div class="preview-stat-item">
+                <div class="preview-stat-val" style="color: #10B981;" data-i18n="drive.stat_2_val">-90%</div>
+                <div class="preview-stat-lbl" data-i18n="drive.stat_2_lbl">Disputas daños</div>
+              </div>
+              <div class="preview-stat-item">
+                <div class="preview-stat-val" style="color: #7BE099;" data-i18n="drive.stat_3_val">+28%</div>
+                <div class="preview-stat-lbl" data-i18n="drive.stat_3_lbl">Ocupación flota</div>
+              </div>
+            </div>
+            <div class="preview-mockup-box">
+              <div style="font-weight: 700; color: #fff; margin-bottom: 6px;" data-i18n="drive.box_title">Contratos Digitales & Evidencias</div>
+              <p style="margin: 0; font-size: 0.82rem; color: #94A3B8;" data-i18n="drive.box_desc">
+                Genera el contrato oficial en PDF al momento, captura las fotos del estado de carrocería y el cliente firma con el dedo en el móvil.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 05 BUSINESS -->
+        <article class="project-showcase-card" style="--accent-brand: #3B82F6; --accent-glow: rgba(59, 130, 246, 0.35);">
+          <div>
+            <div class="project-badge-tag" style="background: rgba(59, 130, 246, 0.12); color: #3B82F6; border: 1px solid rgba(59, 130, 246, 0.3);">
+              <span data-i18n="business.tag">📈 05 | Empresas, Mayoristas & Distribución</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px;">
+              <img src="/logos/vektor-business-logo.jpg" alt="Vektor Business Logo" style="width: 56px; height: 56px; border-radius: 14px; border: 1.5px solid rgba(59, 130, 246, 0.4); box-shadow: 0 4px 20px rgba(59, 130, 246, 0.25); flex-shrink: 0; object-fit: cover;">
+              <h3 class="project-title" style="margin: 0;" data-i18n="business.title">Vektor Business</h3>
+            </div>
+            <p class="project-desc" data-i18n="business.desc">
+              ERP integral para distribución y comercio mayorista: ciclo comercial completo (Devis, Bon de Commande, Bon de Livraison, Factura), multi-depósito y tesorería avanzada.
+            </p>
+            <ul class="project-features-list">
+              <li class="project-feature-pill"><span class="check" style="color: #3B82F6;">✓</span> <span data-i18n="business.feat_1">Ciclo comercial Devis / BL / Factura</span></li>
+              <li class="project-feature-pill"><span class="check" style="color: #3B82F6;">✓</span> <span data-i18n="business.feat_2">Multi-depósito y stock valorado</span></li>
+              <li class="project-feature-pill"><span class="check" style="color: #3B82F6;">✓</span> <span data-i18n="business.feat_3">Tesorería, cheques y pagarés</span></li>
+              <li class="project-feature-pill"><span class="check" style="color: #3B82F6;">✓</span> <span data-i18n="business.feat_4">Exportación contable directa</span></li>
+            </ul>
+            <div class="project-actions">
+              <a href="https://business.vektorlabs.ma" target="_blank" class="btn btn-primary" style="background: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%); color: #ffffff !important;">
+                <span data-i18n="business.demo_btn">Probar Demo Business en Vivo ↗</span>
+              </a>
+              <a href="/business.html" class="btn btn-outline">
+                <span data-i18n="business.guide_btn">Ver Guía & Detalles →</span>
+              </a>
+            </div>
+          </div>
+          <div class="project-preview-panel">
+            <div class="preview-stat-row">
+              <div class="preview-stat-item">
+                <div class="preview-stat-val" style="color: #3B82F6;" data-i18n="business.stat_1_val">100%</div>
+                <div class="preview-stat-lbl" data-i18n="business.stat_1_lbl">Trazabilidad</div>
+              </div>
+              <div class="preview-stat-item">
+                <div class="preview-stat-val" style="color: #3B82F6;" data-i18n="business.stat_2_val">Multi</div>
+                <div class="preview-stat-lbl" data-i18n="business.stat_2_lbl">Depósitos</div>
+              </div>
+              <div class="preview-stat-item">
+                <div class="preview-stat-val" style="color: #10B981;" data-i18n="business.stat_3_val">0 Error</div>
+                <div class="preview-stat-lbl" data-i18n="business.stat_3_lbl">Facturación</div>
+              </div>
+            </div>
+            <div class="preview-mockup-box">
+              <div style="font-weight: 700; color: #fff; margin-bottom: 6px;" data-i18n="business.box_title">Gestión Comercial de Alto Rendimiento</div>
+              <p style="margin: 0; font-size: 0.82rem; color: #94A3B8;" data-i18n="business.box_desc">
+                Controla deudas de clientes, pagos pendientes a proveedores y valor de existencias con informes contables en un solo clic.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PAIN VS SOLUTION SECTION
+       ======================================================================== -->
+  <section class="comparison-section">
+    <div class="container">
+      <div style="text-align: center;">
+        <span class="section-tag" data-i18n="comparison.tag">EL CAMBIO QUE NOTARÁS DESDE EL DÍA 1</span>
+        <h2 class="section-title" data-i18n="comparison.title">¿Por qué los negocios eligen Vektor?</h2>
+        <p class="section-desc" style="margin: 0 auto 50px;" data-i18n="comparison.desc">
+          Eliminamos los dolores de cabeza más comunes de la gestión diaria de tiendas, bares y empresas.
+        </p>
+      </div>
+
+      <div class="comparison-grid">
+        <!-- Card Pain -->
+        <div class="comparison-card card-pain">
+          <div class="comparison-card-header">
+            <span class="comparison-badge badge-pain" data-i18n="comparison.pain_badge">SIN VEKTOR (EL CAOS TÍPICO)</span>
+          </div>
+          <ul class="comparison-list">
+            <li class="comparison-item">
+              <span class="item-icon icon-cross">✕</span>
+              <span data-i18n-html="comparison.pain_1"><strong>Cierres de caja que nunca cuadran:</strong> Horas perdidas por la noche contando billetes y sin saber quién cometió el error.</span>
+            </li>
+            <li class="comparison-item">
+              <span class="item-icon icon-cross">✕</span>
+              <span data-i18n-html="comparison.pain_2"><strong>Pérdidas y mermas invisibles:</strong> Productos que desaparecen del almacén sin registro de qué empleado los sacó.</span>
+            </li>
+            <li class="comparison-item">
+              <span class="item-icon icon-cross">✕</span>
+              <span data-i18n-html="comparison.pain_3"><strong>Software local atrapado en un ordenador:</strong> Si se rompe el disco duro o estás fuera del local, te quedas a ciegas sin ver las ventas.</span>
+            </li>
+            <li class="comparison-item">
+              <span class="item-icon icon-cross">✕</span>
+              <span data-i18n-html="comparison.pain_4"><strong>Empleados borrando tickets sin autorización:</strong> Falta de auditoría y controles de seguridad para devoluciones o anulaciones.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Card Solution -->
+        <div class="comparison-card card-solution">
+          <div class="comparison-card-header">
+            <span class="comparison-badge badge-solution" data-i18n="comparison.solution_badge">CON VEKTOR (CONTROL TOTAL)</span>
+          </div>
+          <ul class="comparison-list">
+            <li class="comparison-item">
+              <span class="item-icon icon-check">✓</span>
+              <span data-i18n-html="comparison.solution_1"><strong>Arqueo ciego en 60 segundos:</strong> El cajero cuenta el dinero sin ver la cifra del sistema; el sistema detecta diferencias al instante.</span>
+            </li>
+            <li class="comparison-item">
+              <span class="item-icon icon-check">✓</span>
+              <span data-i18n-html="comparison.solution_2"><strong>Inventario vivo por variantes:</strong> Cada venta descuenta automáticamente la talla, color o ingredientes exactos en tiempo real.</span>
+            </li>
+            <li class="comparison-item">
+              <span class="item-icon icon-check">✓</span>
+              <span data-i18n-html="comparison.solution_3"><strong>100% en la Nube con Modo Offline:</strong> Consulta las ventas desde tu móvil desde cualquier lugar del mundo y sigue cobrando si se va la red.</span>
+            </li>
+            <li class="comparison-item">
+              <span class="item-icon icon-check">✓</span>
+              <span data-i18n-html="comparison.solution_4"><strong>Roles y Permisos de Alta Seguridad:</strong> Autorizaciones con PIN de encargado para descuentos, anulaciones o aperturas de cajón.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       BENTO GRID
+       ======================================================================== -->
+  <section class="bento-section" id="caracteristicas">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 50px;">
+        <span class="section-tag" data-i18n="why.tag">INGENIERÍA ROBUSTA</span>
+        <h2 class="section-title" data-i18n="why.title">Diseñado para la velocidad de tu negocio</h2>
+        <p class="section-desc" style="margin: 0 auto;" data-i18n="why.desc">Todo lo que necesitas para operar sin fallos, sin ralentizaciones y con máxima seguridad.</p>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-card bento-col-2">
+          <div class="bento-icon">⚡</div>
+          <h3 class="bento-title" data-i18n="why.bento_1_title">Modo Offline Instantáneo</h3>
+          <p class="bento-text" data-i18n="why.bento_1_desc">
+            Si la conexión a Internet se cae en plena hora punta, no te preocupes: Vektor almacena localmente los tickets y sincroniza todo con la base de datos central en cuanto regresa la señal. Cero ventas perdidas.
+          </p>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-icon">🖨️</div>
+          <h3 class="bento-title" data-i18n="why.bento_2_title">Hardware Universal</h3>
+          <p class="bento-text" data-i18n="why.bento_2_desc">
+            Soporta impresoras térmicas de tickets (USB, red y Bluetooth), cajones portamonedas eléctricos, lectores de código de barras y balanzas.
+          </p>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-icon">🛡️</div>
+          <h3 class="bento-title" data-i18n="why.bento_3_title">Base de Datos Privada y Aislada</h3>
+          <p class="bento-text" data-i18n="why.bento_3_desc">
+            Cada cliente opera en su propio esquema de base de datos seguro. Tus datos de ventas, clientes y costes jamás se mezclan con los de nadie más.
+          </p>
+        </div>
+
+        <div class="bento-card bento-col-2">
+          <div class="bento-icon">📊</div>
+          <h3 class="bento-title" data-i18n="why.bento_4_title">Analíticas en Tiempo Real desde tu Teléfono</h3>
+          <p class="bento-text" data-i18n="why.bento_4_desc">
+            No esperes al final del mes para saber si ganaste dinero. Abre tu móvil y revisa el margen neto, el ticket medio por cliente, los productos más vendidos y el rendimiento de tus empleados al momento.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       CALCULADORA DE ROI
+       ======================================================================== -->
+  <section class="bento-section" id="calculadora">
+    <div class="container">
+      <div class="roi-card">
+        <div>
+          <span class="section-tag" data-i18n="calc.tag">CALCULADORA INTERACTIVA</span>
+          <h3 style="font-size: 2rem; margin-bottom: 14px;" data-i18n="calc.title">Calcula tu Ahorro con Vektor</h3>
+          <p style="margin-bottom: 30px;" data-i18n="calc.desc">Descubre cuánto tiempo y dinero ahorras cada mes al digitalizar tus ventas y automatizar tus cierres de caja.</p>
+
+          <div class="slider-group">
+            <div class="slider-label">
+              <span data-i18n="calc.sales_label">Volumen estimado de ventas al día:</span>
+              <span id="salesSliderVal" class="slider-value">120 ventas / día</span>
+            </div>
+            <input type="range" min="20" max="800" value="120" step="10" class="range-slider" id="salesSlider">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-label">
+              <span data-i18n="calc.staff_label">Número de empleados / cajeros:</span>
+              <span id="staffSliderVal" class="slider-value">3 empleados</span>
+            </div>
+            <input type="range" min="1" max="25" value="3" step="1" class="range-slider" id="staffSlider">
+          </div>
+        </div>
+
+        <div class="roi-result-box">
+          <span style="font-size: 0.85rem; font-weight: 700; color: #94A3B8; text-transform: uppercase;" data-i18n="calc.time_saved_title">Ahorro de Tiempo Estimado</span>
+          <div class="roi-stat-number" id="hoursSavedVal">54 horas</div>
+          <p style="font-size: 0.85rem; color: #94A3B8; margin-bottom: 20px;" data-i18n="calc.time_saved_sub">liberadas al mes para ti y tu equipo</p>
+
+          <div style="border-top: 1px solid var(--border-subtle); padding-top: 20px;">
+            <span style="font-size: 0.85rem; font-weight: 700; color: #94A3B8; text-transform: uppercase;" data-i18n="calc.money_saved_title">Pérdidas y Errores Evitados</span>
+            <div style="font-size: 2.2rem; font-weight: 800; color: #7BE099; margin: 8px 0;" id="moneySavedVal">1,800 € / mes</div>
+            <button class="btn-primary-glow" style="width: 100%; margin-top: 10px;" data-open-demo data-i18n="calc.btn">Empezar a Ahorrar Hoy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PRECIOS TRANSPARENTES
+       ======================================================================== -->
+  <!-- ========================================================================
+       PRECIOS TRANSPARENTES
+       ======================================================================== -->
+  <section class="pricing-section" id="precios">
+    <div class="container">
+      <span class="section-tag" data-i18n="pricing.tag">PRECIOS CLAROS Y TRANSPARENTES</span>
+      <h2 class="section-title" data-i18n="pricing.title">Elige el plan adaptado al tamaño de tu negocio</h2>
+      <p class="section-desc" style="margin: 0 auto 30px;" data-i18n="pricing.desc">Sin contratos forzosos. Sin permanencia. Cancela cuando quieras.</p>
+
+      <div style="display: inline-flex; align-items: center; gap: 12px; background: rgba(14, 19, 31, 0.8); border: 1px solid var(--border-light); border-radius: 99px; padding: 6px 16px; margin-bottom: 50px;">
+        <span style="font-size: 0.9rem; font-weight: 600;" data-i18n="pricing.monthly">Pago Mensual</span>
+        <label style="position: relative; display: inline-block; width: 44px; height: 24px;">
+          <input type="checkbox" id="pricingToggle" style="opacity: 0; width: 0; height: 0;">
+          <span style="position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background: #7BE099; border-radius: 34px; transition: 0.3s;"></span>
+        </label>
+        <span style="font-size: 0.9rem; font-weight: 600; color: #7BE099;"><span data-i18n="pricing.annual">Pago Anual</span> <span style="background: rgba(123,224,153,0.2); padding: 2px 8px; border-radius: 99px; font-size: 0.75rem;" data-i18n="pricing.save20">Ahorra 20%</span></span>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Plan Starter -->
+        <div class="pricing-card">
+          <h3 data-i18n="pricing.starter_name">Starter</h3>
+          <p style="font-size: 0.85rem; color: #94A3B8;" data-i18n="pricing.starter_desc">Para pequeños comercios y profesionales independientes.</p>
+          <div class="pricing-price">
+            <span class="pricing-val" data-monthly="29€" data-annual="24€">29€</span>
+            <span class="pricing-period">/ mes</span>
+          </div>
+          <ul class="pricing-features">
+            <li class="pricing-feature-item" data-i18n="pricing.starter_f1">✓ 1 Terminal TPV activo</li>
+            <li class="pricing-feature-item" data-i18n="pricing.starter_f2">✓ Hasta 500 productos en catálogo</li>
+            <li class="pricing-feature-item" data-i18n="pricing.starter_f3">✓ Arqueo de caja básico</li>
+            <li class="pricing-feature-item" data-i18n="pricing.starter_f4">✓ Modo Offline incluido</li>
+            <li class="pricing-feature-item" data-i18n="pricing.starter_f5">✓ Soporte estándar por email</li>
+          </ul>
+          <button class="btn-secondary-glass" style="width: 100%;" data-open-demo data-i18n="pricing.starter_btn">Elegir Starter</button>
+        </div>
+
+        <!-- Plan Pro (Destacado) -->
+        <div class="pricing-card popular">
+          <span class="popular-badge" data-i18n="pricing.pro_badge">MÁS POPULAR</span>
+          <h3 data-i18n="pricing.pro_name">Negocio Pro</h3>
+          <p style="font-size: 0.85rem; color: #94A3B8;" data-i18n="pricing.pro_desc">Para negocios en crecimiento, restaurantes y boutiques.</p>
+          <div class="pricing-price">
+            <span class="pricing-val" data-monthly="59€" data-annual="49€" style="color: #7BE099;">59€</span>
+            <span class="pricing-period">/ mes</span>
+          </div>
+          <ul class="pricing-features">
+            <li class="pricing-feature-item" data-i18n-html="pricing.pro_f1">✓ <strong>Terminales y camareros ilimitados</strong></li>
+            <li class="pricing-feature-item" data-i18n="pricing.pro_f2">✓ Productos y variantes ilimitadas</li>
+            <li class="pricing-feature-item" data-i18n="pricing.pro_f3">✓ Control de permisos por PIN de empleado</li>
+            <li class="pricing-feature-item" data-i18n="pricing.pro_f4">✓ Analytics en vivo desde el móvil</li>
+            <li class="pricing-feature-item" data-i18n="pricing.pro_f5">✓ Soporte prioritario por WhatsApp directo</li>
+          </ul>
+          <button class="btn-primary-glow" style="width: 100%;" data-open-demo data-i18n="pricing.pro_btn">Probar 14 Días Gratis</button>
+        </div>
+
+        <!-- Plan Enterprise -->
+        <div class="pricing-card">
+          <h3 data-i18n="pricing.enterprise_name">Cadena / Multi-local</h3>
+          <p style="font-size: 0.85rem; color: #94A3B8;" data-i18n="pricing.enterprise_desc">Para marcas con varias sucursales o franquicias.</p>
+          <div class="pricing-price">
+            <span class="pricing-val" data-monthly="129€" data-annual="99€">129€</span>
+            <span class="pricing-period">/ mes</span>
+          </div>
+          <ul class="pricing-features">
+            <li class="pricing-feature-item" data-i18n="pricing.enterprise_f1">✓ Multi-sucursal con stock centralizado</li>
+            <li class="pricing-feature-item" data-i18n="pricing.enterprise_f2">✓ Traspasos de almacén entre locales</li>
+            <li class="pricing-feature-item" data-i18n="pricing.enterprise_f3">✓ Informes contables consolidados</li>
+            <li class="pricing-feature-item" data-i18n="pricing.enterprise_f4">✓ Migración de datos asistida</li>
+            <li class="pricing-feature-item" data-i18n="pricing.enterprise_f5">✓ Gestor de cuenta dedicado</li>
+          </ul>
+          <button class="btn-secondary-glass" style="width: 100%;" data-open-demo data-i18n="pricing.enterprise_btn">Contactar Comercial</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FAQ SECTION (Categorized Interactive Accordion)
+       ======================================================================== -->
+  <section class="bento-section" id="faq">
+    <div class="container" style="max-width: 860px;">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <span class="section-tag" data-i18n="faq.tag">PREGUNTAS FRECUENTES</span>
+        <h2 class="section-title" data-i18n="faq.title">Todo lo que necesitas saber</h2>
+        <p style="margin-top: 10px; color: #94A3B8;" data-i18n="faq.desc">Respuestas claras sobre seguridad de datos, hardware, modo offline y facturación.</p>
+      </div>
+
+      <!-- Categories Filter -->
+      <div class="faq-filter-bar">
+        <button class="faq-cat-btn active" data-category="all" data-i18n="faq.cat_all">Todas</button>
+        <button class="faq-cat-btn" data-category="general" data-i18n="faq.cat_general">General</button>
+        <button class="faq-cat-btn" data-category="seguridad" data-i18n="faq.cat_security">Seguridad & Datos</button>
+        <button class="faq-cat-btn" data-category="hardware" data-i18n="faq.cat_hardware">Hardware & TPV</button>
+        <button class="faq-cat-btn" data-category="offline" data-i18n="faq.cat_offline">Modo Offline</button>
+        <button class="faq-cat-btn" data-category="facturacion" data-i18n="faq.cat_pricing">Precios & Planes</button>
+      </div>
+
+      <!-- Accordion List -->
+      <div class="faq-accordion-list">
+        <!-- 1 -->
+        <div class="faq-accordion-item open" data-category="general">
+          <div class="faq-header">
+            <h4 class="faq-question-title">
+              <span>🚀</span>
+              <span data-i18n="faq.q1">¿Cuánto tiempo tardo en poner en marcha mi negocio?</span>
+            </h4>
+            <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-content">
+            <p data-i18n="faq.a1">
+              Tu cuenta se aprovisiona en la nube en menos de 2 minutos. Si ya dispones de catálogo en formato Excel o CSV, te ayudamos a importarlo sin coste. La inmensa mayoría de nuestros clientes comienzan a cobrar a sus primeros clientes en menos de dos horas tras el alta.
+            </p>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="faq-accordion-item" data-category="seguridad">
+          <div class="faq-header">
+            <h4 class="faq-question-title">
+              <span>🔒</span>
+              <span data-i18n="faq.q2">¿Están mis datos aislados y protegidos de otros negocios?</span>
+            </h4>
+            <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-content">
+            <p data-i18n="faq.a2">
+              Rotundamente sí. Vektor Labs utiliza arquitectura Multi-Tenant con aislamiento estricto por esquemas PostgreSQL. Tu base de datos, precios, ventas y listados de clientes están separados a nivel de motor de datos con cifrado TLS 1.3.
+            </p>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="faq-accordion-item" data-category="hardware">
+          <div class="faq-header">
+            <h4 class="faq-question-title">
+              <span>🖨️</span>
+              <span data-i18n="faq.q3">¿Tengo que comprar equipos o impresoras nuevas para usar Vektor?</span>
+            </h4>
+            <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-content">
+            <p data-i18n="faq.a3">
+              No, aprovecha lo que ya tienes. Vektor funciona en cualquier PC con Windows, Mac, Linux, tablet iPad / Android o smartphone. Es 100% compatible con impresoras de tickets térmicas estándar de 58mm y 80mm, cajones RJ11 y lectores de códigos.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="faq-accordion-item" data-category="offline">
+          <div class="faq-header">
+            <h4 class="faq-question-title">
+              <span>📶</span>
+              <span data-i18n="faq.q4">¿Qué ocurre si se corta el Internet o el WiFi en mi tienda o restaurante?</span>
+            </h4>
+            <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-content">
+            <p data-i18n="faq.a4">
+              Nuestro software incorpora arquitectura Offline First. Tus cajeros y camareros pueden continuar marcando comandas, emitiendo tickets y cobrando con total normalidad. Al volver la red, todo se sincroniza automáticamente sin pérdidas.
+            </p>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="faq-accordion-item" data-category="facturacion">
+          <div class="faq-header">
+            <h4 class="faq-question-title">
+              <span>💳</span>
+              <span data-i18n="faq.q5">¿Hay permanencia obligatoria o penalización por cancelar?</span>
+            </h4>
+            <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-content">
+            <p data-i18n="faq.a5">
+              Ninguna permanencia. Creemos en ganarnos tu confianza mes a mes. Puedes cancelar tu suscripción con un solo clic en cualquier instante y exportar todo tu catálogo e histórico de tickets a Excel.
+            </p>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="faq-accordion-item" data-category="general">
+          <div class="faq-header">
+            <h4 class="faq-question-title">
+              <span>💬</span>
+              <span data-i18n="faq.q6">¿Cómo recibo soporte si tengo una duda en mitad de un servicio?</span>
+            </h4>
+            <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-content">
+            <p data-i18n="faq.a6">
+              Dispones de canal directo por WhatsApp de soporte técnico prioritario, además de asistencia remota inmediata y documentación interactiva. No te dejamos solo durante las horas puntas de tu negocio.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MODAL DE DEMO / REGISTRO
+       ======================================================================== -->
+  <div id="demoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); backdrop-filter: blur(16px); z-index: 1000; place-items: center; padding: 20px;">
+    <div style="background: #0E131F; border: 1px solid var(--border-light); border-radius: 24px; max-width: 580px; width: 100%; padding: 32px; position: relative; box-shadow: var(--shadow-lg);">
+      <button id="closeDemoModal" style="position: absolute; top: 18px; right: 20px; background: none; border: none; font-size: 1.4rem; color: #94A3B8; cursor: pointer;">✕</button>
+      
+      <h3 style="font-size: 1.4rem; margin-bottom: 6px;" data-i18n="modal.title">Prueba Interactiva Vektor</h3>
+      <p style="font-size: 0.85rem; color: #94A3B8; margin-bottom: 20px;" data-i18n="modal.desc">Accede de inmediato a cualquiera de nuestras 5 aplicaciones con datos y fotos reales, o solicita una sesión guiada.</p>
+
+      <!-- Tabs Switcher -->
+      <div style="display: flex; gap: 8px; margin-bottom: 20px; background: rgba(255,255,255,0.04); padding: 4px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08);">
+        <button id="tabDirectBtn" type="button" style="flex: 1; padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(123, 224, 153, 0.4); color: #7BE099; font-weight: 700; font-size: 0.85rem; cursor: pointer;" data-i18n="modal.tab_direct">🚀 Demos en Vivo (1 Clic)</button>
+        <button id="tabWhatsappBtn" type="button" style="flex: 1; padding: 10px; border-radius: 8px; background: transparent; border: 1px solid transparent; color: #94A3B8; font-weight: 700; font-size: 0.85rem; cursor: pointer;" data-i18n="modal.tab_whatsapp">💬 Solicitar por WhatsApp</button>
+      </div>
+
+      <!-- Panel 1: Direct Demos -->
+      <div id="panelDirectDemo">
+        <div style="background: rgba(123, 224, 153, 0.08); border: 1px solid rgba(123, 224, 153, 0.25); border-radius: 12px; padding: 12px 14px; margin-bottom: 16px; font-size: 0.8rem; color: #E2E8F0; display: flex; align-items: center; gap: 10px;">
+          <span>💡</span>
+          <span data-i18n-html="modal.demo_notice">Al abrir cada app, pulsa el botón <strong>"🚀 Probar Demo Interactiva (1 Clic)"</strong> para entrar automáticamente sin escribir contraseña.</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <a href="https://gastro.vektorlabs.ma" target="_blank" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(245, 158, 11, 0.08); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; color: #fff; text-decoration: none; transition: all 0.2s;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img src="/logos/vektor-gastro-logo.jpg" style="width: 38px; height: 38px; border-radius: 8px;">
+              <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Vektor Gastro</div>
+                <div style="font-size: 0.75rem; color: #94A3B8;" data-i18n="gastro.tag">Hostelería, Cafeterías & Restauración</div>
+              </div>
+            </div>
+            <span style="color: #F59E0B; font-weight: 700; font-size: 0.85rem;" data-i18n="modal.btn_launch">Abrir Demo ↗</span>
+          </a>
+
+          <a href="https://fashion.vektorlabs.ma" target="_blank" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(168, 85, 247, 0.08); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 12px; color: #fff; text-decoration: none; transition: all 0.2s;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img src="/logos/vektor-fashion-logo.jpg" style="width: 38px; height: 38px; border-radius: 8px;">
+              <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Vektor Fashion</div>
+                <div style="font-size: 0.75rem; color: #94A3B8;" data-i18n="fashion.tag">Boutiques, Moda & Calzado</div>
+              </div>
+            </div>
+            <span style="color: #A855F7; font-weight: 700; font-size: 0.85rem;" data-i18n="modal.btn_launch">Abrir Demo ↗</span>
+          </a>
+
+          <a href="https://pos.vektorlabs.ma" target="_blank" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 12px; color: #fff; text-decoration: none; transition: all 0.2s;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img src="/logos/vektor-pos-logo.jpg" style="width: 38px; height: 38px; border-radius: 8px;">
+              <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Vektor POS</div>
+                <div style="font-size: 0.75rem; color: #94A3B8;" data-i18n="pos.tag">Comercio, Retail & Supermercados</div>
+              </div>
+            </div>
+            <span style="color: #06B6D4; font-weight: 700; font-size: 0.85rem;" data-i18n="modal.btn_launch">Abrir Demo ↗</span>
+          </a>
+
+          <a href="https://drive.vektorlabs.ma" target="_blank" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; color: #fff; text-decoration: none; transition: all 0.2s;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img src="/logos/vektor-drive-logo.jpg" style="width: 38px; height: 38px; border-radius: 8px;">
+              <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Vektor Drive</div>
+                <div style="font-size: 0.75rem; color: #94A3B8;" data-i18n="drive.tag">Rent-a-Car & Gestión de Flotas</div>
+              </div>
+            </div>
+            <span style="color: #10B981; font-weight: 700; font-size: 0.85rem;" data-i18n="modal.btn_launch">Abrir Demo ↗</span>
+          </a>
+
+          <a href="https://business.vektorlabs.ma" target="_blank" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 12px; color: #fff; text-decoration: none; transition: all 0.2s;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <img src="/logos/vektor-business-logo.jpg" style="width: 38px; height: 38px; border-radius: 8px;">
+              <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Vektor Business</div>
+                <div style="font-size: 0.75rem; color: #94A3B8;" data-i18n="business.tag">ERP, Facturas & Distribución</div>
+              </div>
+            </div>
+            <span style="color: #3B82F6; font-weight: 700; font-size: 0.85rem;" data-i18n="modal.btn_launch">Abrir Demo ↗</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Panel 2: WhatsApp Form -->
+      <div id="panelWhatsappDemo" style="display: none;">
+        <form id="demoForm" style="display: flex; flex-direction: column; gap: 14px;">
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px;" data-i18n="modal.wa_biz_label">¿Cuál es tu tipo de negocio?</label>
+            <select id="demoProduct" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); border-radius: 8px; color: #fff; font-size: 0.95rem;">
+              <option value="Vektor Gastro">🍽️ Hostelería, Restaurante o Cafetería</option>
+              <option value="Vektor Fashion">👗 Tienda de Ropa, Calzado o Moda</option>
+              <option value="Vektor POS">🛒 Comercio, Retail o Supermercado</option>
+              <option value="Vektor Drive">🚗 Rent-a-Car o Alquiler de Vehículos</option>
+              <option value="Vektor Business">📈 Empresa, Distribuidora o ERP</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px;" data-i18n="modal.wa_name_label">Nombre o Negocio</label>
+            <input type="text" id="demoName" required placeholder="Ej. Restaurante Marrakech" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); border-radius: 8px; color: #fff; font-size: 0.95rem;">
+          </div>
+
+          <div>
+            <label style="display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 6px;" data-i18n="modal.wa_phone_label">WhatsApp / Teléfono</label>
+            <input type="tel" id="demoPhone" required placeholder="+34 600 000 000 / +212 ..." style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); border-radius: 8px; color: #fff; font-size: 0.95rem;">
+          </div>
+
+          <button type="submit" class="btn-primary-glow" style="margin-top: 10px; width: 100%; font-size: 1rem;" data-i18n="modal.wa_submit_btn">Hablar con un Asesor por WhatsApp ➔</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <img src="/vektorlaps-logo.jpeg" alt="Vektor Labs" class="brand-logo-img">
+            <span>VEKTOR <span style="color: #7BE099; font-weight: 500;">LABS</span></span>
+          </div>
+          <p style="font-size: 0.88rem; max-width: 320px; margin-bottom: 20px;" data-i18n="footer.tagline">
+            La suite integral de soluciones cloud para comercio, hostelería y empresas. Más control, mejores decisiones.
+          </p>
+          <span class="status-pill">
+            <span class="status-dot"></span>
+            <span data-i18n="footer.status">Plataforma Cloud Activa (SLA 99.98%)</span>
+          </span>
+        </div>
+
+        <div class="footer-col">
+          <h5 data-i18n="footer.col_products">Productos</h5>
+          <ul class="footer-links">
+            <li><a href="/gastro.html">Vektor Gastro</a></li>
+            <li><a href="/fashion.html">Vektor Fashion</a></li>
+            <li><a href="/pos.html">Vektor POS Retail</a></li>
+            <li><a href="/drive.html">Vektor Drive Rentacar</a></li>
+            <li><a href="/business.html">Vektor Business ERP</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 data-i18n="footer.col_solutions">Soluciones</h5>
+          <ul class="footer-links">
+            <li><a href="#caracteristicas" data-i18n="why.bento_1_title">Modo Offline</a></li>
+            <li><a href="#caracteristicas">Arqueo Ciego</a></li>
+            <li><a href="#caracteristicas" data-i18n="why.bento_2_title">Impresoras Térmicas</a></li>
+            <li><a href="#calculadora" data-i18n="nav.calculator">Calculadora de ROI</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 data-i18n="footer.col_legal">Legal & Privacidad</h5>
+          <ul class="footer-links">
+            <li><a href="/aviso-legal.html" data-i18n="footer.legal_notice">Aviso Legal</a></li>
+            <li><a href="/terminos.html" data-i18n="footer.terms">Términos de Servicio</a></li>
+            <li><a href="/privacidad.html" data-i18n="footer.privacy">Política de Privacidad</a></li>
+            <li><a href="/cookies.html" data-i18n="footer.cookies">Política de Cookies</a></li>
+            <li><a href="#" id="openCookieSettings" data-cookie-settings style="color: #7BE099;" data-i18n="footer.adjust_cookies">⚙️ Ajustar Cookies</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 data-i18n="footer.col_contact">Contacto & Soporte</h5>
+          <ul class="footer-links">
+            <li><a href="mailto:soporte@vektorlabs.ma">soporte@vektorlabs.ma</a></li>
+            <li><a href="https://pos.vektorlabs.ma" target="_blank" data-i18n="footer.client_portal">Portal de Clientes ↗</a></li>
+            <li><a href="#" data-open-demo data-i18n="footer.wa_commercial">WhatsApp Comercial</a></li>
+            <li><span style="font-size: 0.8rem; color: #64748B;" data-i18n="footer.support_247">Atención técnica 24/7 para clientes</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div data-i18n="footer.rights">© 2026 Vektor Labs. Todos los derechos reservados.</div>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+          <a href="/aviso-legal.html" data-i18n="footer.legal_notice">Aviso Legal</a>
+          <a href="/terminos.html" data-i18n="footer.terms">Términos del Servicio</a>
+          <a href="/privacidad.html" data-i18n="footer.privacy">Privacidad RGPD</a>
+          <a href="/cookies.html" data-i18n="footer.cookies">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

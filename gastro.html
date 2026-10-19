@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vektor Gastro | TPV Inteligente para Restaurantes y Cafeterías</title>
+  <meta name="description" content="El software TPV diseñado para hostelería. Comandas en mesa, pantalla de cocina KDS, gestión de mesas y escandallo en tiempo real.">
+  <link rel="icon" type="image/x-icon" href="/logos/vektor-gastro.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body style="--accent-brand: #F59E0B; --accent-glow: rgba(245, 158, 11, 0.35); --accent-brand-gradient: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
+
+  <!-- Global animated background glows (from SAS RENT CAR) -->
+  <div class="global-glow-1"></div>
+  <div class="global-glow-2"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="/" class="brand-logo">
+        <img src="/logos/vektor-gastro-logo.jpg" alt="Vektor Gastro" class="brand-logo-img" style="border-radius: 8px; border: 1px solid rgba(245, 158, 11, 0.4);">
+        <span>VEKTOR <span style="color: #F59E0B; font-weight: 500;">GASTRO</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li class="nav-item"><a href="/" data-i18n="nav.back_ecosystem">← Volver al Ecosistema</a></li>
+        <li class="nav-item"><a href="#mesas">Plano de Mesas</a></li>
+        <li class="nav-item"><a href="#cocina">Pantalla KDS</a></li>
+        <li class="nav-item"><a href="#escandallo">Escandallo</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <div class="lang-switcher-wrapper">
+          <button id="langSwitcherBtn" class="lang-btn" aria-label="Cambiar idioma">
+            <span id="currentLangFlag">🇪🇸</span>
+            <span id="currentLangLabel">ES</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div id="langDropdown" class="lang-dropdown">
+            <button class="lang-dropdown-item active" data-lang="es">
+              <span>🇪🇸</span>
+              <span>Español</span>
+            </button>
+            <button class="lang-dropdown-item" data-lang="fr">
+              <span>🇫🇷</span>
+              <span>Français</span>
+            </button>
+            <button class="lang-dropdown-item" data-lang="en">
+              <span>🇬🇧</span>
+              <span>English</span>
+            </button>
+          </div>
+        </div>
+
+        <a href="https://gastro.vektorlabs.ma" target="_blank" class="btn-secondary-glass btn-sm">Probar Demo en Vivo ↗</a>
+        <button class="btn-primary-glow btn-sm" data-open-demo data-i18n="nav.demo_btn">Empezar Gratis</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO GASTRO -->
+  <header class="subpage-hero">
+    <div class="container">
+      <div class="hero-badge" style="background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.35); color: #F59E0B;">
+        <span class="hero-badge-pulse" style="background: #F59E0B; box-shadow: 0 0 10px #F59E0B;"></span>
+        <span>Especializado en Hostelería & Restauración</span>
+      </div>
+
+      <h1 class="hero-title">
+        <span class="hero-title-gradient">Menos estrés en el servicio.</span><br>
+        <span style="color: #F59E0B;">Más rotación de mesas y beneficio.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        El TPV gastronómico que conecta sala, barra y cocina en un solo segundo. Tus camareros toman nota en mesa desde cualquier tablet o móvil sin paseos innecesarios.
+      </p>
+
+      <div class="hero-ctas">
+        <a href="https://gastro.vektorlabs.ma" target="_blank" class="btn btn-lg btn-primary" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); color: #07090E !important;">
+          <span>Abrir Demo Gastro en Vivo</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <button class="btn btn-lg btn-outline" data-open-demo>
+          <span>Solicitar Presupuesto Personalizado</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- DETALLES Y GUIA DE FUNCIONAMIENTO GASTRO -->
+  <section class="bento-section" id="mesas">
+    <div class="container">
+      <div style="text-align: center; margin-bottom: 50px;">
+        <span class="section-tag" style="color: #F59E0B;">OPERACIÓN IMPECABLE EN SALA</span>
+        <h2 class="section-title">¿Cómo funciona Vektor Gastro en tu día a día?</h2>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-card bento-col-2">
+          <div class="bento-icon" style="color: #F59E0B;">🪑</div>
+          <h3 class="bento-title">Plano de Mesas y Salones con Estado en Tiempo Real</h3>
+          <p class="bento-text">
+            Diseña la distribución de tu restaurante (Salón interior, terraza, reservados, barra). Identifica de un solo vistazo mesas libres (verde), ocupadas (ámbar), pidiendo cuenta (azul) o reservadas. Junta mesas para grupos con 1 solo toque.
+          </p>
+        </div>
+
+        <div class="bento-card" id="cocina">
+          <div class="bento-icon" style="color: #EF4444;">🍳</div>
+          <h3 class="bento-title">Impresión en Cocina & KDS</h3>
+          <p class="bento-text">
+            Al pulsar "Enviar comanda", los platos salen ordenados por tiempos (1º plato, 2º plato, postres) en la impresora térmica de cocina o pantalla digital KDS.
+          </p>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-icon" style="color: #3B82F6;">💳</div>
+          <h3 class="bento-title">División de Cuentas Rápida</h3>
+          <p class="bento-text">
+            Divide la cuenta en partes iguales o cobra a cada comensal únicamente lo que ha consumido (efectivo, tarjeta o Bizum) en menos de 10 segundos.
+          </p>
+        </div>
+
+        <div class="bento-card bento-col-2" id="escandallo">
+          <div class="bento-icon" style="color: #10B981;">🥩</div>
+          <h3 class="bento-title">Escandallo Automático de Recetas y Control de Mermas</h3>
+          <p class="bento-text">
+            Vincula tus ingredientes a cada plato. Cuando se vende una hamburguesa o una ración, el sistema descuenta automáticamente los gramos de carne, pan y queso del almacén. Si un ingrediente está por agotarse, recibes una alerta antes del servicio.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ GASTRO -->
+  <section class="bento-section" style="padding-top: 20px;">
+    <div class="container" style="max-width: 820px;">
+      <div style="text-align: center; margin-bottom: 30px;">
+        <span class="section-tag" style="color: #F59E0B;">PREGUNTAS FRECUENTES HOSTELERÍA</span>
+        <h2 class="section-title">Dudas habituales sobre Vektor Gastro</h2>
+      </div>
+
+      <div class="faq-accordion-list">
+        <div class="faq-accordion-item open">
+          <div class="faq-header">
+            <h4 class="faq-question-title">
+              <span>📱</span>
+              <span>¿Pueden mis camareros tomar comandas con sus propios móviles?</span>
+            </h4>
+            <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-content">
+            <p>Sí, al 100%. Vektor Gastro es una aplicación web progresiva optimizada para tablets y smartphones. No necesitas comprar caros comanderos propietarios: cualquier móvil Android o iPhone se convierte en un comandero profesional con permisos limitados para el camarero.</p>
+          </div>
+        </div>
+
+        <div class="faq-accordion-item">
+          <div class="faq-header">
+            <h4 class="faq-question-title">
+              <span>👨‍🍳</span>
+              <span>¿Cómo funciona la pantalla de cocina (KDS)?</span>
+            </h4>
+            <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-content">
+            <p>En cuanto el camarero marca los platos en mesa o barra, aparecen instantáneamente en la tablet o monitor de cocina organizados por orden de marcha (primeros, segundos, postres) y con los comentarios del cliente (ej. "sin cebolla", "carne muy hecha"). El cocinero pulsa cuando el plato está listo y avisa a sala.</p>
+          </div>
+        </div>
+
+        <div class="faq-accordion-item">
+          <div class="faq-header">
+            <h4 class="faq-question-title">
+              <span>🧾</span>
+              <span>¿Permite dividir la cuenta entre varios clientes fácilmente?</span>
+            </h4>
+            <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-content">
+            <p>Por supuesto. Puedes dividir la cuenta a partes iguales (ej. entre 4 personas) o seleccionar artículos individuales para cobrar por separado en efectivo y tarjeta sin descuadrar la mesa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="hero-section" style="padding: 80px 0; border-top: 1px solid var(--border-subtle);">
+    <div class="container" style="max-width: 720px;">
+      <h2 style="font-size: 2.2rem; margin-bottom: 16px;">Moderniza tu restaurante hoy mismo</h2>
+      <p style="margin-bottom: 30px;">Te dejamos todo el menú configurado con fotos y precios listo para empezar a vender.</p>
+      <button class="btn-primary-glow btn-lg" style="background: #F59E0B; color: #07090E;" data-open-demo>Empezar con Vektor Gastro</button>
+    </div>
+  </section>
+
+  <!-- MODAL DE DEMO -->
+  <div id="demoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); z-index: 1000; place-items: center; padding: 20px;">
+    <div style="background: #0E131F; border: 1px solid var(--border-light); border-radius: 20px; max-width: 480px; width: 100%; padding: 36px; position: relative;">
+      <button id="closeDemoModal" style="position: absolute; top: 18px; right: 20px; background: none; border: none; font-size: 1.4rem; color: #94A3B8; cursor: pointer;">✕</button>
+      <h3 style="font-size: 1.5rem; margin-bottom: 8px;">Activar Vektor Gastro</h3>
+      <p style="font-size: 0.88rem; color: #94A3B8; margin-bottom: 24px;">Completa tus datos y te activamos el acceso inmediato.</p>
+      <form id="demoForm" style="display: flex; flex-direction: column; gap: 14px;">
+        <input type="hidden" id="demoProduct" value="Vektor Gastro">
+        <input type="text" id="demoName" required placeholder="Nombre de tu Restaurante o Bar" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); border-radius: 8px; color: #fff;">
+        <input type="tel" id="demoPhone" required placeholder="Tu WhatsApp (+34 ... / +212 ...)" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); border-radius: 8px; color: #fff;">
+        <button type="submit" class="btn-primary-glow" style="background: #F59E0B; color: #07090E; width: 100%;">Solicitar Demo Ahora ➔</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>© 2026 Vektor Labs. Todos los derechos reservados.</div>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+          <a href="/aviso-legal.html">Aviso Legal</a>
+          <a href="/terminos.html">Términos de Servicio</a>
+          <a href="/privacidad.html">Privacidad RGPD</a>
+          <a href="/cookies.html">Cookies</a>
+          <a href="/" style="color: #F59E0B;">← Ver Ecosistema Completo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,643 @@
+/* ==========================================================================
+   VEKTOR LANDING & PRODUCTS INTERACTION LOGIC
+   ========================================================================== */
+
+import { getActiveLanguage, setLanguage, SUPPORTED_LANGUAGES } from './i18n.js';
+
+// 1. PRODUCT PREVIEW DATA (Interactive Switcher)
+const PRODUCTS_DATA = {
+  gastro: {
+    name: 'Vektor Gastro',
+    tag: 'Hostelería, Cafeterías y Restaurantes',
+    color: '#F59E0B',
+    glow: 'rgba(245, 158, 11, 0.25)',
+    url: '/gastro.html',
+    demoUrl: 'https://gastro.vektorlabs.ma',
+    headline: 'Control total de comandas, mesas y cocina en tiempo real.',
+    description: 'Olvídate de platos olvidados y cajas descuadradas. Con Vektor Gastro tus camareros cobran en mesa desde el móvil, los pedidos van directos a cocina y tú ves el beneficio neto al minuto.',
+    badges: ['Plano de Mesas Interactivo', 'Pantalla KDS Cocina', 'Escandallo y Recetas', 'Arqueo Rápido'],
+    stats: [
+      { label: 'Tiempo de servicio', val: '-40%' },
+      { label: 'Mesas gestionadas', val: 'Ilimitadas' },
+      { label: 'Cuadre de caja', val: '100% Preciso' }
+    ],
+    mockupSnippet: `
+      <div style="display: grid; grid-template-columns: 240px 1fr; gap: 20px; height: 100%; color: #fff;">
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px;">
+          <div style="font-weight: 700; color: #F59E0B; margin-bottom: 12px; font-size: 0.85rem;">SALONES & TERRAZAS</div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="padding: 10px; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; font-size: 0.85rem; font-weight: 600;">Salón Principal (8 Mesas)</div>
+            <div style="padding: 10px; background: rgba(255,255,255,0.02); border-radius: 8px; font-size: 0.85rem; color: #94A3B8;">Terraza Exterior (12 Mesas)</div>
+            <div style="padding: 10px; background: rgba(255,255,255,0.02); border-radius: 8px; font-size: 0.85rem; color: #94A3B8;">Barra / Takeaway</div>
+          </div>
+        </div>
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <div style="font-size: 1.1rem; font-weight: 700;">Estado de Mesas en Vivo</div>
+            <span style="font-size: 0.75rem; background: rgba(16, 185, 129, 0.15); color: #10B981; padding: 4px 10px; border-radius: 99px; font-weight: 600;">Cocina en Sincronía</span>
+          </div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 10px; padding: 14px; text-align: center;">
+              <div style="font-weight: 700;">Mesa 1</div>
+              <div style="font-size: 0.75rem; color: #10B981; margin: 4px 0;">Libre</div>
+              <div style="font-size: 0.75rem; color: #64748B;">4 Comensales</div>
+            </div>
+            <div style="background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 10px; padding: 14px; text-align: center;">
+              <div style="font-weight: 700;">Mesa 2</div>
+              <div style="font-size: 0.75rem; color: #F59E0B; margin: 4px 0;">Ocupada (38.50 €)</div>
+              <div style="font-size: 0.75rem; color: #FBBF24;">3 Platos en marcha</div>
+            </div>
+            <div style="background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 10px; padding: 14px; text-align: center;">
+              <div style="font-weight: 700;">Mesa 3</div>
+              <div style="font-size: 0.75rem; color: #60A5FA; margin: 4px 0;">Pidiendo Cuenta</div>
+              <div style="font-size: 0.75rem; color: #94A3B8;">Tarjeta / Efectivo</div>
+            </div>
+          </div>
+          <div style="margin-top: 20px; background: rgba(255,255,255,0.02); border: 1px dashed rgba(255,255,255,0.1); border-radius: 10px; padding: 16px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div style="font-size: 0.85rem; font-weight: 600;">Total Facturado Hoy en Salón</div>
+              <div style="font-size: 1.4rem; font-weight: 800; color: #F59E0B;">1,248.50 €</div>
+            </div>
+            <a href="https://gastro.vektorlabs.ma" target="_blank" class="btn btn-sm btn-outline">Abrir Gastro Demo ↗</a>
+          </div>
+        </div>
+      </div>
+    `
+  },
+  fashion: {
+    name: 'Vektor Fashion',
+    tag: 'Tiendas de Ropa, Calzado & Boutiques',
+    color: '#A855F7',
+    glow: 'rgba(168, 85, 247, 0.25)',
+    url: '/fashion.html',
+    demoUrl: 'https://fashion.vektorlabs.ma',
+    headline: 'Matriz perfecta de tallas, colores y stock multitienda.',
+    description: 'Gestiona miles de variantes en 1 clic. Escanea códigos de barras al instante, realiza inventarios rápidos y aplica rebajas de temporada sin desajustes.',
+    badges: ['Matriz Tallas (XS-XXL) y Colores', 'Códigos de Barras por Talla', 'Inventario por Sucursal', 'Promociones & Rebajas'],
+    stats: [
+      { label: 'Variantes por artículo', val: 'Ilimitadas' },
+      { label: 'Velocidad de cobro', val: '2 Segundos' },
+      { label: 'Control de mermas', val: '-95%' }
+    ],
+    mockupSnippet: `
+      <div style="display: grid; grid-template-columns: 1fr 280px; gap: 20px; height: 100%; color: #fff;">
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+            <div style="font-weight: 700; font-size: 1.05rem;">Catálogo & Matriz de Tallas</div>
+            <span style="font-size: 0.75rem; background: rgba(168, 85, 247, 0.15); color: #A855F7; padding: 4px 10px; border-radius: 99px; font-weight: 600;">Colección Primavera 2026</span>
+          </div>
+          <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px; margin-bottom: 14px;">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-weight: 700; font-size: 0.95rem;">Chaqueta Cuero Slim Fit</div>
+                <div style="font-size: 0.78rem; color: #94A3B8;">SKU: CHQ-2026-BLK | Categoría: Abrigos</div>
+              </div>
+              <div style="font-weight: 800; font-size: 1.15rem; color: #A855F7;">89.00 €</div>
+            </div>
+            <div style="display: flex; gap: 8px; margin-top: 14px;">
+              <span style="padding: 6px 12px; background: rgba(168, 85, 247, 0.2); border: 1px solid #A855F7; border-radius: 6px; font-size: 0.8rem; font-weight: 700;">Talla S (4 en stock)</span>
+              <span style="padding: 6px 12px; background: rgba(255,255,255,0.05); border-radius: 6px; font-size: 0.8rem;">Talla M (12 en stock)</span>
+              <span style="padding: 6px 12px; background: rgba(255,255,255,0.05); border-radius: 6px; font-size: 0.8rem;">Talla L (8 en stock)</span>
+              <span style="padding: 6px 12px; background: rgba(239, 68, 68, 0.1); color: #EF4444; border-radius: 6px; font-size: 0.8rem;">Talla XL (Agotado)</span>
+            </div>
+          </div>
+          <div style="background: rgba(255,255,255,0.02); border-radius: 10px; padding: 12px; font-size: 0.85rem; color: #94A3B8;">
+            ✓ Lector de código de barras USB y Bluetooth conectado y listo
+          </div>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font-weight: 700; margin-bottom: 12px; font-size: 0.9rem;">Ticket de Venta Actual</div>
+            <div style="font-size: 0.82rem; color: #94A3B8; margin-bottom: 6px;">1x Chaqueta Slim Fit (M) - 89.00 €</div>
+            <div style="font-size: 0.82rem; color: #94A3B8;">2x Camiseta Algodón (L) - 38.00 €</div>
+            <div style="border-top: 1px solid rgba(255,255,255,0.1); margin: 12px 0;"></div>
+            <div style="display: flex; justify-content: space-between; font-weight: 700;">
+              <span>Total:</span>
+              <span style="color: #A855F7; font-size: 1.2rem;">127.00 €</span>
+            </div>
+          </div>
+          <a href="https://fashion.vektorlabs.ma" target="_blank" class="btn btn-sm btn-gradient" style="background: linear-gradient(135deg, #A855F7, #EC4899); width: 100%;">Abrir Fashion Demo ↗</a>
+        </div>
+      </div>
+    `
+  },
+  pos: {
+    name: 'Vektor POS',
+    tag: 'Comercio, Retail & Supermercados',
+    color: '#06B6D4',
+    glow: 'rgba(6, 182, 212, 0.25)',
+    url: '/pos.html',
+    demoUrl: 'https://pos.vektorlabs.ma',
+    headline: 'Punto de venta ultrarrápido con arqueo ciego y modo offline.',
+    description: 'Diseñado para que las colas no se acumulen. Cobra en segundos en efectivo, tarjeta o Bizum. Compatible con cajón portamonedas e impresoras de tickets térmicos.',
+    badges: ['Arqueo Ciego de Caja', 'Compatible Escáner & Balanza', 'Cobro en 2 Clics', 'Modo Sin Conexión'],
+    stats: [
+      { label: 'Tiempo por ticket', val: '< 3 Seg.' },
+      { label: 'Descuadre de caja', val: '0.00 €' },
+      { label: 'Compatibilidad', val: '100% Hardware' }
+    ],
+    mockupSnippet: `
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; height: 100%; color: #fff;">
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px;">
+          <div style="font-weight: 700; color: #06B6D4; font-size: 0.9rem; margin-bottom: 12px;">SESIÓN DE CAJA EN CURSO</div>
+          <div style="font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 14px;">842.30 €</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem;">
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: #94A3B8;">Efectivo en cajón:</span>
+              <span style="font-weight: 600;">520.00 €</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: #94A3B8;">Tarjeta / Datáfono:</span>
+              <span style="font-weight: 600;">322.30 €</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: #94A3B8;">Tickets emitidos:</span>
+              <span style="font-weight: 600;">47 tickets</span>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="background: rgba(6, 182, 212, 0.08); border: 1px solid rgba(6, 182, 212, 0.25); border-radius: 12px; padding: 20px;">
+            <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Arqueo Ciego Automático</div>
+            <p style="font-size: 0.82rem; color: #94A3B8;">El cajero ingresa lo que cuenta sin ver el total del sistema. Si hay diferencias, se registran inmediatamente en el reporte del administrador.</p>
+          </div>
+          <a href="https://pos.vektorlabs.ma" target="_blank" class="btn btn-sm btn-outline" style="border-color: #06B6D4; color: #06B6D4; width: 100%; text-align: center;">Probar Vektor POS Demo ↗</a>
+        </div>
+      </div>
+    `
+  },
+  drive: {
+    name: 'Vektor Drive',
+    tag: 'Rent-a-Car & Gestión de Flotas',
+    color: '#10B981',
+    glow: 'rgba(16, 185, 129, 0.25)',
+    url: '/drive.html',
+    demoUrl: 'https://drive.vektorlabs.ma',
+    headline: 'Contratos digitales de alquiler, inspección fotográfica y flota.',
+    description: 'Automatiza la entrega y recogida de vehículos en 3 minutos. Registra fotos de daños previos para evitar disputas, calcula fianzas y gestiona mantenimientos e ITV.',
+    badges: ['Inspección con Fotos Check-in/out', 'Contratos PDF Digitales', 'Control de Fianza y Combustible', 'Calendario de Flota'],
+    stats: [
+      { label: 'Tiempo de contrato', val: '3 Minutos' },
+      { label: 'Disputas de daños', val: '-90%' },
+      { label: 'Ocupación de flota', val: '+28%' }
+    ],
+    mockupSnippet: `
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; height: 100%; color: #fff;">
+        <div>
+          <div style="font-weight: 700; font-size: 1.05rem; margin-bottom: 12px;">Flota en Tiempo Real</div>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-weight: 700; font-size: 0.9rem;">Renault Clio 2024</div>
+                <div style="font-size: 0.75rem; color: #94A3B8;">Matrícula: 1234-LMN | Gasolina</div>
+              </div>
+              <span style="background: rgba(16, 185, 129, 0.15); color: #10B981; padding: 4px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 700;">Disponible (45€/d)</span>
+            </div>
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 10px; padding: 12px; display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <div style="font-weight: 700; font-size: 0.9rem;">Dacia Duster 4x4</div>
+                <div style="font-size: 0.75rem; color: #94A3B8;">Alquilado a: Karim Benjelloun</div>
+              </div>
+              <span style="background: rgba(59, 130, 246, 0.15); color: #60A5FA; padding: 4px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 700;">Retorno: Mañana</span>
+            </div>
+          </div>
+        </div>
+        <div style="background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Inspección Check-in Digital</div>
+            <p style="font-size: 0.82rem; color: #94A3B8; margin-bottom: 12px;">Captura las 4 fotos del coche con la cámara del teléfono y firma el contrato en pantalla sin imprimir ni un solo papel.</p>
+            <div style="font-size: 0.78rem; color: #10B981; font-weight: 600;">✓ Fianza retenida automáticamente</div>
+          </div>
+          <a href="https://drive.vektorlabs.ma" target="_blank" class="btn btn-sm btn-outline" style="border-color: #10B981; color: #10B981; width: 100%; text-align: center;">Ver Demo de Drive ↗</a>
+        </div>
+      </div>
+    `
+  },
+  business: {
+    name: 'Vektor Business',
+    tag: 'ERP, Facturación & Gestión Comercial',
+    color: '#3B82F6',
+    glow: 'rgba(59, 130, 246, 0.25)',
+    url: '/business.html',
+    demoUrl: 'https://business.vektorlabs.ma',
+    headline: 'Facturación marroquí y europea, contabilidad y multi-almacén.',
+    description: 'El ERP más completo para mayoristas, distribuidoras y empresas de servicios. Gestiona Devis, Bon de Commande, Bon de Livraison, Factures, pagos y tesorería en un único panel.',
+    badges: ['Devis / BC / BL / Facture', 'Plan Contable & Asientos', 'Control de Tesorería & Caja', 'Múltiples Depósitos'],
+    stats: [
+      { label: 'Ciclo comercial', val: '100% Trazable' },
+      { label: 'Tiempo contable', val: '-60%' },
+      { label: 'Depósitos', val: 'Ilimitados' }
+    ],
+    mockupSnippet: `
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; height: 100%; color: #fff;">
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px;">
+          <div style="font-size: 0.82rem; font-weight: 700; color: #3B82F6; margin-bottom: 8px;">FLUJO COMERCIAL AUTOMATIZADO</div>
+          <div style="display: flex; flex-direction: column; gap: 8px; font-size: 0.85rem;">
+            <div style="padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 6px;">1. Devis (Presupuesto enviado)</div>
+            <div style="padding: 8px 12px; background: rgba(255,255,255,0.03); border-radius: 6px;">2. Bon de Commande validado</div>
+            <div style="padding: 8px 12px; background: rgba(59, 130, 246, 0.2); border: 1px solid #3B82F6; border-radius: 6px; font-weight: 700;">3. Bon de Livraison entregado</div>
+            <div style="padding: 8px 12px; background: rgba(16, 185, 129, 0.15); color: #10B981; border-radius: 6px; font-weight: 700;">4. Facture cobrada (14,200 MAD)</div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div style="background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.25); border-radius: 12px; padding: 20px;">
+            <div style="font-weight: 700; font-size: 0.95rem; margin-bottom: 8px;">Estado de Tesorería</div>
+            <div style="font-size: 1.8rem; font-weight: 800; color: #3B82F6; margin-bottom: 6px;">185,420 MAD</div>
+            <div style="font-size: 0.78rem; color: #94A3B8;">Saldo consolidado bancos + cajas principales</div>
+          </div>
+          <a href="https://business.vektorlabs.ma" target="_blank" class="btn btn-sm btn-outline" style="border-color: #3B82F6; color: #3B82F6; width: 100%; text-align: center;">Abrir Business Demo ↗</a>
+        </div>
+      </div>
+    `
+  }
+};
+
+// 2. SWITCHER CONTROLLER
+function initProductSwitcher() {
+  const tabs = document.querySelectorAll('.product-tab-btn');
+  const frame = document.querySelector('.mockup-display-frame');
+  const headlineEl = document.getElementById('switchHeadline');
+  const descEl = document.getElementById('switchDesc');
+  const badgesEl = document.getElementById('switchBadges');
+  const statsEl = document.getElementById('switchStats');
+  const mockupEl = document.getElementById('switchMockup');
+  const ctaBtn = document.getElementById('switchCtaBtn');
+
+  if (!tabs.length || !frame) return;
+
+  function setProduct(productKey) {
+    const data = PRODUCTS_DATA[productKey];
+    if (!data) return;
+
+    // Update active tab button
+    tabs.forEach(tab => {
+      if (tab.dataset.product === productKey) {
+        tab.classList.add('active');
+        tab.style.borderColor = data.color;
+      } else {
+        tab.classList.remove('active');
+        tab.style.borderColor = 'transparent';
+      }
+    });
+
+    // Animate and update frame
+    frame.style.boxShadow = `0 20px 50px rgba(0, 0, 0, 0.6), 0 0 60px ${data.glow}`;
+
+    if (headlineEl) headlineEl.textContent = data.headline;
+    if (descEl) descEl.textContent = data.description;
+    if (ctaBtn) {
+      ctaBtn.href = data.url;
+      ctaBtn.textContent = `Ver detalles completos de ${data.name} →`;
+    }
+
+    if (badgesEl) {
+      badgesEl.innerHTML = data.badges.map(b => `
+        <span style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 99px; font-size: 0.82rem; font-weight: 600;">
+          <span style="color: ${data.color}">✓</span> ${b}
+        </span>
+      `).join('');
+    }
+
+    if (statsEl) {
+      statsEl.innerHTML = data.stats.map(s => `
+        <div>
+          <div style="font-size: 1.6rem; font-weight: 800; color: ${data.color};">${s.val}</div>
+          <div style="font-size: 0.78rem; color: #94A3B8;">${s.label}</div>
+        </div>
+      `).join('');
+    }
+
+    if (mockupEl) {
+      mockupEl.innerHTML = data.mockupSnippet;
+    }
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      setProduct(tab.dataset.product);
+    });
+  });
+
+  // Default initial set
+  setProduct('gastro');
+}
+
+// 3. ROI CALCULATOR
+function initRoiCalculator() {
+  const salesSlider = document.getElementById('salesSlider');
+  const staffSlider = document.getElementById('staffSlider');
+  const salesVal = document.getElementById('salesSliderVal');
+  const staffVal = document.getElementById('staffSliderVal');
+  const hoursSavedEl = document.getElementById('hoursSavedVal');
+  const moneySavedEl = document.getElementById('moneySavedVal');
+
+  if (!salesSlider || !staffSlider) return;
+
+  function updateRoi() {
+    const sales = parseInt(salesSlider.value, 10);
+    const staff = parseInt(staffSlider.value, 10);
+
+    if (salesVal) salesVal.textContent = `${sales} ventas / día`;
+    if (staffVal) staffVal.textContent = `${staff} empleados`;
+
+    // Calculations
+    // Ahorro estimado de 30 segundos por venta + 45 min diarios en arqueo y compras
+    const monthlyHours = Math.round((sales * 0.5 * 30 / 60) + (staff * 12));
+    // Estimación de pérdidas evitadas por descuadre/mermas
+    const monthlyMoney = Math.round((sales * 0.45 * 30) + (staff * 60));
+
+    if (hoursSavedEl) hoursSavedEl.textContent = `${monthlyHours} horas`;
+    if (moneySavedEl) moneySavedEl.textContent = `${monthlyMoney} € / mes`;
+  }
+
+  salesSlider.addEventListener('input', updateRoi);
+  staffSlider.addEventListener('input', updateRoi);
+  updateRoi();
+}
+
+// 4. PRICING TOGGLE (Monthly / Annual)
+function initPricingToggle() {
+  const toggle = document.getElementById('pricingToggle');
+  const prices = document.querySelectorAll('.pricing-val');
+  if (!toggle || !prices.length) return;
+
+  toggle.addEventListener('change', () => {
+    const isAnnual = toggle.checked;
+    prices.forEach(el => {
+      const monthly = el.dataset.monthly;
+      const annual = el.dataset.annual;
+      el.textContent = isAnnual ? annual : monthly;
+    });
+  });
+}
+
+// 5. DEMO MODAL CONTROLLER
+function initDemoModal() {
+  const modal = document.getElementById('demoModal');
+  const openBtns = document.querySelectorAll('[data-open-demo]');
+  const closeBtn = document.getElementById('closeDemoModal');
+  const form = document.getElementById('demoForm');
+
+  if (!modal) return;
+
+  openBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      modal.style.display = 'grid';
+    });
+  });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+  }
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+
+  // Modal tabs: Direct demo vs WhatsApp
+  const tabDirect = document.getElementById('tabDirectBtn');
+  const tabWhatsapp = document.getElementById('tabWhatsappBtn');
+  const panelDirect = document.getElementById('panelDirectDemo');
+  const panelWhatsapp = document.getElementById('panelWhatsappDemo');
+
+  if (tabDirect && tabWhatsapp && panelDirect && panelWhatsapp) {
+    tabDirect.addEventListener('click', () => {
+      tabDirect.style.background = 'rgba(255,255,255,0.1)';
+      tabDirect.style.borderColor = 'rgba(123, 224, 153, 0.4)';
+      tabDirect.style.color = '#7BE099';
+      tabWhatsapp.style.background = 'transparent';
+      tabWhatsapp.style.borderColor = 'transparent';
+      tabWhatsapp.style.color = '#94A3B8';
+      panelDirect.style.display = 'block';
+      panelWhatsapp.style.display = 'none';
+    });
+    tabWhatsapp.addEventListener('click', () => {
+      tabWhatsapp.style.background = 'rgba(255,255,255,0.1)';
+      tabWhatsapp.style.borderColor = 'rgba(123, 224, 153, 0.4)';
+      tabWhatsapp.style.color = '#7BE099';
+      tabDirect.style.background = 'transparent';
+      tabDirect.style.borderColor = 'transparent';
+      tabDirect.style.color = '#94A3B8';
+      panelWhatsapp.style.display = 'block';
+      panelDirect.style.display = 'none';
+    });
+  }
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const product = form.querySelector('#demoProduct')?.value || 'General';
+      const name = form.querySelector('#demoName')?.value || '';
+      const phone = form.querySelector('#demoPhone')?.value || '';
+
+      const text = encodeURIComponent(`Hola Vektor Labs! Me llamo ${name}. Quiero una demo para mi negocio sobre ${product}. Mi teléfono es ${phone}.`);
+      window.open(`https://wa.me/34600000000?text=${text}`, '_blank');
+      modal.style.display = 'none';
+      alert('¡Gracias! Te estamos redirigiendo para activar tu demo de inmediato.');
+    });
+  }
+}
+
+// 5b. LANGUAGE SWITCHER CONTROLLER
+function initLanguageSwitcher() {
+  const currentLang = getActiveLanguage();
+  setLanguage(currentLang);
+
+  const langBtn = document.getElementById('langSwitcherBtn');
+  const dropdown = document.getElementById('langDropdown');
+
+  if (langBtn && dropdown) {
+    langBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      dropdown.classList.toggle('show');
+    });
+
+    document.querySelectorAll('.lang-dropdown-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const lang = item.getAttribute('data-lang');
+        setLanguage(lang);
+        dropdown.classList.remove('show');
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.lang-switcher-wrapper')) {
+        dropdown.classList.remove('show');
+      }
+    });
+  }
+}
+
+// 6. CARD SPOTLIGHT HOVER EFFECT (from SAS RENT CAR)
+function initCardSpotlight() {
+  window.addEventListener('mousemove', (e) => {
+    const cards = document.querySelectorAll('.bento-card, .feature-card, .comparison-card, .pricing-card, .mockup-display-frame');
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      card.style.setProperty('--mouse-x', `${x}px`);
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+}
+
+// 7. COOKIE CONSENT BANNER (RGPD / ePrivacy)
+function initCookieConsent() {
+  const CONSENT_KEY = 'vektor_cookie_consent';
+  let banner = document.getElementById('vektorCookieBanner');
+
+  if (!banner) {
+    banner = document.createElement('div');
+    banner.id = 'vektorCookieBanner';
+    banner.className = 'cookie-banner';
+    banner.innerHTML = `
+      <div class="cookie-banner-content">
+        <div class="cookie-banner-title">
+          <span>🍪 Preferencias de Cookies & Privacidad</span>
+          <span class="tag">RGPD / ePrivacy</span>
+        </div>
+        <p class="cookie-banner-text">
+          Utilizamos cookies esenciales para la operativa segura del TPV y la plataforma SaaS, así como analíticas opcionales para optimizar la velocidad y experiencia de uso. Puedes aceptar todas, rechazarlas o consultar nuestra <a href="/cookies.html">Política de Cookies</a> y <a href="/privacidad.html">Privacidad</a>.
+        </p>
+      </div>
+      <div class="cookie-banner-actions">
+        <button id="btnAcceptCookies" class="btn-primary-glow btn-sm">Aceptar Todas</button>
+        <button id="btnNecessaryCookies" class="btn-secondary-glass btn-sm">Solo Necesarias</button>
+      </div>
+    `;
+    document.body.appendChild(banner);
+  }
+
+  const savedConsent = localStorage.getItem(CONSENT_KEY);
+  if (!savedConsent) {
+    setTimeout(() => {
+      banner.classList.add('show');
+    }, 800);
+  }
+
+  const acceptBtn = document.getElementById('btnAcceptCookies');
+  const necBtn = document.getElementById('btnNecessaryCookies');
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem(CONSENT_KEY, 'accepted_all');
+      banner.classList.remove('show');
+    });
+  }
+
+  if (necBtn) {
+    necBtn.addEventListener('click', () => {
+      localStorage.setItem(CONSENT_KEY, 'necessary_only');
+      banner.classList.remove('show');
+    });
+  }
+
+  // Reopen trigger from footer link
+  document.querySelectorAll('[data-cookie-settings], #openCookieSettings').forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      banner.classList.add('show');
+    });
+  });
+
+  // Handle cookies.html custom page buttons
+  const pageAccept = document.getElementById('btnAcceptAllCookies');
+  const pageReject = document.getElementById('btnRejectOptionalCookies');
+  const statusMsg = document.getElementById('cookieStatusMsg');
+
+  if (pageAccept) {
+    pageAccept.addEventListener('click', () => {
+      localStorage.setItem(CONSENT_KEY, 'accepted_all');
+      if (statusMsg) {
+        statusMsg.style.display = 'block';
+        statusMsg.textContent = '✓ Has aceptado todas las cookies.';
+      }
+    });
+  }
+
+  if (pageReject) {
+    pageReject.addEventListener('click', () => {
+      localStorage.setItem(CONSENT_KEY, 'necessary_only');
+      if (statusMsg) {
+        statusMsg.style.display = 'block';
+        statusMsg.textContent = '✓ Guardado: únicamente cookies técnicas necesarias.';
+      }
+    });
+  }
+}
+
+// 8. WHATSAPP FLOATING WIDGET
+function initWhatsAppWidget() {
+  if (document.getElementById('whatsappFloatBtn')) return;
+
+  const btn = document.createElement('a');
+  btn.id = 'whatsappFloatBtn';
+  btn.className = 'whatsapp-float-btn';
+  btn.href = 'https://wa.me/34600000000?text=' + encodeURIComponent('Hola Vektor Labs! Me gustaría información sobre sus soluciones TPV.');
+  btn.target = '_blank';
+  btn.rel = 'noopener noreferrer';
+  btn.setAttribute('aria-label', 'Contactar por WhatsApp');
+  btn.innerHTML = `
+    <svg class="whatsapp-float-icon" viewBox="0 0 24 24">
+      <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2zm.01 1.67c2.2 0 4.26.86 5.82 2.42a8.225 8.225 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.24 8.24-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.196 8.196 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24zm4.52 11.66c-.25-.13-1.47-.72-1.7-.81-.23-.08-.39-.13-.56.13-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.13-1.06-.39-2.03-1.25-.75-.67-1.26-1.5-1.41-1.75-.14-.25-.02-.39.11-.51.11-.11.25-.29.37-.44.13-.14.17-.25.25-.42.08-.17.04-.31-.02-.44-.06-.13-.56-1.35-.77-1.84-.2-.49-.41-.42-.56-.43l-.48-.01c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1s.9 2.43 1.03 2.6c.13.17 1.77 2.7 4.28 3.79.6.26 1.07.41 1.44.53.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.3z"/>
+    </svg>
+    <span>¿Dudas? Habla con nosotros</span>
+  `;
+  document.body.appendChild(btn);
+}
+
+// 9. ADVANCED FAQ ACCORDION
+function initFaqAccordion() {
+  const items = document.querySelectorAll('.faq-accordion-item');
+  const catBtns = document.querySelectorAll('.faq-cat-btn');
+
+  items.forEach(item => {
+    const header = item.querySelector('.faq-header');
+    if (!header) return;
+
+    header.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      // Optional: close other items
+      items.forEach(other => {
+        if (other !== item) other.classList.remove('open');
+      });
+      item.classList.toggle('open', !isOpen);
+    });
+  });
+
+  if (catBtns.length) {
+    catBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        catBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const category = btn.dataset.category;
+        items.forEach(item => {
+          if (category === 'all' || item.dataset.category === category) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+}
+
+// Initialization on DOMContentLoaded
+document.addEventListener('DOMContentLoaded', () => {
+  initLanguageSwitcher();
+  initProductSwitcher();
+  initRoiCalculator();
+  initPricingToggle();
+  initDemoModal();
+  initCardSpotlight();
+  initCookieConsent();
+  initWhatsAppWidget();
+  initFaqAccordion();
+});
+
