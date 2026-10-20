@@ -620,6 +620,13 @@ img, svg {
   z-index: 2;
 }
 
+.subpage-hero .hero-subtitle {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: 780px;
+}
+
 .hero-bg-video {
   position: absolute;
   top: 50%;
@@ -715,7 +722,10 @@ img, svg {
   color: #e2e8f0;
   max-width: 720px;
   line-height: 1.7;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 2.5rem;
+  text-align: center;
   text-shadow: 0 2px 12px rgba(0,0,0,0.5);
 }
 
@@ -2482,6 +2492,12 @@ body.page-fashion .brand-logo:hover .brand-logo-img { box-shadow: 0 0 24px rgba(
 body.page-pos .brand-logo:hover .brand-logo-img { box-shadow: 0 0 24px rgba(6, 182, 212, 0.6); }
 body.page-drive .brand-logo:hover .brand-logo-img { box-shadow: 0 0 24px rgba(16, 185, 129, 0.6); }
 body.page-business .brand-logo:hover .brand-logo-img { box-shadow: 0 0 24px rgba(59, 130, 246, 0.6); }
+body.page-tools .brand-logo-img {
+  object-fit: contain;
+  background: #04080e;
+  padding: 3px;
+  border-color: rgba(123, 224, 153, 0.45);
+}
 body.page-tools .brand-logo:hover .brand-logo-img { box-shadow: 0 0 24px rgba(123, 224, 153, 0.6); }
 
 /* ==========================================================================

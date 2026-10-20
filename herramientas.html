@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Utilidades & Hardware | Kiosk Labs & Imprenta Labs - Vektor Labs</title>
   <meta name="description" content="Descarga herramientas nativas desarrolladas por Vektor Labs: Kiosk Labs para modo quiosco en terminales Android e Imprenta Labs para impresión térmica directa en Windows.">
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="/logos/vektor-tools.ico">
+  <link rel="shortcut icon" href="/logos/vektor-tools.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
@@ -21,7 +22,7 @@
   <nav class="navbar">
     <div class="container navbar-inner">
       <a href="/" class="brand-logo">
-        <img src="/vektorlaps-logo.jpeg" alt="Vektor Labs" class="brand-logo-img">
+        <img src="/logos/kiosk-labs-logo.png" alt="Kiosk Labs" class="brand-logo-img">
         <span>VEKTOR <span style="color: #7BE099; font-weight: 600;">TOOLS</span></span>
       </a>
 
@@ -68,12 +69,10 @@
               </div>
             </a>
             <a href="/herramientas.html" class="dropdown-item" style="background: rgba(123, 224, 153, 0.08); border: 1px solid rgba(123, 224, 153, 0.2);">
-              <div class="dropdown-item-logo" style="display: flex; align-items: center; justify-content: center; background: rgba(123, 224, 153, 0.15); border: 1.5px solid rgba(123, 224, 153, 0.45); border-radius: 12px; width: 42px; height: 42px;">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7BE099" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-              </div>
+              <img src="/logos/kiosk-labs-logo.png" alt="Kiosk Labs" class="dropdown-item-logo" style="border-color: rgba(123, 224, 153, 0.45); object-fit: contain; background: #04080e; padding: 2px;">
               <div>
-                <div class="dropdown-item-title" style="color: #7BE099;">Utilidades & Hardware</div>
-                <div class="dropdown-item-desc">Kiosk Android & Impresión Térmica</div>
+                <div class="dropdown-item-title" style="color: #7BE099;" data-i18n="nav.tools">Utilidades & Hardware</div>
+                <div class="dropdown-item-desc" data-i18n="nav.tools_desc">Kiosk Android & Impresión Térmica</div>
               </div>
             </a>
           </div>
@@ -119,30 +118,30 @@
     <div class="container">
       <div class="hero-badge" style="background: rgba(123, 224, 153, 0.12); border-color: rgba(123, 224, 153, 0.35); color: #7BE099;">
         <span class="hero-badge-pulse" style="background: #7BE099; box-shadow: 0 0 10px #7BE099;"></span>
-        <span>Herramientas Nativas de Alto Rendimiento &bull; Vektor Labs</span>
+        <span data-i18n="tools.badge">Herramientas Nativas de Alto Rendimiento &bull; Vektor Labs</span>
       </div>
 
-      <h1 class="hero-title">
+      <h1 class="hero-title" data-i18n-html="tools.hero_title">
         <span class="hero-title-gradient">Utilidades Profesionales</span><br>
         <span style="color: #7BE099;">para Punto de Venta & Hardware</span>
       </h1>
 
-      <p class="hero-subtitle">
+      <p class="hero-subtitle" style="text-align: center; margin-left: auto; margin-right: auto;" data-i18n="tools.hero_sub">
         Software nativo desarrollado para resolver los retos reales del día a día: bloquea comanderos móviles en modo quiosco e imprime tickets térmicos a máxima velocidad sin depender de Java ni ventanas emergentes.
       </p>
 
       <div class="hero-ctas">
         <a href="#kiosk-labs" class="btn btn-lg btn-primary">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-          <span>Kiosk Labs (Android APK)</span>
+          <span data-i18n="tools.cta_kiosk">Kiosk Labs (Android APK)</span>
         </a>
         <a href="#imprenta-labs" class="btn btn-lg btn-secondary-glass">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
-          <span>Imprenta Labs (Windows EXE)</span>
+          <span data-i18n="tools.cta_imprenta">Imprenta Labs (Windows EXE)</span>
         </a>
         <a href="#desarrolladores" class="btn btn-lg btn-outline">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          <span>Guía Desarrolladores</span>
+          <span data-i18n="tools.cta_dev">Guía Desarrolladores</span>
         </a>
       </div>
     </div>
@@ -170,38 +169,38 @@
               <img src="/logos/kiosk-labs-logo.png" alt="Kiosk Labs Logo" class="tool-header-logo" style="border-color: rgba(123, 224, 153, 0.35);">
               <div>
                 <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0 0 4px;">Kiosk Labs</h2>
-                <div style="color: #7BE099; font-weight: 600; font-size: 0.9rem;">Navegador Quiosco & Bloqueo de Sistema</div>
+                <div style="color: #7BE099; font-weight: 600; font-size: 0.9rem;" data-i18n="tools.kiosk_tagline">Navegador Quiosco & Bloqueo de Sistema</div>
               </div>
             </div>
 
-            <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+            <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;" data-i18n="tools.kiosk_desc">
               Convierte cualquier smartphone o tablet Android en un comandero de camareros o terminal de autoservicio blindado. Impide que empleados o clientes abandonen tu software web, desactiva la barra de notificaciones y resiste reinicios.
             </p>
 
             <ul class="tool-specs-list">
               <li class="tool-spec-item">
                 <span class="spec-check">✓</span>
-                <span><strong>Bloqueo Lock Task Estricto:</strong> Inhabilita botones Home, Recientes y gestos del sistema.</span>
+                <span data-i18n-html="tools.kiosk_f1"><strong>Bloqueo Lock Task Estricto:</strong> Inhabilita botones Home, Recientes y gestos del sistema.</span>
               </li>
               <li class="tool-spec-item">
                 <span class="spec-check">✓</span>
-                <span><strong>Inmunidad a Reinicios:</strong> Autoarranque prioritario al encender el terminal (`BootCompleted`).</span>
+                <span data-i18n-html="tools.kiosk_f2"><strong>Inmunidad a Reinicios:</strong> Autoarranque prioritario al encender el terminal (`BootCompleted`).</span>
               </li>
               <li class="tool-spec-item">
                 <span class="spec-check">✓</span>
-                <span><strong>Pantalla de Reposo (Wake Lock):</strong> Interfaz elegante con reloj en vivo, batería y estado WiFi/Offline.</span>
+                <span data-i18n-html="tools.kiosk_f3"><strong>Pantalla de Reposo (Wake Lock):</strong> Interfaz elegante con reloj en vivo, batería y estado WiFi/Offline.</span>
               </li>
               <li class="tool-spec-item">
                 <span class="spec-check">✓</span>
-                <span><strong>Hardware & WebRTC:</strong> Auto-concesión de cámara para lectura de códigos de barra sin permisos manuales.</span>
+                <span data-i18n-html="tools.kiosk_f4"><strong>Hardware & WebRTC:</strong> Auto-concesión de cámara para lectura de códigos de barra sin permisos manuales.</span>
               </li>
               <li class="tool-spec-item">
                 <span class="spec-check">✓</span>
-                <span><strong>Gesto Secreto de Salida:</strong> 5 toques en la esquina superior derecha despliegan el PIN de administración (1234).</span>
+                <span data-i18n-html="tools.kiosk_f5"><strong>Gesto Secreto de Salida:</strong> 5 toques en la esquina superior derecha despliegan el PIN de administración (1234).</span>
               </li>
               <li class="tool-spec-item">
                 <span class="spec-check">✓</span>
-                <span><strong>Bridge JavaScript:</strong> Compatible con `window.Kiosk` y `window.fully` para telemetría y control web.</span>
+                <span data-i18n-html="tools.kiosk_f6"><strong>Bridge JavaScript:</strong> Compatible con `window.Kiosk` y `window.fully` para telemetría y control web.</span>
               </li>
             </ul>
           </div>
@@ -209,9 +208,9 @@
           <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
             <a href="/downloads/Kiosk_Labsv2.apk" download class="btn-primary-glow btn-lg" style="width: 100%; justify-content: center; gap: 10px;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              <span>Descargar Kiosk_Labsv2.apk (6.07 MB)</span>
+              <span data-i18n="tools.kiosk_btn">Descargar Kiosk_Labsv2.apk (6.07 MB)</span>
             </a>
-            <div style="font-size: 0.78rem; color: #64748B; text-align: center; margin-top: 10px;">
+            <div style="font-size: 0.78rem; color: #64748B; text-align: center; margin-top: 10px;" data-i18n="tools.kiosk_note">
               Instalador APK directo para Android &bull; Sin publicidad &bull; Gratuito para clientes
             </div>
           </div>
@@ -231,38 +230,38 @@
               <img src="/logos/imprenta-labs-logo.png" alt="Imprenta Labs Logo" class="tool-header-logo" style="border-color: rgba(6, 182, 212, 0.35);">
               <div>
                 <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0 0 4px;">Imprenta Labs</h2>
-                <div style="color: #06B6D4; font-weight: 600; font-size: 0.9rem;">Agente Nativo de Impresión Térmica Directa</div>
+                <div style="color: #06B6D4; font-weight: 600; font-size: 0.9rem;" data-i18n="tools.imprenta_tagline">Agente Nativo de Impresión Térmica Directa</div>
               </div>
             </div>
 
-            <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
+            <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;" data-i18n="tools.imprenta_desc">
               El puente local más ligero y rápido para conectar cualquier ERP, TPV o sistema web con impresoras de tickets (ESC/POS), cajones portamonedas y comanderas de cocina en red, sin runtimes pesados ni dependencias de Java.
             </p>
 
             <ul class="tool-specs-list">
               <li class="tool-spec-item">
                 <span class="spec-check" style="color: #06B6D4;">✓</span>
-                <span><strong>Consumo Mínimo de RAM:</strong> Apenas ~14 MB en segundo plano (frente a 250 MB de QZ Tray).</span>
+                <span data-i18n-html="tools.imprenta_f1"><strong>Consumo Mínimo de RAM:</strong> Apenas ~14 MB en segundo plano (frente a 250 MB de QZ Tray).</span>
               </li>
               <li class="tool-spec-item">
                 <span class="spec-check" style="color: #06B6D4;">✓</span>
-                <span><strong>Impresión Silenciosa Instantánea:</strong> Latencia menor a 50 milisegundos sin cuadros de diálogo.</span>
+                <span data-i18n-html="tools.imprenta_f2"><strong>Impresión Silenciosa Instantánea:</strong> Latencia menor a 50 milisegundos sin cuadros de diálogo.</span>
               </li>
               <li class="tool-spec-item">
                 <span class="spec-check" style="color: #06B6D4;">✓</span>
-                <span><strong>Cola de Impresión Persistente:</strong> Si falta papel, los tickets se guardan y reintentan automáticamente.</span>
+                <span data-i18n-html="tools.imprenta_f3"><strong>Cola de Impresión Persistente:</strong> Si falta papel, los tickets se guardan y reintentan automáticamente.</span>
               </li>
               <li class="tool-spec-item">
                 <span class="spec-check" style="color: #06B6D4;">✓</span>
-                <span><strong>Soporte ESC/POS & HTML:</strong> Renderizado directo de tickets a 58mm y 80mm con corte y apertura de cajón.</span>
+                <span data-i18n-html="tools.imprenta_f4"><strong>Soporte ESC/POS & HTML:</strong> Renderizado directo de tickets a 58mm y 80mm con corte y apertura de cajón.</span>
               </li>
               <li class="tool-spec-item">
                 <span class="spec-check" style="color: #06B6D4;">✓</span>
-                <span><strong>Impresoras de Red (Ethernet/WiFi):</strong> Envío directo a puerto 9100 sin necesidad de drivers Windows.</span>
+                <span data-i18n-html="tools.imprenta_f5"><strong>Impresoras de Red (Ethernet/WiFi):</strong> Envío directo a puerto 9100 sin necesidad de drivers Windows.</span>
               </li>
               <li class="tool-spec-item">
                 <span class="spec-check" style="color: #06B6D4;">✓</span>
-                <span><strong>Integración Nativa Gastro & ERP:</strong> Listo para funcionar de serie con Vektor Gastro y sistemas web.</span>
+                <span data-i18n-html="tools.imprenta_f6"><strong>Integración Nativa Gastro & ERP:</strong> Listo para funcionar de serie con Vektor Gastro y sistemas web.</span>
               </li>
             </ul>
           </div>
@@ -270,9 +269,9 @@
           <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
             <a href="/downloads/ImprentaLabs-Setup-2.0.0.exe" download class="btn-primary-glow btn-lg" style="background: linear-gradient(135deg, #06B6D4 0%, #3B82F6 100%); color: #041c24 !important; width: 100%; justify-content: center; gap: 10px;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              <span>Descargar ImprentaLabs-Setup-2.0.0.exe (4.81 MB)</span>
+              <span data-i18n="tools.imprenta_btn">Descargar ImprentaLabs-Setup-2.0.0.exe (4.81 MB)</span>
             </a>
-            <div style="font-size: 0.78rem; color: #64748B; text-align: center; margin-top: 10px;">
+            <div style="font-size: 0.78rem; color: #64748B; text-align: center; margin-top: 10px;" data-i18n="tools.imprenta_note">
               Instalador Windows x64 &bull; Cero dependencias Java &bull; Compatible con Windows 10/11
             </div>
           </div>
@@ -289,9 +288,9 @@
   <section class="comparison-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag" style="color: #06B6D4;">EFICIENCIA DE INGENIERÍA</span>
-        <h2 class="section-title">¿Por qué creamos Imprenta Labs en lugar de usar soluciones genéricas?</h2>
-        <p class="section-desc">
+        <span class="section-tag" style="color: #06B6D4;" data-i18n="tools.comp_tag">EFICIENCIA DE INGENIERÍA</span>
+        <h2 class="section-title" data-i18n="tools.comp_title">¿Por qué creamos Imprenta Labs en lugar de usar soluciones genéricas?</h2>
+        <p class="section-desc" data-i18n="tools.comp_desc">
           En entornos de alta exigencia como hostelería y retail, cada segundo y cada megabyte cuentan. Compara la arquitectura de Imprenta Labs frente a agentes tradicionales.
         </p>
       </div>
@@ -300,9 +299,9 @@
         <table class="comparison-table">
           <thead>
             <tr>
-              <th>Característica Operativa</th>
-              <th style="color: #F87171;">QZ Tray Tradicional</th>
-              <th style="color: #7BE099; font-weight: 800;">Imprenta Labs (Vektor)</th>
+              <th data-i18n="tools.th_feature">Característica Operativa</th>
+              <th style="color: #F87171;" data-i18n="tools.th_qz">QZ Tray Tradicional</th>
+              <th style="color: #7BE099; font-weight: 800;" data-i18n="tools.th_imprenta">Imprenta Labs (Vektor)</th>
             </tr>
           </thead>
           <tbody>
@@ -353,9 +352,9 @@
   <section class="bento-section" id="desarrolladores">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">API & PROTOCOLO PARA DESARROLLADORES</span>
-        <h2 class="section-title">Integra Impresión y Quiosco en Tu Propio Software</h2>
-        <p class="section-desc">
+        <span class="section-tag" data-i18n="tools.dev_tag">API & PROTOCOLO PARA DESARROLLADORES</span>
+        <h2 class="section-title" data-i18n="tools.dev_title">Integra Impresión y Quiosco en Tu Propio Software</h2>
+        <p class="section-desc" data-i18n="tools.dev_desc">
           Ponemos nuestra tecnología a disposición de integradores, agencias y desarrolladores. Puedes conectar cualquier web, ERP o aplicación mediante JavaScript, TypeScript o WebSocket directo.
         </p>
       </div>
