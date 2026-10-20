@@ -23,6 +23,64 @@
   <div class="section-glow glow-pricing"></div>
 
   <!-- ========================================================================
+       PRELOADER ENTRANCE (POS & INVENTARIO GSAP ORCHESTRATION)
+       ======================================================================== -->
+  <div id="vektorPreloader" class="vektor-preloader" aria-hidden="true">
+    <div class="preloader-backdrop"></div>
+    <div class="preloader-content">
+      
+      <!-- POS Badge -->
+      <div class="preloader-pos-badge">
+        <span class="pos-pulse-dot"></span>
+        <span>SISTEMA TPV &bull; CONTROL DE INVENTARIO</span>
+      </div>
+
+      <!-- POS Terminal & Barcode Scanner Animation -->
+      <div class="preloader-scanner-wrap">
+        <div class="preloader-barcode">
+          <span class="bar b-thick"></span>
+          <span class="bar b-thin"></span>
+          <span class="bar b-med"></span>
+          <span class="bar b-thin"></span>
+          <span class="bar b-thick"></span>
+          <span class="bar b-med"></span>
+          <span class="bar b-thin"></span>
+          <span class="bar b-thick"></span>
+          <span class="bar b-thin"></span>
+          <span class="bar b-med"></span>
+          <span class="bar b-thick"></span>
+          <span class="bar b-thin"></span>
+          <span class="bar b-med"></span>
+        </div>
+        <div class="preloader-laser"></div>
+      </div>
+
+      <!-- Brand Identity -->
+      <div class="preloader-brand">
+        VEKTOR <span class="preloader-brand-accent">POS</span>
+      </div>
+
+      <!-- Live POS Inventory Metric -->
+      <div class="preloader-inventory-metric">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#7BE099" stroke-width="2"><path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        <span>Stock sincronizado: <strong id="preloaderStockCount">0</strong> artículos</span>
+      </div>
+
+      <!-- Progress Track & Percentage -->
+      <div class="preloader-progress-track">
+        <div class="preloader-progress-bar"></div>
+      </div>
+
+      <!-- Dynamic POS Status Message -->
+      <div class="preloader-status">
+        <span class="preloader-status-text">Iniciando terminal POS...</span>
+        <span class="preloader-counter">0%</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================
        NAVBAR (Glass Luxury)
        ======================================================================== -->
   <nav class="navbar">
@@ -125,8 +183,7 @@
 
     <div class="container hero-content">
       <h1 class="hero-title">
-        <span data-i18n="hero.title_p1">El Ecosistema Operativo</span><br>
-        <span class="text-gradient" data-i18n="hero.title_highlight">que Multiplica la Rentabilidad</span> <span data-i18n="hero.title_p2">de tu Negocio</span>
+        <span data-i18n="hero.title">Administra tu negocio.</span>
       </h1>
 
       <p class="hero-subtitle" data-i18n="hero.subtitle">
@@ -134,21 +191,13 @@
       </p>
 
       <div class="hero-actions">
-        <button class="btn-primary-glow btn-lg" data-open-demo>
-          <span data-i18n="hero.cta_primary">Comenzar Prueba Gratuita 14 Días</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-        <a href="#demo-interactiva" class="btn-secondary-glass btn-lg">
+        <a href="#demo-interactiva" class="btn-primary-glow btn-lg">
           <span data-i18n="hero.cta_secondary">Ver Demos por Sector</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 9l-7 7-7-7"/></svg>
         </a>
       </div>
 
       <div class="hero-metrics">
-        <div class="metric">
-          <span class="metric-val" data-i18n="hero.metric_1_val">+250</span>
-          <span class="metric-label" data-i18n="hero.metric_1_lbl">Negocios Activos</span>
-        </div>
         <div class="metric">
           <span class="metric-val" data-i18n="hero.metric_2_val">100%</span>
           <span class="metric-label" data-i18n="hero.metric_2_lbl">Cloud & Seguro</span>
@@ -170,7 +219,7 @@
        ======================================================================== -->
   <section class="bento-section" id="demo-interactiva" style="padding-top: 3rem;">
     <div class="container">
-      <div style="text-align: center; margin-bottom: 50px;">
+      <div class="section-header" style="text-align: center; margin-bottom: 50px;">
         <span class="section-tag" data-i18n="showcase.tag">ECOSISTEMA INTEGRAL DE SOFTWARE</span>
         <h2 class="section-title" data-i18n="showcase.title">Especialización Máxima en Cada Sector</h2>
         <p class="section-desc" style="margin: 0 auto; max-width: 680px;" data-i18n="showcase.desc">
@@ -505,7 +554,7 @@
        ======================================================================== -->
   <section class="comparison-section">
     <div class="container">
-      <div style="text-align: center;">
+      <div class="section-header" style="text-align: center; margin-bottom: 50px;">
         <span class="section-tag" data-i18n="comparison.tag">EL CAMBIO QUE NOTARÁS DESDE EL DÍA 1</span>
         <h2 class="section-title" data-i18n="comparison.title">¿Por qué los negocios eligen Vektor?</h2>
         <p class="section-desc" style="margin: 0 auto 50px;" data-i18n="comparison.desc">
@@ -572,7 +621,7 @@
        ======================================================================== -->
   <section class="bento-section" id="caracteristicas">
     <div class="container">
-      <div style="text-align: center; margin-bottom: 50px;">
+      <div class="section-header" style="text-align: center; margin-bottom: 50px;">
         <span class="section-tag" data-i18n="why.tag">INGENIERÍA ROBUSTA</span>
         <h2 class="section-title" data-i18n="why.title">Diseñado para la velocidad de tu negocio</h2>
         <p class="section-desc" style="margin: 0 auto;" data-i18n="why.desc">Todo lo que necesitas para operar sin fallos, sin ralentizaciones y con máxima seguridad.</p>
@@ -825,7 +874,7 @@
        ======================================================================== -->
   <section class="bento-section" id="faq">
     <div class="container" style="max-width: 860px;">
-      <div style="text-align: center; margin-bottom: 30px;">
+      <div class="section-header" style="text-align: center; margin-bottom: 30px;">
         <span class="section-tag" data-i18n="faq.tag">PREGUNTAS FRECUENTES</span>
         <h2 class="section-title" data-i18n="faq.title">Todo lo que necesitas saber</h2>
         <p style="margin-top: 10px; color: #94A3B8;" data-i18n="faq.desc">Respuestas claras sobre seguridad de datos, hardware, modo offline y facturación.</p>

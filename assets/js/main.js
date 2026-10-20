@@ -3,6 +3,7 @@
    ========================================================================== */
 
 import { getActiveLanguage, setLanguage, SUPPORTED_LANGUAGES } from './i18n.js';
+import { initGsapAnimations } from './animations.js';
 
 // 1. PRODUCT PREVIEW DATA (Interactive Switcher)
 const PRODUCTS_DATA = {
@@ -1468,6 +1469,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCookieConsent();
   initWhatsAppWidget();
   initFaqAccordion();
+  initGsapAnimations();
 });
 
 

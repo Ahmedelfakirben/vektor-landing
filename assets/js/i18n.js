@@ -21,6 +21,7 @@ export const translations = {
 
     // Hero
     'hero.badge': 'Software Cloud & Offline de Alta Disponibilidad',
+    'hero.title': 'Administra tu negocio.',
     'hero.title_p1': 'El Ecosistema Operativo',
     'hero.title_highlight': 'que Multiplica la Rentabilidad',
     'hero.title_p2': 'de tu Negocio',
@@ -496,6 +497,7 @@ export const translations = {
 
     // Hero
     'hero.badge': 'Logiciel Cloud & Hors Ligne Haute Disponibilité',
+    'hero.title': 'Gérez votre entreprise.',
     'hero.title_p1': 'L\'Écosystème Opérationnel',
     'hero.title_highlight': 'qui Décuple la Rentabilité',
     'hero.title_p2': 'de votre Entreprise',
@@ -971,6 +973,7 @@ export const translations = {
 
     // Hero
     'hero.badge': 'High-Availability Cloud & Offline Software',
+    'hero.title': 'Manage your business.',
     'hero.title_p1': 'The Operating Ecosystem',
     'hero.title_highlight': 'that Multiplies Profitability',
     'hero.title_p2': 'for your Business',
