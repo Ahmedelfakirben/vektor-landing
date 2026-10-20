@@ -2453,12 +2453,241 @@ body.page-business .bento-card:hover {
   border-color: rgba(59, 130, 246, 0.4);
 }
 
+/* VEKTOR TOOLS & HARDWARE - Emerald Cyber & Precision Tech */
+body.page-tools {
+  background-color: #04080e;
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(123, 224, 153, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 82% 55%, rgba(6, 182, 212, 0.14) 0%, transparent 50%),
+    radial-gradient(circle at 45% 90%, rgba(16, 185, 129, 0.12) 0%, transparent 45%),
+    linear-gradient(180deg, #04080e 0%, #020408 100%);
+  background-attachment: fixed;
+}
+body.page-tools .global-glow-1 {
+  background: radial-gradient(circle, rgba(123, 224, 153, 0.25) 0%, transparent 70%);
+}
+body.page-tools .global-glow-2 {
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.18) 0%, transparent 70%);
+}
+body.page-tools .bento-icon {
+  --icon-bg: rgba(123, 224, 153, 0.12);
+  --icon-color: #7BE099;
+  --icon-border: rgba(123, 224, 153, 0.35);
+  --icon-shadow: rgba(123, 224, 153, 0.2);
+}
+
 /* Branded header logo hover glows */
 body.page-gastro .brand-logo:hover .brand-logo-img { box-shadow: 0 0 24px rgba(245, 158, 11, 0.6); }
 body.page-fashion .brand-logo:hover .brand-logo-img { box-shadow: 0 0 24px rgba(168, 85, 247, 0.6); }
 body.page-pos .brand-logo:hover .brand-logo-img { box-shadow: 0 0 24px rgba(6, 182, 212, 0.6); }
 body.page-drive .brand-logo:hover .brand-logo-img { box-shadow: 0 0 24px rgba(16, 185, 129, 0.6); }
 body.page-business .brand-logo:hover .brand-logo-img { box-shadow: 0 0 24px rgba(59, 130, 246, 0.6); }
+body.page-tools .brand-logo:hover .brand-logo-img { box-shadow: 0 0 24px rgba(123, 224, 153, 0.6); }
+
+/* ==========================================================================
+   TOOL SHOWCASE & DEVELOPER HUB STYLES
+   ========================================================================== */
+
+.tool-showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 60px;
+}
+
+@media (max-width: 960px) {
+  .tool-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.tool-card {
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(123, 224, 153, 0.45);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4), 0 0 35px rgba(123, 224, 153, 0.18);
+}
+
+.tool-badge-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+
+.tool-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #cbd5e1;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.tool-badge-emerald {
+  background: rgba(123, 224, 153, 0.12);
+  border-color: rgba(123, 224, 153, 0.35);
+  color: #7BE099;
+}
+
+.tool-badge-blue {
+  background: rgba(6, 182, 212, 0.12);
+  border-color: rgba(6, 182, 212, 0.35);
+  color: #06B6D4;
+}
+
+.tool-header-flex {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.tool-header-logo {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  object-fit: contain;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.tool-specs-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tool-spec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: #cbd5e1;
+  line-height: 1.5;
+}
+
+.tool-spec-item .spec-check {
+  color: #7BE099;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.code-terminal {
+  background: #060911;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  margin: 20px 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.code-terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 0.78rem;
+  color: #94A3B8;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+}
+
+.code-terminal-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.code-terminal-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.code-terminal-dots .dot-r { background: #EF4444; }
+.code-terminal-dots .dot-y { background: #F59E0B; }
+.code-terminal-dots .dot-g { background: #10B981; }
+
+.code-terminal pre {
+  margin: 0;
+  padding: 18px;
+  overflow-x: auto;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #E2E8F0;
+  font-family: 'Fira Code', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.code-terminal pre code {
+  color: inherit;
+  background: none;
+  padding: 0;
+}
+
+.comparison-table-wrap {
+  overflow-x: auto;
+  margin: 30px 0 50px;
+  background: rgba(15, 23, 42, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 8px;
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.comparison-table th {
+  padding: 16px 20px;
+  color: #94A3B8;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.comparison-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: #e2e8f0;
+}
+
+.comparison-table tr:last-child td {
+  border-bottom: none;
+}
+
+.comparison-table tr:hover td {
+  background: rgba(255, 255, 255, 0.02);
+}
 
 /* ==========================================================================
    GSAP PRELOADER - POS & INVENTARIO EDITION
