@@ -12,6 +12,7 @@ export default defineConfig({
         drive: resolve(__dirname, 'drive.html'),
         business: resolve(__dirname, 'business.html'),
         herramientas: resolve(__dirname, 'herramientas.html'),
+        servicios: resolve(__dirname, 'servicios.html'),
         terminos: resolve(__dirname, 'terminos.html'),
         privacidad: resolve(__dirname, 'privacidad.html'),
         cookies: resolve(__dirname, 'cookies.html'),

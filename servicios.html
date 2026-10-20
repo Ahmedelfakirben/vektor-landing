@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desarrollo Web para Negocios desde 800 DH | Vektor Labs</title>
+  <meta name="description" content="Diseñamos páginas web profesionales a medida para tu negocio por solo 800 DH. Máxima velocidad, adaptadas a móviles, botón WhatsApp y SEO en Google.">
+  <link rel="icon" type="image/svg+xml" href="/logos/vektor-web-logo.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <style>
+    /* Estilos específicos de la página de Desarrollo Web y Portafolio */
+    :root {
+      --accent-web: #6366F1;
+      --accent-web-glow: rgba(99, 102, 241, 0.35);
+      --accent-web-gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #38BDF8 100%);
+    }
+
+    .badge-price-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 18px;
+      border-radius: 99px;
+      background: rgba(123, 224, 153, 0.12);
+      border: 1px solid rgba(123, 224, 153, 0.4);
+      color: #7BE099;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-top: 15px;
+      box-shadow: 0 0 24px rgba(123, 224, 153, 0.15);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .portfolio-card {
+      background: rgba(15, 23, 42, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      backdrop-filter: blur(14px);
+      position: relative;
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(99, 102, 241, 0.45);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(99, 102, 241, 0.2);
+    }
+
+    .portfolio-header-bar {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 12px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .browser-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .browser-url-pill {
+      font-family: monospace;
+      font-size: 0.76rem;
+      color: #94A3B8;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 4px 12px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .portfolio-img-wrapper {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      background: #0B0F19;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .portfolio-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s;
+      display: block;
+    }
+
+    .portfolio-card:hover .portfolio-img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-img-badge {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(11, 15, 25, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 99px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .portfolio-body {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .portfolio-category {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #818CF8;
+      margin-bottom: 8px;
+    }
+
+    .portfolio-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .portfolio-desc {
+      font-size: 0.88rem;
+      color: #94A3B8;
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .portfolio-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+
+    .portfolio-tag {
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      color: #CBD5E1;
+    }
+
+    .portfolio-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .portfolio-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      color: #A5B4FC;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .portfolio-link-btn:hover {
+      background: #6366F1;
+      color: #fff;
+      border-color: #6366F1;
+      box-shadow: 0 4px 14px rgba(99, 102, 241, 0.4);
+    }
+
+    /* Pricing card highlight */
+    .offer-card {
+      background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15) 0%, rgba(15, 23, 42, 0.8) 100%);
+      border: 1.5px solid rgba(99, 102, 241, 0.45);
+      border-radius: 24px;
+      padding: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(99, 102, 241, 0.15);
+    }
+
+    .offer-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #10B981, #059669);
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 99px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+    }
+
+    .price-number {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .price-currency {
+      font-size: 1.6rem;
+      color: #7BE099;
+      font-weight: 800;
+    }
+
+    .features-list {
+      list-style: none;
+      padding: 0;
+      margin: 28px 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .features-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: #E2E8F0;
+    }
+
+    .features-list li svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      color: #7BE099;
+    }
+
+    /* Contact Form Box */
+    .contact-form-box {
+      background: rgba(14, 19, 31, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 36px;
+      backdrop-filter: blur(16px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4);
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: #CBD5E1;
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #6366F1;
+      background: rgba(99, 102, 241, 0.08);
+      box-shadow: 0 0 15px rgba(99, 102, 241, 0.25);
+    }
+
+    .form-select {
+      width: 100%;
+      padding: 14px 16px;
+      background: #0D1527;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .web-catalog-hero {
+      position: relative;
+      overflow: hidden;
+      padding-top: 140px;
+      padding-bottom: 80px;
+      min-height: 580px;
+    }
+
+    .web-hero-bg-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .web-hero-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      opacity: 0.42;
+      filter: contrast(1.15) brightness(0.9);
+    }
+
+    .web-hero-bg-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 35%, rgba(99, 102, 241, 0.18) 0%, transparent 65%),
+                  linear-gradient(180deg, rgba(7, 9, 14, 0.45) 0%, rgba(7, 9, 14, 0.75) 65%, #07090E 100%);
+    }
+
+    .web-catalog-hero .container {
+      position: relative;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body class="page-services" style="--accent-brand: #6366F1; --accent-glow: rgba(99, 102, 241, 0.35); --accent-brand-gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);">
+
+  <!-- Global animated background glows -->
+  <div class="global-glow-1"></div>
+  <div class="global-glow-2"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="/" class="brand-logo">
+        <img src="/logos/vektor-web-logo.svg" alt="Vektor Web" class="brand-logo-img" style="border-color: rgba(99, 102, 241, 0.45); box-shadow: 0 0 16px rgba(99, 102, 241, 0.25);">
+        <span>VEKTOR <span style="color: #818CF8; font-weight: 600;">WEB</span></span>
+      </a>
+
+      <ul class="nav-links">
+        <li class="nav-item nav-dropdown">
+          <div class="dropdown-trigger">
+            <span data-i18n="nav.products">Productos</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="dropdown-menu">
+            <a href="/gastro.html" class="dropdown-item">
+              <img src="/logos/vektor-gastro-logo.jpg" alt="Vektor Gastro" class="dropdown-item-logo" style="border-color: rgba(245, 158, 11, 0.45);">
+              <div>
+                <div class="dropdown-item-title">Vektor Gastro</div>
+                <div class="dropdown-item-desc">Restaurantes, Cafeterías & Bares</div>
+              </div>
+            </a>
+            <a href="/fashion.html" class="dropdown-item">
+              <img src="/logos/vektor-fashion-logo.jpg" alt="Vektor Fashion" class="dropdown-item-logo" style="border-color: rgba(168, 85, 247, 0.45);">
+              <div>
+                <div class="dropdown-item-title">Vektor Fashion</div>
+                <div class="dropdown-item-desc">Tiendas de Ropa, Tallas & Calzado</div>
+              </div>
+            </a>
+            <a href="/pos.html" class="dropdown-item">
+              <img src="/logos/vektor-pos-logo.jpg" alt="Vektor POS" class="dropdown-item-logo" style="border-color: rgba(6, 182, 212, 0.45);">
+              <div>
+                <div class="dropdown-item-title">Vektor POS</div>
+                <div class="dropdown-item-desc">Comercio, Retail & Supermercados</div>
+              </div>
+            </a>
+            <a href="/drive.html" class="dropdown-item">
+              <img src="/logos/vektor-drive-logo.jpg" alt="Vektor Drive" class="dropdown-item-logo" style="border-color: rgba(16, 185, 129, 0.45);">
+              <div>
+                <div class="dropdown-item-title">Vektor Drive</div>
+                <div class="dropdown-item-desc">Rent-a-car & Flotas con Fotos</div>
+              </div>
+            </a>
+            <a href="/business.html" class="dropdown-item">
+              <img src="/logos/vektor-business-logo.jpg" alt="Vektor Business" class="dropdown-item-logo" style="border-color: rgba(59, 130, 246, 0.45);">
+              <div>
+                <div class="dropdown-item-title">Vektor Business</div>
+                <div class="dropdown-item-desc">ERP, Facturas & Contabilidad</div>
+              </div>
+            </a>
+            <a href="/herramientas.html" class="dropdown-item">
+              <img src="/logos/kiosk-labs-logo.png" alt="Kiosk Labs" class="dropdown-item-logo" style="border-color: rgba(123, 224, 153, 0.45); object-fit: contain; background: #04080e; padding: 2px;">
+              <div>
+                <div class="dropdown-item-title" data-i18n="nav.tools">Utilidades & Hardware</div>
+                <div class="dropdown-item-desc" data-i18n="nav.tools_desc">Kiosk Android & Impresión Térmica</div>
+              </div>
+            </a>
+            <a href="/servicios.html" class="dropdown-item active" style="background: rgba(99, 102, 241, 0.12);">
+              <img src="/logos/vektor-web-logo.svg" alt="Desarrollo Web" class="dropdown-item-logo" style="border-color: rgba(99, 102, 241, 0.6); background: #080C1A;">
+              <div>
+                <div class="dropdown-item-title" style="color: #A5B4FC;" data-i18n="nav.web">Páginas Web & Otros <span style="background: #10B981; color: #04080e; font-size: 0.68rem; padding: 1px 6px; border-radius: 4px; font-weight: 800; margin-left: 4px;">800 DH</span></div>
+                <div class="dropdown-item-desc" data-i18n="nav.web_desc">Sitios Web para Negocios (800 DH)</div>
+              </div>
+            </a>
+          </div>
+        </li>
+        <li class="nav-item"><a href="/#caracteristicas" data-i18n="nav.why">Por qué Vektor</a></li>
+        <li class="nav-item"><a href="/#contacto" data-i18n="nav.contact">Contacto</a></li>
+        <li class="nav-item"><a href="/#precios" data-i18n="nav.pricing">Precios</a></li>
+        <li class="nav-item"><a href="/#faq" data-i18n="nav.faq">Preguntas</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Language Switcher -->
+        <div class="lang-switcher-wrapper">
+          <button id="langSwitcherBtn" class="lang-btn" aria-label="Cambiar idioma">
+            <span id="currentLangFlag">🇪🇸</span>
+            <span id="currentLangLabel">ES</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <div id="langDropdown" class="lang-dropdown">
+            <button class="lang-dropdown-item active" data-lang="es">
+              <span>🇪🇸</span>
+              <span>Español</span>
+            </button>
+            <button class="lang-dropdown-item" data-lang="fr">
+              <span>🇫🇷</span>
+              <span>Français</span>
+            </button>
+            <button class="lang-dropdown-item" data-lang="en">
+              <span>🇬🇧</span>
+              <span>English</span>
+            </button>
+          </div>
+        </div>
+
+        <a href="https://auth.vektorlabs.ma" class="btn-secondary-glass btn-sm" data-i18n="nav.client_portal">Portal Clientes</a>
+        <button class="btn-primary-glow btn-sm" data-open-demo data-i18n="nav.demo_btn">Probar Gratis</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION WITH CATALOG BACKGROUND -->
+  <header class="subpage-hero web-catalog-hero">
+    <!-- Large Background Image showing UI frontends catalog -->
+    <div class="web-hero-bg-container">
+      <img src="/hero-web-catalog.webp" alt="Catálogo de interfaces web Vektor" class="web-hero-bg-img">
+      <div class="web-hero-bg-gradient"></div>
+    </div>
+
+    <div class="container">
+      <h1 class="hero-title" style="margin-top: 15px;" data-i18n-html="wp.hero_title">
+        <span class="hero-title-gradient">Diseñamos la Página Web</span><br>
+        <span style="color: #818CF8;">que Impulsa y Hace Crecer tu Negocio</span>
+      </h1>
+
+      <p class="hero-subtitle" style="text-align: center; margin-left: auto; margin-right: auto; max-width: 760px; font-size: 1.12rem; line-height: 1.7; color: #CBD5E1;" data-i18n="wp.hero_sub">
+        Tu negocio merece una presencia digital de primer nivel. Creamos sitios web modernos, ultrarrápidos, optimizados para Google y con botón directo a tu WhatsApp para que no pierdas ni un solo cliente.
+      </p>
+
+      <div class="hero-ctas" style="margin-top: 36px;">
+        <a href="#contacto" class="btn btn-lg btn-primary" style="background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); color: #fff !important; box-shadow: 0 8px 30px rgba(99, 102, 241, 0.45); font-weight: 700;">
+          <span data-i18n="wp.hero_cta_quote">Quiero Mi Web por 800 DH</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#portafolio" class="btn btn-lg btn-secondary-glass" style="backdrop-filter: blur(12px); background: rgba(14, 19, 31, 0.75);">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span data-i18n="wp.hero_cta_portfolio">Ver Trabajos Realizados</span>
+        </a>
+      </div>
+
+      <!-- Quick Metrics Strip -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; max-width: 900px; margin: 48px auto 0; text-align: center;">
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 12px;">
+          <div style="font-size: 1.5rem; font-weight: 800; color: #7BE099;" data-i18n="wp.metric_1_val">800 DH</div>
+          <div style="font-size: 0.8rem; color: #94A3B8; margin-top: 4px;" data-i18n="wp.metric_1_lbl">Precio Base Accesible</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 12px;">
+          <div style="font-size: 1.5rem; font-weight: 800; color: #818CF8;" data-i18n="wp.metric_2_val">100%</div>
+          <div style="font-size: 0.8rem; color: #94A3B8; margin-top: 4px;" data-i18n="wp.metric_2_lbl">Adaptado a Móviles</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 12px;">
+          <div style="font-size: 1.5rem; font-weight: 800; color: #38BDF8;" data-i18n="wp.metric_3_val">WhatsApp</div>
+          <div style="font-size: 0.8rem; color: #94A3B8; margin-top: 4px;" data-i18n="wp.metric_3_lbl">Cierre Rápido de Clientes</div>
+        </div>
+        <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 18px 12px;">
+          <div style="font-size: 1.5rem; font-weight: 800; color: #F59E0B;" data-i18n="wp.metric_4_val">3 a 5 Días</div>
+          <div style="font-size: 0.8rem; color: #94A3B8; margin-top: 4px;" data-i18n="wp.metric_4_lbl">Entrega Llave en Mano</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       PORTAFOLIO DE SITIOS WEB REALIZADOS
+       ======================================================================== -->
+  <section class="bento-section" id="portafolio" style="padding-top: 40px;">
+    <div class="container">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto 30px;">
+        <span class="section-tag" style="color: #818CF8;" data-i18n="wp.portfolio_tag">PORTAFOLIO EN PRODUCCIÓN</span>
+        <h2 class="section-title" data-i18n="wp.portfolio_title">Sitios Web Creados para Negocios Reales</h2>
+        <p class="section-desc" data-i18n="wp.portfolio_desc">
+          No te mostramos maquetas vacías: aquí tienes ejemplos reales en funcionamiento desarrollados por nuestro equipo para diferentes sectores.
+        </p>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <!-- PROYECTO 1: Shopping by Lina -->
+        <article class="portfolio-card">
+          <div class="portfolio-header-bar">
+            <div class="browser-dots">
+              <span class="browser-dot" style="background: #EF4444;"></span>
+              <span class="browser-dot" style="background: #F59E0B;"></span>
+              <span class="browser-dot" style="background: #10B981;"></span>
+            </div>
+            <div class="browser-url-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>shoppingbylina.com</span>
+            </div>
+          </div>
+          <div class="portfolio-img-wrapper">
+            <img src="/portfolio/shoppingbylina.webp" alt="Shopping by Lina" class="portfolio-img" loading="lazy">
+            <div class="portfolio-img-badge">
+              <span style="color: #10B981;">●</span> <span data-i18n="wp.p1_cat">E-Commerce & Moda</span>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div class="portfolio-category" data-i18n="wp.p1_cat">E-Commerce & Moda</div>
+            <h3 class="portfolio-title">
+              <span>Shopping by Lina</span>
+              <span style="font-size: 0.8rem; background: rgba(168, 85, 247, 0.15); color: #C084FC; padding: 3px 8px; border-radius: 6px; font-weight: 600;" data-i18n="wp.p1_badge">Tienda Online</span>
+            </h3>
+            <p class="portfolio-desc" data-i18n="wp.p1_desc">
+              Boutique en línea de ropa deportiva y moda tendencia. Catálogo visual de productos con alta resolución, filtrado dinámico de prendas, experiencia de compra optimizada y contacto comercial integrado.
+            </p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag" data-i18n="wp.p1_tag1">Tienda de Ropa & Sport</span>
+              <span class="portfolio-tag" data-i18n="wp.p1_tag2">Carga Ultrarrápida</span>
+              <span class="portfolio-tag" data-i18n="wp.p1_tag3">100% Mobile First</span>
+            </div>
+            <div class="portfolio-action">
+              <span style="font-size: 0.8rem; color: #10B981; font-weight: 600;">● <span data-i18n="wp.status_live">En Vivo & Activo</span></span>
+              <a href="https://shoppingbylina.com" target="_blank" rel="noopener noreferrer" class="portfolio-link-btn">
+                <span data-i18n="wp.visit_btn">Visitar Sitio Web</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROYECTO 2: House Publique -->
+        <article class="portfolio-card">
+          <div class="portfolio-header-bar">
+            <div class="browser-dots">
+              <span class="browser-dot" style="background: #EF4444;"></span>
+              <span class="browser-dot" style="background: #F59E0B;"></span>
+              <span class="browser-dot" style="background: #10B981;"></span>
+            </div>
+            <div class="browser-url-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>housepublique.com</span>
+            </div>
+          </div>
+          <div class="portfolio-img-wrapper">
+            <img src="/portfolio/housepublique.webp" alt="House Publique" class="portfolio-img" loading="lazy">
+            <div class="portfolio-img-badge">
+              <span style="color: #F59E0B;">●</span> <span data-i18n="wp.p2_badge">Gastro & Lounge</span>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div class="portfolio-category" data-i18n="wp.p2_cat">Restauración & Coctelería</div>
+            <h3 class="portfolio-title">
+              <span>House Publique</span>
+              <span style="font-size: 0.8rem; background: rgba(245, 158, 11, 0.15); color: #FBBF24; padding: 3px 8px; border-radius: 6px; font-weight: 600;" data-i18n="wp.p2_badge">Gastro & Lounge</span>
+            </h3>
+            <p class="portfolio-desc" data-i18n="wp.p2_desc">
+              Web gastronómica de alta estética con presentación de cartas, platos de autor, bebidas premium y ambientación cuidada. Tipografía de lujo, navegación intuitiva y acceso rápido para reservas.
+            </p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag" data-i18n="wp.p2_tag1">Menú & Carta Digital</span>
+              <span class="portfolio-tag" data-i18n="wp.p2_tag2">Diseño Premium & Lujo</span>
+              <span class="portfolio-tag" data-i18n="wp.p2_tag3">Ubicación & Reservas</span>
+            </div>
+            <div class="portfolio-action">
+              <span style="font-size: 0.8rem; color: #10B981; font-weight: 600;">● <span data-i18n="wp.status_live">En Vivo & Activo</span></span>
+              <a href="https://housepublique.com" target="_blank" rel="noopener noreferrer" class="portfolio-link-btn">
+                <span data-i18n="wp.visit_btn">Visitar Sitio Web</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROYECTO 3: La Pergola Cabo -->
+        <article class="portfolio-card">
+          <div class="portfolio-header-bar">
+            <div class="browser-dots">
+              <span class="browser-dot" style="background: #EF4444;"></span>
+              <span class="browser-dot" style="background: #F59E0B;"></span>
+              <span class="browser-dot" style="background: #10B981;"></span>
+            </div>
+            <div class="browser-url-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>lapergolacabo.com</span>
+            </div>
+          </div>
+          <div class="portfolio-img-wrapper">
+            <img src="/portfolio/lapergolacabo.webp" alt="La Pergola Cabo" class="portfolio-img" loading="lazy">
+            <div class="portfolio-img-badge">
+              <span style="color: #22D3EE;">●</span> <span data-i18n="wp.p3_badge">Restaurante Marítimo</span>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div class="portfolio-category" data-i18n="wp.p3_cat">Hostelería & Beach Lounge</div>
+            <h3 class="portfolio-title">
+              <span>La Pergola Cabo</span>
+              <span style="font-size: 0.8rem; background: rgba(6, 182, 212, 0.15); color: #22D3EE; padding: 3px 8px; border-radius: 6px; font-weight: 600;" data-i18n="wp.p3_badge">Restaurante Marítimo</span>
+            </h3>
+            <p class="portfolio-desc" data-i18n="wp.p3_desc">
+              Sitio web oficial para restaurante y terraza en la costa de Cabo Negro. Galería fotográfica inmersiva, consulta de carta mediterránea, horarios, eventos y botón directo de reservas telefónicas y WhatsApp.
+            </p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag" data-i18n="wp.p3_tag1">Terraza & Vistas al Mar</span>
+              <span class="portfolio-tag" data-i18n="wp.p3_tag2">Carta & Cocktails</span>
+              <span class="portfolio-tag" data-i18n="wp.p3_tag3">Reserva por WhatsApp</span>
+            </div>
+            <div class="portfolio-action">
+              <span style="font-size: 0.8rem; color: #10B981; font-weight: 600;">● <span data-i18n="wp.status_live">En Vivo & Activo</span></span>
+              <a href="https://lapergolacabo.com" target="_blank" rel="noopener noreferrer" class="portfolio-link-btn">
+                <span data-i18n="wp.visit_btn">Visitar Sitio Web</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROYECTO 4: Sigma DI -->
+        <article class="portfolio-card">
+          <div class="portfolio-header-bar">
+            <div class="browser-dots">
+              <span class="browser-dot" style="background: #EF4444;"></span>
+              <span class="browser-dot" style="background: #F59E0B;"></span>
+              <span class="browser-dot" style="background: #10B981;"></span>
+            </div>
+            <div class="browser-url-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>sigma-di.ma/fr</span>
+            </div>
+          </div>
+          <div class="portfolio-img-wrapper">
+            <img src="/portfolio/sigma.webp" alt="Sigma DI Académie" class="portfolio-img" loading="lazy">
+            <div class="portfolio-img-badge">
+              <span style="color: #60A5FA;">●</span> <span data-i18n="wp.p4_badge">Educación & Certificación</span>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div class="portfolio-category" data-i18n="wp.p4_cat">Academia & Formación B2B</div>
+            <h3 class="portfolio-title">
+              <span>Sigma DI Académie</span>
+              <span style="font-size: 0.8rem; background: rgba(59, 130, 246, 0.15); color: #60A5FA; padding: 3px 8px; border-radius: 6px; font-weight: 600;" data-i18n="wp.p4_badge">Educación & Certificación</span>
+            </h3>
+            <p class="portfolio-desc" data-i18n="wp.p4_desc">
+              Portal educativo multilingüe para academia de idioma alemán y centro examinador oficial acreditado telc B1 & B2. Calendario de exámenes, catálogo de ofertas formativas, formularios de asesoramiento y registro.
+            </p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag" data-i18n="wp.p4_tag1">Centro de Examen telc</span>
+              <span class="portfolio-tag" data-i18n="wp.p4_tag2">Portal Multilingüe (FR/DE)</span>
+              <span class="portfolio-tag" data-i18n="wp.p4_tag3">Calendario de Fechas</span>
+            </div>
+            <div class="portfolio-action">
+              <span style="font-size: 0.8rem; color: #10B981; font-weight: 600;">● <span data-i18n="wp.status_live">En Vivo & Activo</span></span>
+              <a href="https://sigma-di.ma/fr" target="_blank" rel="noopener noreferrer" class="portfolio-link-btn">
+                <span data-i18n="wp.visit_btn">Visitar Sitio Web</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROYECTO 5: Harmonic Fusion -->
+        <article class="portfolio-card">
+          <div class="portfolio-header-bar">
+            <div class="browser-dots">
+              <span class="browser-dot" style="background: #EF4444;"></span>
+              <span class="browser-dot" style="background: #F59E0B;"></span>
+              <span class="browser-dot" style="background: #10B981;"></span>
+            </div>
+            <div class="browser-url-pill">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span>harmonicfusion.org</span>
+            </div>
+          </div>
+          <div class="portfolio-img-wrapper">
+            <img src="/portfolio/harmonicfusion.webp" alt="Harmonic Fusion" class="portfolio-img" loading="lazy">
+            <div class="portfolio-img-badge">
+              <span style="color: #818CF8;">●</span> <span data-i18n="wp.p5_badge">Consultoría Digital</span>
+            </div>
+          </div>
+          <div class="portfolio-body">
+            <div class="portfolio-category" data-i18n="wp.p5_cat">Digital & Multimedia</div>
+            <h3 class="portfolio-title">
+              <span>Harmonic Fusion</span>
+              <span style="font-size: 0.8rem; background: rgba(99, 102, 241, 0.15); color: #818CF8; padding: 3px 8px; border-radius: 6px; font-weight: 600;" data-i18n="wp.p5_badge">Consultoría Digital</span>
+            </h3>
+            <p class="portfolio-desc" data-i18n="wp.p5_desc">
+              Plataforma corporativa con estética minimalista moderna para servicios creativos, soluciones sonoras e interactividad. Arquitectura limpia, animaciones sutiles y portafolio de proyectos profesionales.
+            </p>
+            <div class="portfolio-tags">
+              <span class="portfolio-tag" data-i18n="wp.p5_tag1">Multimedia & Audio</span>
+              <span class="portfolio-tag" data-i18n="wp.p5_tag2">Soluciones Cloud</span>
+              <span class="portfolio-tag" data-i18n="wp.p5_tag3">Branding & Identidad</span>
+            </div>
+            <div class="portfolio-action">
+              <span style="font-size: 0.8rem; color: #10B981; font-weight: 600;">● <span data-i18n="wp.status_live">En Vivo & Activo</span></span>
+              <a href="https://harmonicfusion.org" target="_blank" rel="noopener noreferrer" class="portfolio-link-btn">
+                <span data-i18n="wp.visit_btn">Visitar Sitio Web</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROYECTO 6: Tu Negocio Aquí -->
+        <article class="portfolio-card" style="border: 2px dashed rgba(99, 102, 241, 0.4); background: rgba(99, 102, 241, 0.04);">
+          <div class="portfolio-header-bar">
+            <div class="browser-dots">
+              <span class="browser-dot" style="background: rgba(255,255,255,0.2);"></span>
+              <span class="browser-dot" style="background: rgba(255,255,255,0.2);"></span>
+              <span class="browser-dot" style="background: rgba(255,255,255,0.2);"></span>
+            </div>
+            <div class="browser-url-pill" style="color: #7BE099;" data-i18n="wp.p6_url">
+              tunegocio.com (Próximamente)
+            </div>
+          </div>
+          <div style="height: 180px; display: grid; place-items: center; background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%); border-bottom: 1px dashed rgba(99, 102, 241, 0.3);">
+            <div style="width: 64px; height: 64px; border-radius: 20px; background: rgba(99, 102, 241, 0.2); border: 1px solid rgba(99, 102, 241, 0.4); display: grid; place-items: center; color: #818CF8; box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+          </div>
+          <div class="portfolio-body" style="justify-content: center; text-align: center; align-items: center;">
+            <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 8px;" data-i18n="wp.p6_title">¿El próximo caso de éxito?</h3>
+            <p style="font-size: 0.88rem; color: #94A3B8; margin-bottom: 24px; max-width: 280px;" data-i18n="wp.p6_desc">
+              Creamos tu página web lista en 72 horas con diseño exclusivo, fotos y enlace directo a tu WhatsApp por solo 800 DH.
+            </p>
+            <a href="#contacto" class="btn btn-primary-glow btn-sm" style="background: #6366F1; color: #fff; width: 100%;" data-i18n="wp.p6_btn">
+              Solicitar Mi Web por 800 DH ➔
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       OFERTA Y QUÉ INCLUYE (800 DH)
+       ======================================================================== -->
+  <section class="bento-section" id="oferta">
+    <div class="container" style="max-width: 980px;">
+      <div style="text-align: center; margin-bottom: 36px;">
+        <span class="section-tag" style="color: #10B981;" data-i18n="wp.offer_tag">TRANSPARENCIA TOTAL &bull; SIN SORPRESAS</span>
+        <h2 class="section-title" data-i18n="wp.offer_title">¿Qué incluye el Plan Web de 800 DH?</h2>
+        <p class="section-desc" data-i18n="wp.offer_desc">
+          Todo lo imprescindible para que tu negocio tenga presencia en Internet y empiece a recibir pedidos o mensajes desde el primer día.
+        </p>
+      </div>
+
+      <div class="offer-card">
+        <div class="offer-badge" data-i18n="wp.offer_badge">Precio Promocional</div>
+        
+        <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 24px;">
+          <div>
+            <div style="font-size: 0.85rem; font-weight: 700; color: #818CF8; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="wp.offer_pkg_name">PAQUETE COMPLETO DE DESARROLLO</div>
+            <h3 style="font-size: 1.8rem; font-weight: 800; color: #fff; margin-top: 4px;" data-i18n="wp.offer_pkg_title">Sitio Web Corporativo para tu Negocio</h3>
+          </div>
+          <div>
+            <div class="price-number">
+              800 <span class="price-currency">DH</span>
+            </div>
+            <div style="font-size: 0.78rem; color: #94A3B8; text-align: right;" data-i18n="wp.offer_pkg_sub">Pago único de lanzamiento</div>
+          </div>
+        </div>
+
+        <ul class="features-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n-html="wp.feat_1"><strong>Diseño personalizado</strong> adaptado a los colores y estilo de tu negocio</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n-html="wp.feat_2"><strong>100% Adaptado a móviles</strong> (Responsive para iPhone y Android)</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n-html="wp.feat_3"><strong>Botón flotante de WhatsApp</strong> para recibir consultas y pedidos directamente</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n-html="wp.feat_4"><strong>Formulario de contacto</strong> con notificación a tu móvil o correo</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n-html="wp.feat_5"><strong>Integración de Google Maps</strong> con la ubicación exacta de tu tienda o local</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n-html="wp.feat_6"><strong>Enlaces a Redes Sociales</strong> (Instagram, TikTok, Facebook, etc.)</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n-html="wp.feat_7"><strong>Optimización básica de SEO</strong> para salir en las búsquedas de Google</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n-html="wp.feat_8"><strong>Velocidad de carga ultra rápida</strong> con certificado de seguridad SSL gratis</span>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span data-i18n-html="wp.feat_9"><strong>Compatibilidad total</strong> con las aplicaciones TPV y software de Vektor</span>
+          </li>
+        </ul>
+
+        <div style="margin-top: 32px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.03); border-radius: 14px; padding: 18px 24px;">
+          <div>
+            <div style="font-weight: 700; color: #fff; font-size: 0.95rem;" data-i18n="wp.custom_box_title">¿Tienes necesidades especiales o tienda online con pasarela de pago?</div>
+            <div style="font-size: 0.82rem; color: #94A3B8;" data-i18n="wp.custom_box_desc">También desarrollamos e-commerce avanzados, pasarelas CMI/Stripe y portales personalizados.</div>
+          </div>
+          <a href="#contacto" class="btn btn-primary-glow btn-sm" style="background: linear-gradient(135deg, #10B981, #059669); color: #fff;" data-i18n="wp.custom_box_btn">
+            Contratar por 800 DH ➔
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       FORMULARIO DE CONTACTO DIRECTO
+       ======================================================================== -->
+  <section class="bento-section" id="contacto" style="padding-top: 40px; padding-bottom: 80px;">
+    <div class="container" style="max-width: 900px;">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <span class="section-tag" style="color: #6366F1;" data-i18n="wp.form_tag">SOLICITUD INMEDIATA</span>
+        <h2 class="section-title" data-i18n="wp.form_title">Comienza tu Proyecto Web Hoy Mismo</h2>
+        <p class="section-desc" data-i18n="wp.form_desc">
+          Rellena este breve formulario y nuestro equipo te contactará directamente por WhatsApp en menos de 1 hora para empezar a diseñar tu página.
+        </p>
+      </div>
+
+      <div class="contact-form-box">
+        <form id="webContactForm">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px;">
+            <div class="form-group">
+              <label for="clientName" data-i18n="wp.form_label_name">Tu Nombre Completo *</label>
+              <input type="text" id="clientName" class="form-input" required placeholder="Ej. Youssef El Amrani" data-i18n-placeholder="wp.form_ph_name">
+            </div>
+
+            <div class="form-group">
+              <label for="businessName" data-i18n="wp.form_label_biz">Nombre de tu Negocio o Proyecto *</label>
+              <input type="text" id="businessName" class="form-input" required placeholder="Ej. Café Marina / Boutique Fashion" data-i18n-placeholder="wp.form_ph_biz">
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 18px;">
+            <div class="form-group">
+              <label for="clientPhone" data-i18n="wp.form_label_phone">Tu Teléfono / WhatsApp *</label>
+              <input type="tel" id="clientPhone" class="form-input" required placeholder="+212 600 000 000 / +34 ..." data-i18n-placeholder="wp.form_ph_phone">
+            </div>
+
+            <div class="form-group">
+              <label for="businessType" data-i18n="wp.form_label_type">Tipo de Negocio *</label>
+              <select id="businessType" class="form-select">
+                <option value="Restaurante / Cafetería / Hostelería" data-i18n="wp.opt_gastro">Restaurante, Cafetería o Bar</option>
+                <option value="Tienda de Ropa / Moda / Calzado" data-i18n="wp.opt_fashion">Tienda de Ropa, Calzado o Moda</option>
+                <option value="Comercio / Tienda Local / Supermercado" data-i18n="wp.opt_retail">Comercio, Retail o Tienda Local</option>
+                <option value="Rent a Car / Coches / Alquiler" data-i18n="wp.opt_drive">Rent-a-Car o Alquiler de Vehículos</option>
+                <option value="Servicios Profesionales / Empresa" data-i18n="wp.opt_biz">Servicios, Academia o Empresa B2B</option>
+                <option value="Otro tipo de negocio" data-i18n="wp.opt_other">Otro tipo de negocio</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="hasDomain" data-i18n="wp.form_label_domain">¿Dispones ya de logotipo o dominio web registrado?</label>
+            <select id="hasDomain" class="form-select">
+              <option value="No, necesito que me ayudéis con todo" data-i18n="wp.opt_domain_none">No, necesito que me ayudéis con todo (Llave en mano)</option>
+              <option value="Tengo logotipo pero me falta dominio" data-i18n="wp.opt_domain_logo_only">Tengo logotipo pero me falta dominio</option>
+              <option value="Tengo ya dominio y logotipo listos" data-i18n="wp.opt_domain_ready">Tengo ya dominio y logotipo listos</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="clientNotes" data-i18n="wp.form_label_notes">¿Alguna referencia o detalle que quieras añadir? (Opcional)</label>
+            <textarea id="clientNotes" class="form-input" rows="3" placeholder="Ej. Me gusta el estilo de housepublique.com o quiero que tenga menú con fotos y botón directo para pedir..." data-i18n-placeholder="wp.form_ph_notes"></textarea>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <button type="submit" class="btn btn-primary-glow btn-lg" style="width: 100%; background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%); color: #fff; font-size: 1.05rem; font-weight: 700; border-radius: 12px; cursor: pointer; padding: 16px;">
+              <span data-i18n="wp.form_btn">Enviar Solicitud por WhatsApp (Oferta 800 DH) ➔</span>
+            </button>
+            <div style="text-align: center; font-size: 0.78rem; color: #94A3B8; margin-top: 12px; display: flex; align-items: center; justify-content: center; gap: 6px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #10B981;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span data-i18n="wp.form_guarantee">Sin compromisos ni pagos por adelantado. Te responderemos directamente con el asesoramiento.</span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       PREGUNTAS FRECUENTES (FAQ)
+       ======================================================================== -->
+  <section class="bento-section" id="faq" style="border-top: 1px solid var(--border-subtle); padding-top: 50px;">
+    <div class="container" style="max-width: 800px;">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <span class="section-tag" style="color: #818CF8;" data-i18n="wp.faq_tag">DUDAS HABITUALES</span>
+        <h2 class="section-title" data-i18n="wp.faq_title">Preguntas Frecuentes sobre el Servicio Web</h2>
+      </div>
+
+      <div class="faq-accordion">
+        <div class="faq-accordion-item">
+          <div class="faq-header">
+            <h4 class="faq-question-title" style="display: flex; align-items: center; gap: 12px;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 8px; background: rgba(99, 102, 241, 0.15); color: #818CF8; flex-shrink: 0;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              </span>
+              <span data-i18n="wp.q1_title">¿El precio de 800 DH tiene costes ocultos o mensuales?</span>
+            </h4>
+            <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-content">
+            <p data-i18n-html="wp.q1_desc">No. Los 800 DH corresponden al diseño, programación y puesta en marcha completa de tu sitio web llave en mano. Lo único ajeno al desarrollo es el nombre de dominio anual (ej. .com o .ma) si no dispones de uno, cuyo coste habitual es de aprox. 90-120 DH al año.</p>
+          </div>
+        </div>
+
+        <div class="faq-accordion-item">
+          <div class="faq-header">
+            <h4 class="faq-question-title" style="display: flex; align-items: center; gap: 12px;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 8px; background: rgba(16, 185, 129, 0.15); color: #10B981; flex-shrink: 0;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </span>
+              <span data-i18n="wp.q2_title">¿Cuánto tiempo tardáis en entregar la web terminada?</span>
+            </h4>
+            <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-content">
+            <p data-i18n-html="wp.q2_desc">El plazo medio de entrega es de <strong>3 a 5 días laborables</strong> a partir del momento en que nos facilitas la información básica de tu negocio (fotos, textos, teléfonos y ubicación).</p>
+          </div>
+        </div>
+
+        <div class="faq-accordion-item">
+          <div class="faq-header">
+            <h4 class="faq-question-title" style="display: flex; align-items: center; gap: 12px;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 8px; background: rgba(59, 130, 246, 0.15); color: #60A5FA; flex-shrink: 0;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+              </span>
+              <span data-i18n="wp.q3_title">¿La página se verá bien en teléfonos móviles?</span>
+            </h4>
+            <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-content">
+            <p data-i18n-html="wp.q3_desc">Absolutamente. Más del 80% de tus clientes navegarán desde su móvil. Todos nuestros desarrollos son 100% <em>Mobile First</em>, adaptándose con total fluidez a iPhone, Android, tablets y ordenadores de sobremesa.</p>
+          </div>
+        </div>
+
+        <div class="faq-accordion-item">
+          <div class="faq-header">
+            <h4 class="faq-question-title" style="display: flex; align-items: center; gap: 12px;">
+              <span style="display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 8px; background: rgba(168, 85, 247, 0.15); color: #C084FC; flex-shrink: 0;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+              </span>
+              <span data-i18n="wp.q4_title">¿Se puede conectar esta web con el TPV o software Vektor?</span>
+            </h4>
+            <svg class="faq-icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+          </div>
+          <div class="faq-content">
+            <p data-i18n-html="wp.q4_desc">Sí, esa es precisamente una de las mayores ventajas de Vektor Labs: podemos enlazar la web directamente con tu catálogo de productos en vivo, sistema de reservas o comandero digital para que todo funcione en completa armonía.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="hero-section" style="padding: 70px 0; border-top: 1px solid var(--border-subtle); background: radial-gradient(circle at center, rgba(99, 102, 241, 0.08) 0%, transparent 70%);">
+    <div class="container" style="max-width: 720px; text-align: center;">
+      <h2 style="font-size: 2.2rem; margin-bottom: 16px;" data-i18n="wp.final_title">Lleva tu Negocio al Siguiente Nivel</h2>
+      <p style="margin-bottom: 30px; color: #94A3B8;" data-i18n="wp.final_desc">Aprovecha la tarifa promocional de 800 DH y empieza a recibir nuevos clientes desde Internet.</p>
+      <a href="#contacto" class="btn-primary-glow btn-lg" style="background: linear-gradient(135deg, #6366F1, #8B5CF6); color: #fff; text-decoration: none; display: inline-block;" data-i18n="wp.final_btn">
+        Empezar Mi Web por 800 DH ➔
+      </a>
+    </div>
+  </section>
+
+  <!-- MODAL DE DEMO -->
+  <div id="demoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.85); backdrop-filter: blur(12px); z-index: 1000; place-items: center; padding: 20px;">
+    <div style="background: #0E131F; border: 1px solid var(--border-light); border-radius: 20px; max-width: 480px; width: 100%; padding: 36px; position: relative;">
+      <button id="closeDemoModal" style="position: absolute; top: 18px; right: 20px; background: none; border: none; font-size: 1.4rem; color: #94A3B8; cursor: pointer;">✕</button>
+      <h3 style="font-size: 1.5rem; margin-bottom: 8px;" data-i18n="wp.modal_title">Activar Vektor Web & Ecosistema</h3>
+      <p style="font-size: 0.88rem; color: #94A3B8; margin-bottom: 24px;" data-i18n="wp.modal_desc">Completa tus datos y te asesoramos de inmediato sin compromiso.</p>
+      <form id="demoForm" style="display: flex; flex-direction: column; gap: 14px;">
+        <input type="hidden" id="demoProduct" value="Vektor Web">
+        <input type="text" id="demoName" required placeholder="Nombre de tu Negocio o Empresa" data-i18n-placeholder="wp.modal_ph_name" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); border-radius: 8px; color: #fff;">
+        <input type="tel" id="demoPhone" required placeholder="Tu WhatsApp (+34 ... / +212 ...)" data-i18n-placeholder="wp.modal_ph_phone" style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid var(--border-light); border-radius: 8px; color: #fff;">
+        <button type="submit" class="btn-primary-glow" style="background: linear-gradient(135deg, #6366F1, #8B5CF6); color: #fff; width: 100%;" data-i18n="wp.modal_btn">Solicitar Asesoría Ahora ➔</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <img src="/vektorlaps-logo.jpeg" alt="Vektor Labs" class="brand-logo-img">
+            <span>VEKTOR <span style="color: #7BE099; font-weight: 500;">LABS</span></span>
+          </div>
+          <p style="font-size: 0.88rem; max-width: 320px; margin-bottom: 20px;">
+            La suite integral de soluciones cloud para comercio, hostelería y desarrollo digital. Más visibilidad, más control.
+          </p>
+          <span class="status-pill">
+            <span class="status-dot"></span>
+            <span>Servicios de Desarrollo Activos</span>
+          </span>
+        </div>
+
+        <div class="footer-col">
+          <h5>Productos & Software</h5>
+          <ul class="footer-links">
+            <li><a href="/gastro.html">Vektor Gastro</a></li>
+            <li><a href="/fashion.html">Vektor Fashion</a></li>
+            <li><a href="/pos.html">Vektor POS Retail</a></li>
+            <li><a href="/drive.html">Vektor Drive Rentacar</a></li>
+            <li><a href="/business.html">Vektor Business ERP</a></li>
+            <li><a href="/herramientas.html" style="color: #7BE099; font-weight: 600;">Utilidades & Hardware ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Desarrollo Web (800 DH)</h5>
+          <ul class="footer-links">
+            <li><a href="#portafolio">Ejemplos Realizados</a></li>
+            <li><a href="#oferta">Detalles del Plan 800 DH</a></li>
+            <li><a href="#contacto">Solicitar Presupuesto</a></li>
+            <li><a href="#faq">Preguntas Frecuentes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Casos de Éxito</h5>
+          <ul class="footer-links">
+            <li><a href="https://shoppingbylina.com" target="_blank">shoppingbylina.com ↗</a></li>
+            <li><a href="https://housepublique.com" target="_blank">housepublique.com ↗</a></li>
+            <li><a href="https://lapergolacabo.com" target="_blank">lapergolacabo.com ↗</a></li>
+            <li><a href="https://sigma-di.ma/fr" target="_blank">sigma-di.ma ↗</a></li>
+            <li><a href="https://harmonicfusion.org" target="_blank">harmonicfusion.org ↗</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contacto Inmediato</h5>
+          <ul class="footer-links">
+            <li><a href="mailto:soporte@vektorlabs.ma">soporte@vektorlabs.ma</a></li>
+            <li><a href="https://wa.me/34600000000?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20el%20desarrollo%20web%20por%20800%20DH" target="_blank" style="color: #10B981; font-weight: 600;">WhatsApp Comercial ↗</a></li>
+            <li><span style="font-size: 0.8rem; color: #64748B;">Atención personalizada en español, francés y árabe</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Vektor Labs. Todos los derechos reservados.</div>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+          <a href="/aviso-legal.html">Aviso Legal</a>
+          <a href="/terminos.html">Términos del Servicio</a>
+          <a href="/privacidad.html">Privacidad RGPD</a>
+          <a href="/cookies.html">Cookies</a>
+          <a href="/" style="color: #818CF8;">← Ver Ecosistema Completo</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/assets/js/main.js"></script>
+  <script>
+    // Manejador del Formulario Web hacia WhatsApp
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('webContactForm');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('clientName').value.trim();
+          const business = document.getElementById('businessName').value.trim();
+          const phone = document.getElementById('clientPhone').value.trim();
+          const type = document.getElementById('businessType').value;
+          const domain = document.getElementById('hasDomain').value;
+          const notes = document.getElementById('clientNotes').value.trim();
+
+          const message = `Hola Vektor Labs. Estoy interesado en el servicio de creación de página web (Tarifa 800 DH).
+
+Datos del proyecto:
+- Nombre: ${name}
+- Negocio / Empresa: ${business}
+- Teléfono / WhatsApp: ${phone}
+- Sector: ${type}
+- Estado del dominio/logotipo: ${domain}
+${notes ? `- Requisitos adicionales: ${notes}` : ''}
+
+Solicito información para comenzar el proyecto.`;
+
+          const encoded = encodeURIComponent(message);
+          window.open(`https://wa.me/34600000000?text=${encoded}`, '_blank');
+          alert('¡Gracias! Te estamos redirigiendo a WhatsApp para coordinar los detalles de tu web.');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

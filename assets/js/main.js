@@ -1113,6 +1113,33 @@ function initDemoModal() {
       alert('¡Gracias! Te estamos redirigiendo para activar tu demo de inmediato.');
     });
   }
+
+  // Web development direct form handler
+  const landingWebForm = document.getElementById('landingWebContactForm');
+  if (landingWebForm) {
+    landingWebForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('landingWebName')?.value.trim() || '';
+      const business = document.getElementById('landingWebBusiness')?.value.trim() || '';
+      const phone = document.getElementById('landingWebPhone')?.value.trim() || '';
+      const type = document.getElementById('landingWebType')?.value || 'Negocio';
+      const notes = document.getElementById('landingWebNotes')?.value.trim() || '';
+
+      const message = `👋 ¡Hola Vektor Labs! Estoy interesado en la oferta de Creación de Página Web por 800 DH.
+
+📌 Mis datos:
+- Nombre: ${name}
+- Negocio / Empresa: ${business}
+- Teléfono / WhatsApp: ${phone}
+- Sector: ${type}
+${notes ? `- Detalles: ${notes}` : ''}
+
+¿Podéis informarme de los siguientes pasos para empezar?`;
+
+      window.open(`https://wa.me/34600000000?text=${encodeURIComponent(message)}`, '_blank');
+      alert('¡Gracias! Te estamos redirigiendo a WhatsApp para coordinar los detalles de tu web.');
+    });
+  }
 }
 
 // 5b. LANGUAGE SWITCHER CONTROLLER
